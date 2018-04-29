@@ -13,7 +13,7 @@ namespace MeDeiBem
 		{
 			InitializeComponent();
 
-			MainPage = new MeDeiBem.MainPage();
+			MainPage = new MeDeiBem.View.LoginView();
 		}
 
 		protected override void OnStart ()
