@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:master="clr-namespace:MeDeiBem.View"
+                  x:Class="MeDeiBem.View.MasterPageView">
+    <MasterDetailPage.Master>
+        <!-- Menu -->
+        <ContentPage Title="Menu" BackgroundColor="#5258aa">
+            <StackLayout>
+                <!-- Título Menu -->
+                <StackLayout HeightRequest="75">
+                    <Label Text="Configurações" FontSize="Medium" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
+                </StackLayout>
+
+                <Button Text="Baixa de Desconto" TextColor="White" BackgroundColor="Transparent" Clicked="BtnBaixaDesconto_Clicked" />
+                <Button Text="Meu Classificado" TextColor="White" BackgroundColor="Transparent" Clicked="BtnMeuClassificado_Clicked" />
+                <Button Text="Meu Cadastro" TextColor="White" BackgroundColor="Transparent" Clicked="BtnMeuCadastro_Clicked" />
+                <Button Text="Radar de Ofertas" TextColor="White" BackgroundColor="Transparent" Clicked="BtnRadarOfertas_Clicked"/>
+                <Button Text="Sobre" TextColor="White" BackgroundColor="Transparent" Clicked="BtnSobre_Clicked" />
+                <Button Text="Sair" TextColor="White" BackgroundColor="Transparent" Clicked="BtnSair_Clicked" />
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <!-- Conteúdo -->
+        <master:FuncoesView />
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

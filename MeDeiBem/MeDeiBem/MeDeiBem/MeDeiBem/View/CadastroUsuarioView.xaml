@@ -1,12 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MeDeiBem.View.CadastroUsuarioView">
+             x:Class="MeDeiBem.View.CadastroUsuarioView"
+             Title="Me Dei Bem !">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ScrollView>
+                <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
+                    <Image Source="logo.png"/>
+                    <Label Text="Cadastro" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="#5258aa" FontSize="Large" />
+                    <Entry Placeholder="Nome"/>
+                    <Entry Placeholder="Sobrenome"/>
+                    <Entry Placeholder="E-Mail"/>
+                    <Picker Title="Redar-Estado">
+                        <Picker.Items>
+                            <x:String>Minas Gerais</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Picker Title="Redar-Cidade">
+                        <Picker.Items>
+                            <x:String>Viçosa</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Entry Placeholder="Senha" />
+                    <Entry Placeholder="Confirmação Senha" />
+                    <Button Text="Cadastrar" TextColor="#0057ff" BackgroundColor="#b1f1ff" />
+                    <Button Text="Limpar" TextColor="#0057ff" BackgroundColor="#b1f1ff" />
+                </StackLayout>
+            </ScrollView>            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

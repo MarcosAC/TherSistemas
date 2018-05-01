@@ -1,12 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MeDeiBem.View.FuncoesView">
+             x:Class="MeDeiBem.View.FuncoesView"
+             Title="Me Dei Bem !">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ScrollView>
+                <StackLayout Spacing="10" Padding="20" VerticalOptions="Center">
+                    <Image Source="logo_funcoes.png"/>
+                    <Label Text="blabla@gmail.com" FontSize="Medium" />
+                    <Label Text="MG / Viçosa" FontSize="Medium" />
+                    <Button Text="Promoções" BackgroundColor="#ffd56d" />
+                    <Button Text="Classificados" BackgroundColor="#ffd56d" />
+                    <Button Text="Podcasts" BackgroundColor="#ffd56d" />
+                    <Label Text="© 2018 - Ther Sistemas Inovadores" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium" />
+                    <Label Text="www.medeibem.mobi" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium" />
+                    <Label Text="Todos os Direitos Reservados" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium" />
+                </StackLayout>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -8,9 +8,9 @@
             <Label Text="Login" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="#5258aa" FontSize="Large" />
             <Entry Placeholder="E-Mail"/>
             <Entry Placeholder="Senha" IsPassword="True" />
-            <Button Text="Entrar"/>
-            <Button Text="Puts, Esqueci a Senha!"/>
-            <Button Text="Quero Participar!" />
+            <Button Text="Entrar" BackgroundColor="#ffd56d" Clicked="BtnEntrar_Clicked" />
+            <Button Text="Puts, Esqueci a Senha!" BackgroundColor="#ffd56d" Clicked="BtnEsqueciSenha_Clicked" />
+            <Button Text="Quero Participar!" BackgroundColor="#ffd56d" Clicked="BtnQueroParticipar_Clicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

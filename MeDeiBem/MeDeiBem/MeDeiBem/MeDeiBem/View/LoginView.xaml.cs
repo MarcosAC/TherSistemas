@@ -15,6 +15,23 @@ namespace MeDeiBem.View
 		public LoginView ()
 		{
 			InitializeComponent ();
+            NavigationPage.SetHasNavigationBar(this, false);
 		}
-	}
+
+        private void BtnEntrar_Clicked(object sender, EventArgs args)
+        {
+            App.Current.MainPage = new View.MasterPageView();
+        }
+
+        private void BtnQueroParticipar_Clicked(object sender, EventArgs args)
+        {
+            Navigation.PushAsync(new CadastroUsuarioView());
+        }
+
+        private void BtnEsqueciSenha_Clicked(object sender, EventArgs args)
+        {
+            Navigation.PushAsync(new CadastroUsuarioView());
+        }
+
+    }
 }

@@ -1,12 +1,97 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MeDeiBem.View.CadastroClassificadoView">
+             x:Class="MeDeiBem.View.CadastroClassificadoView"
+             Title="Classificado">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
+
+                <!-- Imagem logo -->
+                <Image Source="logo.png"/>
+                
+                <!-- Situação do Calssificado -->
+                <Grid>
+                    <!-- Colunas -->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Linhas -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Column="0" Grid.Row="0" Text="Situação:" FontSize="Medium" HorizontalOptions="FillAndExpand" />
+                    <Label Grid.Column="0" Grid.Row="1" Text="Obs:" HorizontalTextAlignment="End" FontSize="Medium" HorizontalOptions="FillAndExpand" />
+                    <Label Grid.Column="1" Grid.Row="0" Text="Disponível" FontSize="Medium" TextColor="Red" HorizontalOptions="FillAndExpand" />
+                    <Label Grid.Column="1" Grid.Row="1" Text="Apenas 1 anuncio por vez. Duração de 7 dias. Renove sempre que desejar." FontSize="Medium" TextColor="Red" HorizontalOptions="FillAndExpand" />
+                </Grid>
+
+                <!-- Picker Categoria -->
+                <Picker Title="Categoria">
+                    <Picker.Items>
+                        <x:String>ACESSÓRIOS PARA VEÍCULOS</x:String>
+                        <x:String>ACESSÓRIOS PARA VEÍCULOS</x:String>
+                        <x:String>ACESSÓRIOS PARA VEÍCULOS</x:String>
+                        <x:String>ACESSÓRIOS PARA VEÍCULOS</x:String>
+                        <x:String>ACESSÓRIOS PARA VEÍCULOS</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <!-- Picker Subcategoria -->
+                <Picker Title="SubCategoria">
+                    <Picker.Items>
+                        <x:String>ACESSÓRIOS PARA VEÍCULOS</x:String>
+                        <x:String>ACESSÓRIOS PARA VEÍCULOS</x:String>
+                        <x:String>ACESSÓRIOS PARA VEÍCULOS</x:String>
+                        <x:String>ACESSÓRIOS PARA VEÍCULOS</x:String>
+                        <x:String>ACESSÓRIOS PARA VEÍCULOS</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <!-- Dados Classificado - Título/Texto -->
+                <Entry Placeholder="Título (40 caracteres)" />
+
+                <Label Text="Texto (120 caracteres)" FontSize="Medium" />
+                <Editor HeightRequest="200" />
+
+                <!-- Grid - TimePicker -->
+                <Grid RowSpacing="15">
+                    <!-- Colunas -->
+                    <Grid.ColumnDefinitions>                        
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Linhas -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
+
+                    <!-- TimePicker -->
+                    <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" Text="Contato - Horario Disponivel #1" FontSize="Medium" />
+                    <TimePicker Grid.Column="0" Grid.Row="1" HorizontalOptions="FillAndExpand" Format="HH:mm" Time="00:00" />
+                    <TimePicker Grid.Column="1" Grid.Row="1" HorizontalOptions="FillAndExpand" Format="HH:mm" Time="00:00" />
+
+                    <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" Text="Contato - Horario Disponivel #2" FontSize="Medium" />
+                    <TimePicker Grid.Column="0" Grid.Row="3" HorizontalOptions="FillAndExpand" Format="HH:mm" Time="00:00" />
+                    <TimePicker Grid.Column="1" Grid.Row="3" HorizontalOptions="FillAndExpand" Format="HH:mm" Time="00:00" />
+                </Grid>
+
+                <!-- Campos Contato - Telefone/E-Maill -->
+                <Entry Placeholder="Contato - Telefone" Keyboard="Telephone" />                 
+                <Entry Placeholder="Contato - E-Mail" Keyboard="Email" />
+
+                <!-- Botões - Publicar/Cancelar -->
+                <Button Text="Publicar" TextColor="#0057ff" BackgroundColor="#b1f1ff" />
+                <Button Text="Cancelar" TextColor="#0057ff" BackgroundColor="#b1f1ff" />
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
