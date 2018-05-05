@@ -12,6 +12,7 @@
                     <Label Text="Configurações" FontSize="Medium" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
                 </StackLayout>
 
+                <Button x:Name="BtnFuncoes" Text="Funcoes" TextColor="White" BackgroundColor="Transparent" Clicked="BtnFuncoes_Clicked" />
                 <Button Text="Baixa de Desconto" TextColor="White" BackgroundColor="Transparent" Clicked="BtnBaixaDesconto_Clicked" />
                 <Button Text="Meu Classificado" TextColor="White" BackgroundColor="Transparent" Clicked="BtnMeuClassificado_Clicked" />
                 <Button Text="Meu Cadastro" TextColor="White" BackgroundColor="Transparent" Clicked="BtnMeuCadastro_Clicked" />
@@ -24,6 +25,10 @@
 
     <MasterDetailPage.Detail>
         <!-- Conteúdo -->
-        <master:FuncoesView />
+        <NavigationPage>
+            <x:Arguments>
+                <master:FuncoesView />
+            </x:Arguments>
+        </NavigationPage>        
     </MasterDetailPage.Detail>
 </MasterDetailPage>

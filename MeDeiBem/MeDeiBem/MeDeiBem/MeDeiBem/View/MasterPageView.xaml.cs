@@ -14,13 +14,18 @@ namespace MeDeiBem.View
     {
 		public MasterPageView ()
 		{
-			InitializeComponent ();
-            Detail = new NavigationPage(new FuncoesView());
-		}
+			InitializeComponent ();            
+        }
 
         private void BtnBaixaDesconto_Clicked(object sender, EventArgs args)
         {
-            Detail = new NavigationPage(new View.BaixaDescontoView());            
+            Detail = new NavigationPage(new View.BaixaDescontoView());
+            IsPresented = false;
+        }
+
+        private void BtnFuncoes_Clicked(object sender, EventArgs args)
+        {
+            Detail = new NavigationPage(new FuncoesView());             
             IsPresented = false;
         }
 
