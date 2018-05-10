@@ -15,6 +15,8 @@ namespace MeDeiBem.View
 		public CadastroUsuarioView ()
 		{
 			InitializeComponent ();
+
+            BindingContext = new ViewModel.CadastroUsuarioViewModel();
 		}
 	}
 }

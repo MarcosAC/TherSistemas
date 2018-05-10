@@ -24,7 +24,7 @@
                     </Picker>
                     <Entry Placeholder="Senha" />
                     <Entry Placeholder="Confirmação Senha" />
-                    <Button Text="Cadastrar" TextColor="#0057ff" BackgroundColor="#b1f1ff" />
+                    <Button Text="Cadastrar" TextColor="#0057ff" BackgroundColor="#b1f1ff" Command="{Binding CadastrarCommand}" />
                     <Button Text="Limpar" TextColor="#0057ff" BackgroundColor="#b1f1ff" />
                 </StackLayout>
             </ScrollView>            
