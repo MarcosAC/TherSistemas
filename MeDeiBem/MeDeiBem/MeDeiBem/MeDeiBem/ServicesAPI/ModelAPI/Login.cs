@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MeDeiBem.ServicesAPI.Model
+namespace MeDeiBem.ServicesAPI.ModelAPI
 {
     public class Login
     {

@@ -12,19 +12,24 @@
                     <Entry Placeholder="Nome"/>
                     <Entry Placeholder="Sobrenome"/>
                     <Entry Placeholder="E-Mail"/>
-                    <Picker Title="Redar-Estado">
-                        <Picker.Items>
-                            <x:String>Minas Gerais</x:String>
-                        </Picker.Items>
-                    </Picker>
-                    <Picker Title="Redar-Cidade">
-                        <Picker.Items>
-                            <x:String>Viçosa</x:String>
-                        </Picker.Items>
-                    </Picker>
+                    
+                    <Picker 
+                        x:Name="PickerRadarEstado"
+                        Title="Radar-Estado"
+                        ItemDisplayBinding="{Binding Estado}"
+                        ItemsSource="{Binding Estados}"
+                        SelectedItem="{Binding EstadoSelecionado}" 
+                     />
+
+                    <Picker 
+                        Title="Redar-Cidade"
+                        ItemDisplayBinding="{Binding Cidade_Nome}"
+                        ItemsSource="{Binding Cidades}"
+                    />                    
+
                     <Entry Placeholder="Senha" />
                     <Entry Placeholder="Confirmação Senha" />
-                    <Button Text="Cadastrar" TextColor="#0057ff" BackgroundColor="#b1f1ff" Command="{Binding CadastrarCommand}" />
+                    <Button Text="Cadastrar" TextColor="#0057ff" BackgroundColor="#b1f1ff" />
                     <Button Text="Limpar" TextColor="#0057ff" BackgroundColor="#b1f1ff" />
                 </StackLayout>
             </ScrollView>            

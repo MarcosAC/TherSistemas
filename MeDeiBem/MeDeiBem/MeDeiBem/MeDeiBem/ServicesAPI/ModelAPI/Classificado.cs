@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MeDeiBem.ServicesAPI.Model
+namespace MeDeiBem.ServicesAPI.ModelAPI
 {
     public class Classificado
     {
@@ -13,6 +13,6 @@ namespace MeDeiBem.ServicesAPI.Model
         public string ContatoHora1 { get; set; }
         public string ContatoHora2 { get; set; }
         public string ContatoTelefone { get; set; }
-        public string ContatoEmail { get; set; }        
+        public string ContatoEmail { get; set; }
     }
 }

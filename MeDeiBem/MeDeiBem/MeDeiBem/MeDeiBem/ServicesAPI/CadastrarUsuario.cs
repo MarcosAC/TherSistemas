@@ -1,16 +1,17 @@
-﻿using System;
+﻿using MeDeiBem.ServicesAPI.ModelAPI;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using MeDeiBem.ServicesAPI.Model;
+
 
 namespace MeDeiBem.ServicesAPI
 {
     public class CadastrarUsuario
     {
-        private static string BaseUrl = Constantes.BASE_PROTOCOL + Constantes.BASE_URL + Constantes.BASE_API;
+        private static readonly string BaseUrl = Constantes.BASE_PROTOCOL + Constantes.BASE_URL + Constantes.BASE_API;
 
         public async static Task GetUsuario(Usuario usuario)
         {
