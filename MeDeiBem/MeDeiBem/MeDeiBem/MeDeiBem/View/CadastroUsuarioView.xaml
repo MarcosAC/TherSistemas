@@ -9,27 +9,29 @@
                 <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
                     <Image Source="logo.png"/>
                     <Label Text="Cadastro" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="#5258aa" FontSize="Large" />
-                    <Entry Placeholder="Nome"/>
-                    <Entry Placeholder="Sobrenome"/>
-                    <Entry Placeholder="E-Mail"/>
+                    <Entry Text="{Binding Nome}" Placeholder="Nome"/>
+                    <Entry Text="{Binding Sobrenome}" Placeholder="Sobrenome"/>
+                    <Entry Text="{Binding Email}" Placeholder="E-Mail" Keyboard="Email"/>
                     
                     <Picker 
                         x:Name="PickerRadarEstado"
                         Title="Radar-Estado"
-                        ItemDisplayBinding="{Binding Estado}"
                         ItemsSource="{Binding Estados}"
-                        SelectedItem="{Binding EstadoSelecionado}" 
+                        ItemDisplayBinding="{Binding Estado}"                        
+                        SelectedIndex="{Binding RadarUf}"
                      />
 
                     <Picker 
                         Title="Redar-Cidade"
-                        ItemDisplayBinding="{Binding Cidade_Nome}"
                         ItemsSource="{Binding Cidades}"
-                    />                    
+                        ItemDisplayBinding="{Binding Cidade_Nome}" 
+                        SelectedItem="{Binding RadarCidade.RadarCidade}"
+                    />
 
-                    <Entry Placeholder="Senha" />
-                    <Entry Placeholder="Confirmação Senha" />
-                    <Button Text="Cadastrar" TextColor="#0057ff" BackgroundColor="#b1f1ff" />
+                    <Entry Text="{Binding Senha}" Placeholder="Senha" />
+                    <Entry Text="{Binding Senha}" Placeholder="Confirmação Senha" />
+                    
+                    <Button Text="Cadastrar" TextColor="#0057ff" BackgroundColor="#b1f1ff" Command="{Binding CadastrarUsuarioCommand}"/>
                     <Button Text="Limpar" TextColor="#0057ff" BackgroundColor="#b1f1ff" />
                 </StackLayout>
             </ScrollView>            

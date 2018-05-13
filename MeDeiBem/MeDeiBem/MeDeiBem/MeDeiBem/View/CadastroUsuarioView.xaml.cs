@@ -19,7 +19,7 @@ namespace MeDeiBem.View
 		{
 			InitializeComponent ();
 
-           BindingContext = new CadastroUsuarioViewModel();
+           BindingContext = new CadastroUsuarioViewModel();           
         }        
     }
 }

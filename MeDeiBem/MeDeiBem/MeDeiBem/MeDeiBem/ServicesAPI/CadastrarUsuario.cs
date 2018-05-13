@@ -31,7 +31,7 @@ namespace MeDeiBem.ServicesAPI
             }
         }
 
-        public async static Task<bool> Inserir(Usuario usuario)
+        public async static Task<bool> AddUsuario(Usuario usuario)
         {
             var url = BaseUrl + "?a=ru&d=";
 

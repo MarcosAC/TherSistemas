@@ -8,18 +8,66 @@ using Xamarin.Forms;
 namespace MeDeiBem.ViewModel
 {
     public class CadastroUsuarioViewModel : BaseViewModel
-    {                
-        public string Nome { get; set; }
-        public string Sobrenome { get; set; }
-        public string Email { get; set; }
-        public string RadarUf { get; set; }
-        public string RadarCidade { get; set; }
-        public string Senha { get; set; }
+    {   
+        private string _nome;
+
+        public string Nome
+        {
+            get { return _nome; }
+            set { SetProperty(ref _nome, value); }
+        }
+
+        private string _sobrenome;
+
+        public string Sobrenome
+        {
+            get { return _sobrenome; }
+            set { SetProperty(ref _sobrenome, value); }
+        }
+
+        private string _email;
+
+        public string Email
+        {
+            get { return _email; }
+            set { SetProperty(ref _email, value); }
+        }
+
+        private string _radarUf;
+
+        public string RadarUf
+        {
+            get { return _radarUf; }
+            set
+            {
+                if (_radarUf != value)
+                {
+                    _radarUf = value;
+                    SetProperty(ref _radarUf, value);
+                }
+            }
+        }
+
+        private string _radarCidade;
+
+        public string RadarCidade
+        {
+            get { return _radarCidade; }
+            set { SetProperty(ref _radarCidade, value); }
+        }
+
+        private string _senha;
+
+        public string Senha
+        {
+            get { return _senha; }
+            set { SetProperty(ref _senha, value); }
+        }
 
         public ObservableCollection<RadarEstado> Estados { get; set; }
         public ObservableCollection<RadarCidade> Cidades { get; set; }
 
-        public Command CadastrarCommand { get; set; }
+        public Command CadastrarUsuarioCommand { get; set; }
 
         public CadastroUsuarioViewModel()
         {
@@ -28,9 +76,11 @@ namespace MeDeiBem.ViewModel
 
             CarregarListaEstados();
             CarregarListaCidades();
+
+            CadastrarUsuarioCommand = new Command(CadastrarUsuario);
         }
 
-        private async void Cadastrar()
+        private async void CadastrarUsuario()
         {
             var usuario = new Usuario
             {
@@ -42,7 +92,20 @@ namespace MeDeiBem.ViewModel
                 Senha = Senha
             };
 
-            if (await CadastrarUsuario.Inserir(usuario) == true)
+            try
+            {
+                if (await ServicesAPI.CadastrarUsuario.AddUsuario(usuario) == true)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Sucesso", "Usuario cadastrado com sucesso", "OK");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                await Application.Current.MainPage.DisplayAlert("Erro", ex.Message, "OK");
+            }
+
+            if (await ServicesAPI.CadastrarUsuario.AddUsuario(usuario) == true)
             {
                 await Application.Current.MainPage.DisplayAlert("Sucesso", "Usuario cadastrado com sucesso", "OK");
             }
@@ -61,7 +124,7 @@ namespace MeDeiBem.ViewModel
                 foreach (var item in estados)
                 {
                     Estados.Add(item);
-                }
+                }                
             }
             catch (Exception ex)
             {
