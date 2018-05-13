@@ -13,16 +13,15 @@
                     <Entry Text="{Binding Sobrenome}" Placeholder="Sobrenome"/>
                     <Entry Text="{Binding Email}" Placeholder="E-Mail" Keyboard="Email"/>
                     
-                    <Picker 
-                        x:Name="PickerRadarEstado"
+                    <Picker                         
                         Title="Radar-Estado"
                         ItemsSource="{Binding Estados}"
                         ItemDisplayBinding="{Binding Estado}"                        
-                        SelectedItem="{Binding RadarUf}"                        
+                        SelectedItem="{Binding RadarEstado}"  
                      />
 
                     <Picker 
-                        Title="Redar-Cidade"
+                        Title="Radar-Cidade"
                         ItemsSource="{Binding Cidades}"
                         ItemDisplayBinding="{Binding Cidade_Nome}" 
                         SelectedItem="{Binding Estado}"

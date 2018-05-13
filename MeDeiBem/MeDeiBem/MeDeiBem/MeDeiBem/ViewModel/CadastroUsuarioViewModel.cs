@@ -8,15 +8,7 @@ using Xamarin.Forms;
 namespace MeDeiBem.ViewModel
 {
     public class CadastroUsuarioViewModel : BaseViewModel
-    {
-        private bool isBusy;
-
-        public bool IsBusy
-        {
-            get { return isBusy; }
-            set { SetProperty(ref isBusy, value); }
-        }
-
+    {        
         private string _nome;
 
         public string Nome
@@ -41,12 +33,12 @@ namespace MeDeiBem.ViewModel
             set { SetProperty(ref _email, value); }
         }
 
-        private string _radarUf;
+        private string _estado;
 
-        public string RadarUf
+        public string Estado
         {
-            get { return _radarUf; }
-            set { SetProperty(ref _radarUf, value); }
+            get { return _estado; }
+            set { SetProperty(ref _estado, value); }
         }
 
         private string _radarCidade;
@@ -68,9 +60,7 @@ namespace MeDeiBem.ViewModel
         public ObservableCollection<RadarEstado> Estados { get; }
         public ObservableCollection<RadarCidade> Cidades { get; }
 
-        public Command CadastrarUsuarioCommand { get; }
-        public Command SelecionarEstadoCommand { get; }
-        public Command SelecionarCidadeCommand { get; }
+        public Command CadastrarUsuarioCommand { get; }       
         
         public CadastroUsuarioViewModel()
         {
@@ -80,9 +70,7 @@ namespace MeDeiBem.ViewModel
             CarregarListaEstados();
             CarregarListaCidades();
 
-            CadastrarUsuarioCommand = new Command(CadastrarUsuario);
-            SelecionarEstadoCommand = new Command(async () => await SelecionarEstado(), () => !IsBusy);
-            SelecionarCidadeCommand = new Command(async () => await SelecionarCidade(), () => !IsBusy);
+            CadastrarUsuarioCommand = new Command(CadastrarUsuario);            
         }
 
         private async void CadastrarUsuario()
@@ -92,7 +80,7 @@ namespace MeDeiBem.ViewModel
                 Nome = Nome,
                 Sobrenome = Sobrenome,
                 Email = Email,
-                RadarUf = RadarUf,
+                RadarUf = Estado,
                 RadarCidade = RadarCidade,
                 Senha = Senha
             };
@@ -118,49 +106,7 @@ namespace MeDeiBem.ViewModel
             {
                 await Application.Current.MainPage.DisplayAlert("Erro", "Erro ao cadastrar usuario", "OK");
             }
-        }        
-
-        private async Task SelecionarEstado()
-        {
-            if (!IsBusy)
-            {                
-                try
-                {
-                    IsBusy = true;
-                    RadarUf.ToString();
-                }
-                catch (Exception ex)
-                {
-                    await Application.Current.MainPage.DisplayAlert("Erro", $"Erro:{ex.Message}", "Ok");
-                }
-                finally
-                {
-                    IsBusy = false;
-                }
-            }
-            return;
-        }
-
-        private async Task SelecionarCidade()
-        {
-            if (!IsBusy)
-            {
-                try
-                {
-                    IsBusy = true;
-                    RadarCidade.ToString();
-                }
-                catch (Exception ex)
-                {
-                    await Application.Current.MainPage.DisplayAlert("Erro", $"Erro:{ex.Message}", "Ok");
-                }
-                finally
-                {
-                    IsBusy = false;
-                }
-            }
-            return;
-        }
+        } 
 
         private async Task ListaEstados()
         {
