@@ -8,7 +8,15 @@ using Xamarin.Forms;
 namespace MeDeiBem.ViewModel
 {
     public class CadastroUsuarioViewModel : BaseViewModel
-    {   
+    {
+        private bool isBusy;
+
+        public bool IsBusy
+        {
+            get { return isBusy; }
+            set { SetProperty(ref isBusy, value); }
+        }
+
         private string _nome;
 
         public string Nome
@@ -38,14 +46,7 @@ namespace MeDeiBem.ViewModel
         public string RadarUf
         {
             get { return _radarUf; }
-            set
-            {
-                if (_radarUf != value)
-                {
-                    _radarUf = value;
-                    SetProperty(ref _radarUf, value);
-                }
-            }
+            set { SetProperty(ref _radarUf, value); }
         }
 
         private string _radarCidade;
@@ -64,11 +65,13 @@ namespace MeDeiBem.ViewModel
             set { SetProperty(ref _senha, value); }
         }
 
-        public ObservableCollection<RadarEstado> Estados { get; set; }
-        public ObservableCollection<RadarCidade> Cidades { get; set; }
+        public ObservableCollection<RadarEstado> Estados { get; }
+        public ObservableCollection<RadarCidade> Cidades { get; }
 
-        public Command CadastrarUsuarioCommand { get; set; }
-
+        public Command CadastrarUsuarioCommand { get; }
+        public Command SelecionarEstadoCommand { get; }
+        public Command SelecionarCidadeCommand { get; }
+        
         public CadastroUsuarioViewModel()
         {
             Estados = new ObservableCollection<RadarEstado>();
@@ -78,6 +81,8 @@ namespace MeDeiBem.ViewModel
             CarregarListaCidades();
 
             CadastrarUsuarioCommand = new Command(CadastrarUsuario);
+            SelecionarEstadoCommand = new Command(async () => await SelecionarEstado(), () => !IsBusy);
+            SelecionarCidadeCommand = new Command(async () => await SelecionarCidade(), () => !IsBusy);
         }
 
         private async void CadastrarUsuario()
@@ -114,6 +119,48 @@ namespace MeDeiBem.ViewModel
                 await Application.Current.MainPage.DisplayAlert("Erro", "Erro ao cadastrar usuario", "OK");
             }
         }        
+
+        private async Task SelecionarEstado()
+        {
+            if (!IsBusy)
+            {                
+                try
+                {
+                    IsBusy = true;
+                    RadarUf.ToString();
+                }
+                catch (Exception ex)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Erro", $"Erro:{ex.Message}", "Ok");
+                }
+                finally
+                {
+                    IsBusy = false;
+                }
+            }
+            return;
+        }
+
+        private async Task SelecionarCidade()
+        {
+            if (!IsBusy)
+            {
+                try
+                {
+                    IsBusy = true;
+                    RadarCidade.ToString();
+                }
+                catch (Exception ex)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Erro", $"Erro:{ex.Message}", "Ok");
+                }
+                finally
+                {
+                    IsBusy = false;
+                }
+            }
+            return;
+        }
 
         private async Task ListaEstados()
         {
@@ -160,6 +207,11 @@ namespace MeDeiBem.ViewModel
         public async void CarregarListaCidades()
         {
             await ListaCidades();
+        }
+
+        public  void SelecionaEstado()
+        {
+            
         }
     }
 }

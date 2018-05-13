@@ -18,14 +18,14 @@
                         Title="Radar-Estado"
                         ItemsSource="{Binding Estados}"
                         ItemDisplayBinding="{Binding Estado}"                        
-                        SelectedIndex="{Binding RadarUf}"
+                        SelectedItem="{Binding RadarUf}"                        
                      />
 
                     <Picker 
                         Title="Redar-Cidade"
                         ItemsSource="{Binding Cidades}"
                         ItemDisplayBinding="{Binding Cidade_Nome}" 
-                        SelectedItem="{Binding RadarCidade.RadarCidade}"
+                        SelectedItem="{Binding Estado}"
                     />
 
                     <Entry Text="{Binding Senha}" Placeholder="Senha" />
