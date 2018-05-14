@@ -9,28 +9,28 @@
                 <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
                     <Image Source="logo.png"/>
                     <Label Text="Cadastro" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="#5258aa" FontSize="Large" />
-                    <Entry Text="{Binding Nome}" Placeholder="Nome"/>
-                    <Entry Text="{Binding Sobrenome}" Placeholder="Sobrenome"/>
-                    <Entry Text="{Binding Email}" Placeholder="E-Mail" Keyboard="Email"/>
+                    <Entry x:Name="TxtNome" Text="{Binding Nome}" Placeholder="Nome" TextChanged="TxtNome_onTextChange" />
+                    <Entry x:Name="TxtSobrenome" Text="{Binding Sobrenome}" Placeholder="Sobrenome" TextChanged="TxtSobrenome_onTextChange" />
+                    <Entry x:Name="TxtEmail" Text="{Binding Email}" Placeholder="E-Mail" Keyboard="Email" TextChanged="TxtEmail_onTextChange" />
                     
-                    <Picker                         
-                        Title="Radar-Estado"
-                        ItemsSource="{Binding Estados}"
-                        ItemDisplayBinding="{Binding Estado}"                        
-                        SelectedItem="{Binding RadarEstado}"  
+                    <Picker
+                        x:Name="PckRadarEstado"
+                        Title="Radar-Estado"                        
+                        ItemDisplayBinding="{Binding Estado}" 
+                        SelectedIndexChanged="PckRadarEstado_OnSelectIndexChange"
                      />
 
                     <Picker 
+                        x:Name="PckRadarCidade"
                         Title="Radar-Cidade"
-                        ItemsSource="{Binding Cidades}"
                         ItemDisplayBinding="{Binding Cidade_Nome}" 
-                        SelectedItem="{Binding Estado}"
+                        SelectedIndexChanged="PckRadarCidade_OnSelectIndexChange"                        
                     />
 
-                    <Entry Text="{Binding Senha}" Placeholder="Senha" />
-                    <Entry Text="{Binding Senha}" Placeholder="Confirmação Senha" />
+                    <Entry x:Name="TxtSenha" Text="{Binding Senha}" Placeholder="Senha" TextChanged="TxtSenha_onTextChange" />
+                    <Entry x:Name="TxtConfirmaSenha" Text="{Binding Senha}" Placeholder="Confirma Senha" TextChanged="TxtConfirmaSenha_onTextChange" />
                     
-                    <Button Text="Cadastrar" TextColor="#0057ff" BackgroundColor="#b1f1ff" Command="{Binding CadastrarUsuarioCommand}"/>
+                    <Button Text="Cadastrar" TextColor="#0057ff" BackgroundColor="#b1f1ff" Clicked="CadastrarUsuario"/>
                     <Button Text="Limpar" TextColor="#0057ff" BackgroundColor="#b1f1ff" />
                 </StackLayout>
             </ScrollView>            
