@@ -13,7 +13,7 @@ namespace MeDeiBem.ServicesAPI
 
        public async static Task<List<RadarCidade>> GetCidade()
        {
-            var url = BaseUrl + "?a=lc&uf=mg";
+            var url = BaseUrl + "a=lc&uf=mg";
 
             HttpClient request = new HttpClient
             {

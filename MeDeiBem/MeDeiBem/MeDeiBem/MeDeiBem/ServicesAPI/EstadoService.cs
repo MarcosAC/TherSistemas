@@ -13,7 +13,7 @@ namespace MeDeiBem.ServicesAPI
 
         public async static Task<List<RadarEstado>> GetEstado()
         {
-            var url = BaseUrl + "?a=le";
+            var url = BaseUrl + "a=le";
 
             HttpClient request = new HttpClient
             {
