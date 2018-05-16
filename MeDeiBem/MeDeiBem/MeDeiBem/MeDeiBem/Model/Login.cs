@@ -6,7 +6,7 @@ namespace MeDeiBem.Model
 {
     public class Login
     {
-        public string EmailLogin { get; set; }
-        public string SenhaLogin { get; set; }
+        public string email { get; set; }
+        public string senha { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using MeDeiBem.ServicesAPI.ModelAPI;
+﻿using MeDeiBem.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

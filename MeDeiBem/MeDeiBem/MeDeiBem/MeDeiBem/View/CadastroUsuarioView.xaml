@@ -24,7 +24,7 @@
                         x:Name="PckRadarCidade"
                         Title="Radar-Cidade"
                         ItemDisplayBinding="{Binding Cidade_Nome}" 
-                        SelectedIndexChanged="PckRadarCidade_OnSelectIndexChange"                        
+                        SelectedIndexChanged="PckRadarCidade_OnSelectIndexChange"      
                     />
 
                     <Entry x:Name="TxtSenha" Text="{Binding Senha}" Placeholder="Senha" TextChanged="TxtSenha_OnTextChange" />

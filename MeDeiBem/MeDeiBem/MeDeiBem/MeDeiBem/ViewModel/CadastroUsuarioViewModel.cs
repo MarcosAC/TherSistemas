@@ -1,5 +1,4 @@
-﻿using MeDeiBem.ServicesAPI;
-using MeDeiBem.ServicesAPI.ModelAPI;
+﻿using MeDeiBem.Model;
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;

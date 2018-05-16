@@ -1,5 +1,5 @@
-﻿using MeDeiBem.ServicesAPI;
-using MeDeiBem.ServicesAPI.ModelAPI;
+﻿using MeDeiBem.Model;
+using MeDeiBem.ServicesAPI;
 using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
@@ -14,11 +14,11 @@ namespace MeDeiBem.View
 		{
 			InitializeComponent ();
 
-            CarreagarEstados();
+            CarregarEstados();
             CarregarCidades();
         }
 
-        private async void CarreagarEstados()
+        private async void CarregarEstados()
         {
             List<RadarEstado> ListaEstados = await EstadoService.GetEstado();
             PckRadarEstado.ItemsSource = ListaEstados;
@@ -28,6 +28,18 @@ namespace MeDeiBem.View
         {
             List<RadarCidade> ListaCidades = await CidadeService.GetCidade();
             PckRadarCidade.ItemsSource = ListaCidades;
+        }
+
+        private void PckRadarEstado_OnSelectIndexChange(object sender, EventArgs e)
+        {
+            var estado = (RadarEstado)PckRadarEstado.SelectedItem;
+            radarUf = estado.estado;
+        }
+
+        private void PckRadarCidade_OnSelectIndexChange(object sender, EventArgs e)
+        {
+            var cidade = (RadarCidade)PckRadarCidade.SelectedItem;
+            radarCidade = cidade.cidade_nome;
         }
 
         #region Variaveis que recebe os dados dos campos de cadastro.
@@ -62,19 +74,7 @@ namespace MeDeiBem.View
         private void TxtConfirmaSenha_OnTextChange(object sender, EventArgs e)
         {
             TxtConfirmaSenha.Text = senha;
-        }
-
-        private void PckRadarEstado_OnSelectIndexChange(object sender, EventArgs e)
-        {
-            var estado = (RadarEstado)PckRadarEstado.SelectedItem;
-            radarUf = estado.Estado;
-        }
-
-        private void PckRadarCidade_OnSelectIndexChange(object sender, EventArgs e)
-        {
-            var cidade = (RadarCidade)PckRadarCidade.SelectedItem;
-            radarCidade = cidade.Cidade_Nome;
-        }
+        }        
 
         private async void BntCadastrarUsuario_OnClicked(object sender, EventArgs e)
         {
@@ -90,14 +90,13 @@ namespace MeDeiBem.View
 
             try
             {
-                if (await ServicesAPI.CadastrarUsuario.AddUsuario(usuario) == true)
+                if (await CadastrarUsuario.AddUsuario(usuario) == true)
                 {
                     await Application.Current.MainPage.DisplayAlert("Sucesso", "Usuario cadastrado com sucesso", "OK");
                 }
             }
             catch (Exception ex)
             {
-
                 await Application.Current.MainPage.DisplayAlert("Erro", ex.Message, "OK");
             }
         }        

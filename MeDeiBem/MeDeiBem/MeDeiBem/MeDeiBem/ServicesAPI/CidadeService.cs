@@ -1,4 +1,4 @@
-﻿using MeDeiBem.ServicesAPI.ModelAPI;
+﻿using MeDeiBem.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -11,15 +11,15 @@ namespace MeDeiBem.ServicesAPI
     {
         private static readonly string BaseUrl = Constantes.BASE_PROTOCOL + Constantes.BASE_URL + Constantes.BASE_API;
 
-       public async static Task<List<RadarCidade>> GetCidade()
-       {
+        public async static Task<List<RadarCidade>> GetCidade()
+        {
             var url = BaseUrl + "a=lc&uf=mg";
 
             HttpClient request = new HttpClient
             {
                 BaseAddress = new Uri(url)
             };
-            
+
             HttpResponseMessage response = await request.GetAsync(url);
 
             if (response.IsSuccessStatusCode)
@@ -33,6 +33,6 @@ namespace MeDeiBem.ServicesAPI
                 }
             }
             return null;
-       }
+        }
     }
 }
