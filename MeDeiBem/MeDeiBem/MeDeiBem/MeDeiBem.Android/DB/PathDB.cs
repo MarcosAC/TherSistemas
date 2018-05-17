@@ -12,12 +12,14 @@ using Android.Views;
 using Android.Widget;
 using MeDeiBem.DB;
 using MeDeiBem.Droid.DB;
+using Xamarin.Forms;
 
+[assembly:Dependency(typeof(PathDB))]
 namespace MeDeiBem.Droid.DB
 {
     /*
      * Classe cria o arquivo de banco de dados em uma paste interna do sistema Android.
-     */
+     */    
     public class PathDB : IPathDataBase
     {
         public string GetPath(string NomeArquivoBanco)

@@ -1,17 +1,15 @@
-﻿using SQLite;
+﻿using MeDeiBem.Model;
+using SQLite;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
+using System.Diagnostics;
 using Xamarin.Forms;
-using MeDeiBem.Model;
 
 namespace MeDeiBem.DB
 {
     /*
      * Classe de conexão com o banco de dados.
      */
-    class DataBase
+    public class DataBase
     {
         private SQLiteConnection _conexao;
 
@@ -25,9 +23,17 @@ namespace MeDeiBem.DB
             _conexao.CreateTable<Classificado>();
         }
 
-        public void InserirUsuario(Usuario usuario)
+        public void AddUsuario(Usuario usuario)
         {
-            _conexao.Insert(usuario);
+            try
+            {
+                _conexao.Insert(usuario);
+                Debug.WriteLine("Eita, deu certo. :D");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Erro-> " + ex.Message);
+            }
         }
 
         public void InserirClassificado(Classificado classificado)
@@ -35,10 +41,23 @@ namespace MeDeiBem.DB
             _conexao.Insert(classificado);
         }
 
-        public Usuario GetUsuario(int logado)
+        public void GetUsuario()
         {
-            return _conexao.Table<Usuario>().Where(u => u.IndLogado == logado).FirstOrDefault();
+            //var dados = DataBase._conexao.Query<Usuario>("Seletc * From Usuario");
+            //Debug.WriteLine("Dados Usuario Local" + dados.ToString()); 
+            
+            var tabelaUsuario =_conexao.Table<Usuario>();            
+            foreach (var dados in tabelaUsuario)
+            {
+                App.Current.MainPage.DisplayAlert("Olha os dados aeee:", dados.nome + " " + dados.sobrenome, ":D");
+                //Console.WriteLine("Dados Usuario Local" + dados.ToString());
+            }
         }
+
+        //public Usuario GetUsuario(int logado)
+        //{
+        //    return _conexao.Table<Usuario>().Where(u => u.IndLogado == logado).FirstOrDefault();
+        //}
 
         public Classificado GetClassificado(int id)
         {

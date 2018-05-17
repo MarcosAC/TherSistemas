@@ -73,7 +73,7 @@ namespace MeDeiBem.View
 
         private void TxtConfirmaSenha_OnTextChange(object sender, EventArgs e)
         {
-            TxtConfirmaSenha.Text = senha;
+            senha = TxtConfirmaSenha.Text;
         }        
 
         private async void BntCadastrarUsuario_OnClicked(object sender, EventArgs e)
@@ -83,8 +83,8 @@ namespace MeDeiBem.View
                 nome = nome,
                 sobrenome = sobrenome,
                 email = email,
-                radarUf = radarUf,
-                radarCidade = radarCidade,
+                radar_uf = radarUf,
+                radar_cid = radarCidade,
                 senha = senha
             };
 

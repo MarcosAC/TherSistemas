@@ -1,18 +1,19 @@
-﻿using Newtonsoft.Json;
+﻿using MeDeiBem.DB;
+using MeDeiBem.DB.SerivcesDB;
+using MeDeiBem.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using MeDeiBem.Model;
 
 namespace MeDeiBem.ServicesAPI
 {
     public class AutenticacaoUsuario
     {
-        private static readonly string BaseUrl = Constantes.BASE_PROTOCOL + Constantes.BASE_URL + Constantes.BASE_API;        
+        private static readonly string BaseUrl = Constantes.BASE_PROTOCOL + Constantes.BASE_URL + Constantes.BASE_API;
 
-        public async static Task<Usuario> AutenticarUsuario(Login login)
+        public static async Task<Usuario> AutenticarUsuario(Login login)
         {
             string url = BaseUrl;
 
@@ -21,7 +22,7 @@ namespace MeDeiBem.ServicesAPI
                 BaseAddress = new Uri(url)
             };
 
-            string parametrosLogin = "{" + '"' + "email" + '"' + ":" + '"' + login.email + "," + '"' + "senha" + ":" + '"' + login.senha + '"' + "}";
+            string parametrosLogin = "{" + '"' + "email" + '"' + ":" + '"' + login.email + '"' + "," + '"' + "senha" + '"' + ":" + '"' + login.senha + '"' + "}";
 
             FormUrlEncodedContent parametros = new FormUrlEncodedContent(new[] {
                 new KeyValuePair<string, string>("a", "vl"),
@@ -30,9 +31,37 @@ namespace MeDeiBem.ServicesAPI
 
             HttpResponseMessage response = await request.PostAsync(url, parametros);
 
+            var conteudoResponse = await response.Content.ReadAsStringAsync();
+
+            var dadosUsuario = JsonConvert.DeserializeObject<Usuario>(conteudoResponse);
+
             if (response.IsSuccessStatusCode)
             {
-                var json = JsonConvert.DeserializeObject<Usuario>(response.Content.ReadAsStringAsync().GetAwaiter().GetResult());
+                switch (dadosUsuario.sinc_stat)
+                {
+                    case 0:
+                        await App.Current.MainPage.DisplayAlert("Put's, algo de errado não deu certo! :(", dadosUsuario.sinc_msg, "Ok");
+                        break;
+                    case 1:
+                        try
+                        {
+                            DataBase dataBase = new DataBase();
+                            dataBase.AddUsuario(dadosUsuario);
+                            await App.Current.MainPage.DisplayAlert("Sucessoooo!!! :D", "Put's, nem acredito deu certo!!!", "Ok");                            
+                        }
+                        catch (Exception ex)
+                        {
+                            await App.Current.MainPage.DisplayAlert("Put's, algo de errado não deu certo! :(", ex.Message, "Merda X(");
+                        }
+                        break;
+                }                             
+            }
+            return null;
+        }
+    }
+}
+
+/*var json = JsonConvert.DeserializeObject<Usuario>(response.Content.ReadAsStringAsync().GetAwaiter().GetResult());
 
                 var dadosUsuario = new Usuario
                 {
@@ -45,7 +74,4 @@ namespace MeDeiBem.ServicesAPI
                 };
                 return dadosUsuario;
             }
-            return null;            
-        }
-    }
-}
+            return null;*/

@@ -22,8 +22,8 @@ namespace MeDeiBem.ServicesAPI
             string dadosUsuario = "{" + '"' + "nome" + '"' + ":" + '"' + usuario.nome + '"' + "," +
                                         '"' + "sobrenome" + '"' + ":" + '"' + usuario.sobrenome + '"' + "," +
                                         '"' + "email" + '"' + ":" + '"' + usuario.email + '"' + "," +
-                                        '"' + "radar_uf" + '"' + ":" + '"' + usuario.radarUf + '"' + "," +
-                                        '"' + "radar_cid" + '"' + ":" + '"' + usuario.radarCidade + '"' + "," +
+                                        '"' + "radar_uf" + '"' + ":" + '"' + usuario.radar_uf + '"' + "," +
+                                        '"' + "radar_cid" + '"' + ":" + '"' + usuario.radar_cid + '"' + "," +
                                         '"' + "senha" + '"' + ":" + '"' + usuario.senha + '"' + "}";
 
             FormUrlEncodedContent parametros = new FormUrlEncodedContent(new[] {
