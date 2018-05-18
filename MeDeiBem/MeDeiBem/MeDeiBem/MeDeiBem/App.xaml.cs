@@ -1,4 +1,5 @@
-﻿using MeDeiBem.Model;
+﻿using MeDeiBem.DB.ServicesDB;
+using MeDeiBem.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,18 +13,20 @@ namespace MeDeiBem
 	{        
         public App ()
 		{
-			InitializeComponent();
-            MainPage = new NavigationPage(new MeDeiBem.View.LoginView());
-		}
-
-        public void Teste()
-        {
-
+			InitializeComponent();            
         }
 
 		protected override void OnStart ()
 		{
-            // Handle when your app starts
+            // Handle when your app starts 
+            if (VerificarUsuarioLogado.Logado())
+            {
+                MainPage = new View.MasterPageView();
+            }
+            else
+            {
+                MainPage = new NavigationPage(new View.LoginView());
+            }
         }
 
 		protected override void OnSleep ()

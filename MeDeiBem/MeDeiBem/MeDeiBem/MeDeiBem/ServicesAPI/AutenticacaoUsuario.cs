@@ -1,5 +1,4 @@
 ﻿using MeDeiBem.DB;
-using MeDeiBem.DB.SerivcesDB;
 using MeDeiBem.Model;
 using Newtonsoft.Json;
 using System;
@@ -13,8 +12,8 @@ namespace MeDeiBem.ServicesAPI
     {
         private static readonly string BaseUrl = Constantes.BASE_PROTOCOL + Constantes.BASE_URL + Constantes.BASE_API;
 
-        public static async Task<Usuario> AutenticarUsuario(Login login)
-        {
+        public static async Task<bool> AutenticarUsuario(Login login)
+        {            
             string url = BaseUrl;
 
             HttpClient request = new HttpClient
@@ -47,31 +46,16 @@ namespace MeDeiBem.ServicesAPI
                         {
                             DataBase dataBase = new DataBase();
                             dataBase.AddUsuario(dadosUsuario);
-                            await App.Current.MainPage.DisplayAlert("Sucessoooo!!! :D", "Put's, nem acredito deu certo!!!", "Ok");                            
+                            return true;
                         }
                         catch (Exception ex)
                         {
                             await App.Current.MainPage.DisplayAlert("Put's, algo de errado não deu certo! :(", ex.Message, "Merda X(");
                         }
                         break;
-                }                             
+                }                
             }
-            return null;
+            return false;
         }
     }
 }
-
-/*var json = JsonConvert.DeserializeObject<Usuario>(response.Content.ReadAsStringAsync().GetAwaiter().GetResult());
-
-                var dadosUsuario = new Usuario
-                {
-                    nome = json.nome,
-                    sobrenome = json.sobrenome,
-                    email = json.email,
-                    radarUf = json.radarUf,
-                    radarCidade = json.radarCidade,
-                    senha = json.senha
-                };
-                return dadosUsuario;
-            }
-            return null;*/

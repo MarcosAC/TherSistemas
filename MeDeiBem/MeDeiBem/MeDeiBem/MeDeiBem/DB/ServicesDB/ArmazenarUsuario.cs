@@ -5,7 +5,7 @@ using System.Text;
 using MeDeiBem.DB;
 using System.Diagnostics;
 
-namespace MeDeiBem.DB.SerivcesDB
+namespace MeDeiBem.DB.ServicesDB
 {
     public class ArmazenarUsuario
     {

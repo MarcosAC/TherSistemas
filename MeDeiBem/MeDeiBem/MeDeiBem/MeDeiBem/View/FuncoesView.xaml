@@ -10,9 +10,11 @@
                     <Image Source="logo_funcoes.png"/>
                     <Label Text="blabla@gmail.com" FontSize="Medium" />
                     <Label Text="MG / Viçosa" FontSize="Medium" />
+                    
                     <Button Text="Promoções" BackgroundColor="#ffd56d" />
                     <Button Text="Classificados" BackgroundColor="#ffd56d" />
                     <Button Text="Podcasts" BackgroundColor="#ffd56d" />
+                    
                     <Label Text="© 2018 - Ther Sistemas Inovadores" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium" />
                     <Label Text="www.medeibem.mobi" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium" />
                     <Label Text="Todos os Direitos Reservados" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium" />

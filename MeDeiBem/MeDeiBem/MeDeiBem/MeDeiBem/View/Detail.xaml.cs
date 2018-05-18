@@ -14,7 +14,7 @@ namespace MeDeiBem.View
 	{
 		public Detail ()
 		{
-			InitializeComponent ();
-		}
+			InitializeComponent ();            
+        }
 	}
 }

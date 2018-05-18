@@ -1,10 +1,9 @@
-﻿using MeDeiBem.Model;
+﻿using MeDeiBem.DB;
+using MeDeiBem.Model;
 using MeDeiBem.ServicesAPI;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using MeDeiBem.DB.SerivcesDB;
-using MeDeiBem.DB;
 
 namespace MeDeiBem.View
 {
@@ -37,15 +36,17 @@ namespace MeDeiBem.View
                 senha = _senha
             };
 
-            await AutenticacaoUsuario.AutenticarUsuario(parametros);
-            //App.Current.MainPage = new View.MasterPageView();
+            if (await AutenticacaoUsuario.AutenticarUsuario(parametros))
+            {
+                await Navigation.PushAsync(new MasterPageView());
+            }
+            
         }
 
         private void BtnEsqueciSenha_OnClicked(object sender, EventArgs args)
-        {
-            //Navigation.PushAsync(new CadastroUsuarioView());
+        {            
             DataBase dataBase = new DataBase();
-            dataBase.GetUsuario();
+            dataBase.UsuarioLogado();
         }
 
         private void BtnQueroParticipar_OnClicked(object sender, EventArgs args)

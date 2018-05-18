@@ -16,14 +16,14 @@
                     <Picker
                         x:Name="PckRadarEstado"
                         Title="Radar-Estado"                        
-                        ItemDisplayBinding="{Binding Estado}" 
-                        SelectedIndexChanged="PckRadarEstado_OnSelectIndexChange"
+                        ItemDisplayBinding="{Binding estado}" 
+                        SelectedIndexChanged="PckRadarEstado_OnSelectIndexChange"                        
                      />
 
                     <Picker 
                         x:Name="PckRadarCidade"
                         Title="Radar-Cidade"
-                        ItemDisplayBinding="{Binding Cidade_Nome}" 
+                        ItemDisplayBinding="{Binding cidade_nome}" 
                         SelectedIndexChanged="PckRadarCidade_OnSelectIndexChange"      
                     />
 

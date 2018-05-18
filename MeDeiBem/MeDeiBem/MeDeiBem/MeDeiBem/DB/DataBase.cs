@@ -41,23 +41,16 @@ namespace MeDeiBem.DB
             _conexao.Insert(classificado);
         }
 
-        public void GetUsuario()
+        public bool UsuarioLogado()
         {
-            //var dados = DataBase._conexao.Query<Usuario>("Seletc * From Usuario");
-            //Debug.WriteLine("Dados Usuario Local" + dados.ToString()); 
-            
-            var tabelaUsuario =_conexao.Table<Usuario>();            
-            foreach (var dados in tabelaUsuario)
+            if (_conexao.Table<Usuario>().Count() == 0)
             {
-                App.Current.MainPage.DisplayAlert("Olha os dados aeee:", dados.nome + " " + dados.sobrenome, ":D");
-                //Console.WriteLine("Dados Usuario Local" + dados.ToString());
+                return false;
             }
-        }
 
-        //public Usuario GetUsuario(int logado)
-        //{
-        //    return _conexao.Table<Usuario>().Where(u => u.IndLogado == logado).FirstOrDefault();
-        //}
+            var dadosUsuario = _conexao.Table<Usuario>().Where(u => u.sinc_stat == 1).FirstOrDefault();
+            return true;
+        }
 
         public Classificado GetClassificado(int id)
         {

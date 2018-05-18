@@ -1,4 +1,5 @@
 ﻿using MeDeiBem.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -10,7 +11,7 @@ namespace MeDeiBem.ServicesAPI
     {
         private static readonly string BaseUrl = Constantes.BASE_PROTOCOL + Constantes.BASE_URL + Constantes.BASE_API;        
 
-        public async static Task<bool> AddUsuario(Usuario usuario)
+        public async static Task AddUsuario(Usuario usuario)
         {            
             string url = BaseUrl;
 
@@ -33,11 +34,22 @@ namespace MeDeiBem.ServicesAPI
                         
             HttpResponseMessage response = await request.PostAsync(url, parametros);
 
+            var conteudoResponse = await response.Content.ReadAsStringAsync();
+
+            var dadosResponse = JsonConvert.DeserializeObject<Usuario>(conteudoResponse);
+
             if (response.IsSuccessStatusCode)
             {
-                return true;
-            }
-            return false;
+                switch (dadosResponse.sinc_stat)
+                {
+                    case 0:
+                        await App.Current.MainPage.DisplayAlert("Ohh, esquecido! :P", dadosResponse.sinc_msg, "Ok");
+                        break;
+                    case 1:
+                        await App.Current.MainPage.DisplayAlert("Aeee, mano. Chega aí! :D", dadosResponse.sinc_msg, "Ok");                        
+                        break;
+                }             
+            }         
         }
     }
 }

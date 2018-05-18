@@ -18,6 +18,9 @@ namespace MeDeiBem.View
             CarregarCidades();
         }
 
+        /*
+         * Métodos que carrega os estados e as cidades para o picker. 
+         */
         private async void CarregarEstados()
         {
             List<RadarEstado> ListaEstados = await EstadoService.GetEstado();
@@ -28,19 +31,7 @@ namespace MeDeiBem.View
         {
             List<RadarCidade> ListaCidades = await CidadeService.GetCidade();
             PckRadarCidade.ItemsSource = ListaCidades;
-        }
-
-        private void PckRadarEstado_OnSelectIndexChange(object sender, EventArgs e)
-        {
-            var estado = (RadarEstado)PckRadarEstado.SelectedItem;
-            radarUf = estado.estado;
-        }
-
-        private void PckRadarCidade_OnSelectIndexChange(object sender, EventArgs e)
-        {
-            var cidade = (RadarCidade)PckRadarCidade.SelectedItem;
-            radarCidade = cidade.cidade_nome;
-        }
+        }        
 
         #region Variaveis que recebe os dados dos campos de cadastro.
         private string nome;
@@ -51,6 +42,9 @@ namespace MeDeiBem.View
         private string senha;
         #endregion
 
+        /*
+         * Campos do formulario.
+         */
         private void TxtNome_OnTextChange(object sender, EventArgs e)
         {
             nome = TxtNome.Text;
@@ -74,8 +68,26 @@ namespace MeDeiBem.View
         private void TxtConfirmaSenha_OnTextChange(object sender, EventArgs e)
         {
             senha = TxtConfirmaSenha.Text;
-        }        
+        }
 
+        /*
+         * Pickers Estado e Cidade.
+         */
+        private void PckRadarEstado_OnSelectIndexChange(object sender, EventArgs e)
+        {
+            var estado = (RadarEstado)PckRadarEstado.SelectedItem;
+            radarUf = estado.sigla;
+        }
+
+        private void PckRadarCidade_OnSelectIndexChange(object sender, EventArgs e)
+        {
+            var cidade = (RadarCidade)PckRadarCidade.SelectedItem;
+            radarCidade = cidade.idcidade;
+        }
+
+        /*
+         * Botões: Cadastrar e Limpar
+         */
         private async void BntCadastrarUsuario_OnClicked(object sender, EventArgs e)
         {
             var usuario = new Usuario
@@ -88,17 +100,7 @@ namespace MeDeiBem.View
                 senha = senha
             };
 
-            try
-            {
-                if (await CadastrarUsuario.AddUsuario(usuario) == true)
-                {
-                    await Application.Current.MainPage.DisplayAlert("Sucesso", "Usuario cadastrado com sucesso", "OK");
-                }
-            }
-            catch (Exception ex)
-            {
-                await Application.Current.MainPage.DisplayAlert("Erro", ex.Message, "OK");
-            }
+            await CadastrarUsuario.AddUsuario(usuario);            
         }        
     }
 }
