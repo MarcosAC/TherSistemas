@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MeDeiBem.View.PromocoesView"
+             Title="Promoções">
+    <ContentPage.Content>
+        <StackLayout Margin="0, 20, 0, 0">
+            <SearchBar Placeholder="Digite o que procura" FontSize="24" HorizontalTextAlignment="Center" />
+            <ListView x:Name="LstPromocoes" HasUnevenRows="true" ItemSelected="LstPromocoes_OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="20" HorizontalOptions="Center">
+                                
+                                <!-- Definação Coluna -->
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Definação Linhas -->
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+
+                                <!-- Label Título -->
+                                <Label Grid.Column="0" 
+                                       Grid.Row="0" 
+                                       Text="{Binding titulo}" 
+                                       FontSize="Medium" 
+                                       FontAttributes="Bold" 
+                                       VerticalTextAlignment="Center" 
+                                       HorizontalTextAlignment="Center" 
+                                       HorizontalOptions="Center" />
+
+                                <!-- Imagem Promoção -->
+                                <Image Grid.Column="0" Grid.Row="1" Source="{Binding img_link1}" Margin="0, 10, 0, 10" HorizontalOptions="Center" />
+
+                                <!-- Labels dos detalhes da promoção -->
+                                <StackLayout Grid.Column="0" Grid.Row="2" Orientation="Vertical" HorizontalOptions="Center">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="De R$" FontSize="Medium" TextColor="#5a97ff" VerticalTextAlignment="Center" />
+                                        <Label Text="{Binding preco_original}" FontSize="Medium" TextColor="#5a97ff" VerticalTextAlignment="Center" />
+                                        <Label Text=" por R$" FontSize="Medium" TextColor="#5a97ff" VerticalTextAlignment="Center" />
+                                        <Label Text="{Binding preco_promocao}" TextColor="#5a97ff" FontSize="Large" FontAttributes="Bold" VerticalTextAlignment="Center" />
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                        <Label Text="{Binding desconto}" FontSize="Medium" TextColor="#5a97ff" HorizontalTextAlignment="Center" />
+                                        <Label Text=" de desconto!" FontSize="Medium" TextColor="#5a97ff" HorizontalTextAlignment="Center" />
+                                    </StackLayout>                                    
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

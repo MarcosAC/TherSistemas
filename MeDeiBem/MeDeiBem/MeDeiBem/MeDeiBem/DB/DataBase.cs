@@ -11,7 +11,7 @@ namespace MeDeiBem.DB
      */
     public class DataBase
     {
-        private SQLiteConnection _conexao;
+        private static SQLiteConnection _conexao;
 
         public DataBase()
         {
@@ -55,6 +55,12 @@ namespace MeDeiBem.DB
         public Classificado GetClassificado(int id)
         {
             return _conexao.Table<Classificado>().Where(c => c.IdClassificado == id).FirstOrDefault();
+        }
+
+        public static string GetAppKey()
+        {
+            var dadosUsuario = _conexao.Table<Usuario>().Where(u => u.sinc_stat == 1).FirstOrDefault();
+            return dadosUsuario.app_key;
         }
     }
 }
