@@ -24,6 +24,8 @@ namespace MeDeiBem.Droid
 
             CarouselViewRenderer.Init();
 
+            ZXing.Net.Mobile.Forms.Android.Platform.Init();
+
             LoadApplication(new App());
         }
     }
