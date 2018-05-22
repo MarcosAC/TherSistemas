@@ -10,8 +10,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid Padding="20" HorizontalOptions="Center">
-                                
+                            <Grid Padding="20" HorizontalOptions="Center">                                
                                 <!-- Definação Coluna -->
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto" />

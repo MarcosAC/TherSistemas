@@ -19,13 +19,14 @@ namespace MeDeiBem.View
 
         private async void CarregarPromocoes()
         {
-            List<Promocao> Promocoes = await ListaPromocoes.GetPromocoes();            
+            List<Promocao> Promocoes = await PromocaoService.GetListaPromocoes();            
             LstPromocoes.ItemsSource = Promocoes;
         }
 
-        private void LstPromocoes_OnItemSelected(object sender, EventArgs e)
+        private void LstPromocoes_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            Navigation.PushAsync(new SobreView());
+            var item = (Promocao)e.SelectedItem;
+            Navigation.PushAsync(new DetalhesPromocao(item));            
         }
     }
 }

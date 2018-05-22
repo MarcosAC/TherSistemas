@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
+             xmlns:control="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             x:Class="MeDeiBem.View.DetalhesPromocao"             
+             Title="Detalhe da Promoção">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="0, 20, 0, 0" Padding="20, 0, 20, 0" Spacing="10">
+                <Label Text="{Binding titulo}" FontSize="Medium" HorizontalOptions="Center" />                
+
+                <control:CarouselViewControl x:Name="CarrouselDeImagens" ShowArrows="True" ShowIndicators="True" Orientation="Horizontal" WidthRequest="300" HeightRequest="300">
+                    <control:CarouselViewControl.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding .}" />
+                        </DataTemplate>
+                    </control:CarouselViewControl.ItemTemplate>
+                </control:CarouselViewControl>
+
+                <!-- Label Descrição do Produto -->
+                <Label Text="{Binding texto}" FontSize="Medium" HorizontalTextAlignment="Start" />
+
+                <!-- Grid Dados dos Valores da Promoção -->
+                <Grid HorizontalOptions="Center" Margin="0, 10, 0, 0">
+                    <!-- Definação Coluna -->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Definação Linha -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Label Nomes dos Campos -->
+                    <Label Grid.Column="0" Grid.Row="0" Text="De: " FontSize="Medium" HorizontalTextAlignment="End" />
+                    <Label Grid.Column="0" Grid.Row="1" Text="Por: " FontSize="Medium" HorizontalTextAlignment="End" />
+                    <Label Grid.Column="0" Grid.Row="2" Text="Desconto: " FontSize="Medium" HorizontalTextAlignment="End" />
+                    <Label Grid.Column="0" Grid.Row="3" Text="Válido Até: " FontSize="Medium" HorizontalTextAlignment="End" />
+                    <Label Grid.Column="0" Grid.Row="4" Text="Quantidade: " FontSize="Medium" HorizontalTextAlignment="End" />
+
+                    <!-- Label Valores dos Campos -->
+                    <Label Grid.Column="1" Grid.Row="0" Text="{Binding preco_original}" TextColor="#5a97ff" FontSize="Medium" HorizontalTextAlignment="Start" />
+                    <Label Grid.Column="1" Grid.Row="1" Text="{Binding preco_promocao}" TextColor="#5a97ff" FontSize="Medium" HorizontalTextAlignment="Start" />
+                    <Label Grid.Column="1" Grid.Row="2" Text="{Binding desconto}" TextColor="#5a97ff" FontSize="Medium" HorizontalTextAlignment="Start" />
+                    <Label Grid.Column="1" Grid.Row="3" Text="{Binding validade}" TextColor="#5a97ff" FontSize="Medium" HorizontalTextAlignment="Start" />
+                    <Label Grid.Column="1" Grid.Row="4" Text="{Binding qtde_ofertada}" TextColor="#5a97ff" FontSize="Medium" HorizontalTextAlignment="Start" />
+                </Grid>
+
+                <!-- Label Nome do Campo -->
+                <Label Text="Código de Desconto:" FontSize="Medium" HorizontalOptions="Center" Margin="0, 10, 0, 0" />
+
+                <!-- Label Valor do Campo -->
+                <Label Text="{Binding codigo}" FontSize="Large" TextColor="#a100af" HorizontalOptions="Center" />
+
+                <!-- Label Nome do Campo -->
+                <Label Text="Vendedor:" FontSize="Medium" HorizontalOptions="Center" />
+
+                <!-- Label Valor do Campo -->
+                <Label Text="{Binding vnd_empresa}" TextColor="#5a97ff" FontSize="Medium" HorizontalOptions="Center" />
+
+                <!-- Label Dados de Contato -->
+                <Label Text="{Binding vnd_email}" TextColor="#5a97ff" FontSize="Medium" HorizontalOptions="Center" />
+                <Label Text="{Binding vnd_fone1}" TextColor="#5a97ff" FontSize="Medium" HorizontalOptions="Center" />
+                <Label Text="{Binding vnd_fone2}" TextColor="#5a97ff" FontSize="Medium" HorizontalOptions="Center" />
+                <Label Text="{Binding vnd_end1}" TextColor="#5a97ff" FontSize="Medium" HorizontalOptions="Center" />
+                <Label Text="{Binding vnd_end2}" TextColor="#5a97ff" FontSize="Medium" HorizontalOptions="Center" />
+            </StackLayout>
+        </ScrollView>        
+    </ContentPage.Content>
+</ContentPage>
