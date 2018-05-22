@@ -14,10 +14,10 @@ namespace MeDeiBem.View
             
             BindingContext = itemPromocao;
 
-            CarregarCarrousel(itemPromocao);
+            CarregarCarrossel(itemPromocao);
         }
 
-        private void CarregarCarrousel(Promocao linkImagem)
+        private void CarregarCarrossel(Promocao linkImagem)
         {
             var linkImagens = new List<string>
             {
@@ -29,7 +29,7 @@ namespace MeDeiBem.View
                 linkImagem.img_link6
             };
 
-            CarrouselDeImagens.ItemsSource = linkImagens;
+            CarrosselDeImagens.ItemsSource = linkImagens;
         }
     }
 }

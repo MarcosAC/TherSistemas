@@ -7,9 +7,16 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Margin="0, 20, 0, 0" Padding="20, 0, 20, 0" Spacing="10">
-                <Label Text="{Binding titulo}" FontSize="Medium" HorizontalOptions="Center" />                
+                <Label Text="{Binding titulo}" FontSize="Medium" HorizontalOptions="Center" />
 
-                <control:CarouselViewControl x:Name="CarrouselDeImagens" ShowArrows="True" ShowIndicators="True" Orientation="Horizontal" WidthRequest="300" HeightRequest="300">
+                <!-- Carrosel de imagens -->
+                <control:CarouselViewControl x:Name="CarrosselDeImagens" 
+                                             ShowArrows="True" 
+                                             ShowIndicators="True" 
+                                             Orientation="Horizontal" 
+                                             WidthRequest="300" 
+                                             HeightRequest="300">
+                    
                     <control:CarouselViewControl.ItemTemplate>
                         <DataTemplate>
                             <Image Source="{Binding .}" />
