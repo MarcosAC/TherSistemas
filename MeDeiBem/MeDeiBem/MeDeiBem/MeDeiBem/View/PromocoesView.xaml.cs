@@ -14,7 +14,7 @@ namespace MeDeiBem.View
 		{
 			InitializeComponent ();
 
-            CarregarPromocoes();
+            CarregarPromocoes();            
         }
 
         private async void CarregarPromocoes()
@@ -24,7 +24,7 @@ namespace MeDeiBem.View
         }
 
         private void LstPromocoes_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
+        {           
             var item = (Promocao)e.SelectedItem;
             Navigation.PushAsync(new DetalhesPromocao(item));            
         }
