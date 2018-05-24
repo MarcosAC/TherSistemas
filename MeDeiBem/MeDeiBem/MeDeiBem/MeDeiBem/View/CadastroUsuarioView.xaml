@@ -30,7 +30,7 @@
                     <Entry x:Name="TxtSenha" Text="{Binding Senha}" Placeholder="Senha" TextChanged="TxtSenha_OnTextChange" />
                     <Entry x:Name="TxtConfirmaSenha" Text="{Binding Senha}" Placeholder="Confirma Senha" TextChanged="TxtConfirmaSenha_OnTextChange" />
 
-                    <Button Text="Cadastrar" TextColor="#0057ff" BackgroundColor="#b1f1ff" Clicked="BntCadastrarUsuario_OnClicked" />
+                    <Button Text="Cadastrar" TextColor="#0057ff" BackgroundColor="#b1f1ff" Clicked="BtnCadastrarUsuario_OnClicked" />
                     <Button Text="Limpar" TextColor="#0057ff" BackgroundColor="#b1f1ff" />
                 </StackLayout>
             </ScrollView>            

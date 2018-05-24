@@ -44,7 +44,7 @@ namespace MeDeiBem.View
         }
 
         private void BtnEsqueciSenha_OnClicked(object sender, EventArgs args)
-        {            
+        {
             DataBase dataBase = new DataBase();
             dataBase.UsuarioLogado();
         }

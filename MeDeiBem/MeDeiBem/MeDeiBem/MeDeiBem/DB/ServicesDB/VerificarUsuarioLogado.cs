@@ -5,7 +5,7 @@
         public static bool Logado()
         {
             DataBase dataBase = new DataBase();
-            return dataBase.UsuarioLogado();            
+            return dataBase.UsuarioLogado();
         }        
     }
 }

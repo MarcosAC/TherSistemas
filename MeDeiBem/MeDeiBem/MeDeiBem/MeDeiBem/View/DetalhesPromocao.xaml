@@ -68,6 +68,8 @@
                 <!-- QRCode -->
                 <StackLayout x:Name="CodigoQR" WidthRequest="300" HeightRequest="300" />
 
+                <Button x:Name="BtnLerCodigoQR" Text="Ler código QR" TextColor="#0057ff" BackgroundColor="#b1f1ff" Clicked="BtnLerCodigoQR_OnClicked"/>
+
                 <!-- Label Nome do Campo -->
                 <Label Text="Vendedor:" FontSize="Medium" HorizontalOptions="Center" />
 

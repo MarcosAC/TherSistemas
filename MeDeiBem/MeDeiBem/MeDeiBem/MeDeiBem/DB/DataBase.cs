@@ -62,5 +62,11 @@ namespace MeDeiBem.DB
             var dadosUsuario = _conexao.Table<Usuario>().Where(u => u.sinc_stat == 1).FirstOrDefault();
             return dadosUsuario.app_key;
         }
+
+        public static Usuario GetUsuario()
+        {
+            var dadosUsuario = _conexao.Table<Usuario>().Where(u => u.sinc_stat == 1).FirstOrDefault();
+            return dadosUsuario;
+        }
     }
 }

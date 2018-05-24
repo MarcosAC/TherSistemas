@@ -88,7 +88,7 @@ namespace MeDeiBem.View
         /*
          * Botões: Cadastrar e Limpar
          */
-        private async void BntCadastrarUsuario_OnClicked(object sender, EventArgs e)
+        private async void BtnCadastrarUsuario_OnClicked(object sender, EventArgs e)
         {
             var usuario = new Usuario
             {

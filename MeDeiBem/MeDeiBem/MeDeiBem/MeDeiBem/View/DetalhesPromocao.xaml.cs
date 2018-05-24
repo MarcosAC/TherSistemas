@@ -1,4 +1,5 @@
 ﻿using MeDeiBem.Model;
+using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -48,6 +49,11 @@ namespace MeDeiBem.View
             };
 
             CarrosselDeImagens.ItemsSource = linkImagens;
+        }
+
+        private void BtnLerCodigoQR_OnClicked(object sender, EventArgs args)
+        {
+
         }
     }
 }

@@ -8,8 +8,12 @@
             <ScrollView>
                 <StackLayout Spacing="10" Padding="20" VerticalOptions="Center">
                     <Image Source="logo_funcoes.png"/>
-                    <Label Text="blabla@gmail.com" FontSize="Medium" />
-                    <Label Text="MG / Viçosa" FontSize="Medium" />
+                    <Label x:Name="LblEmail" FontSize="Medium" />
+                    <StackLayout  Orientation="Horizontal">
+                        <Label x:Name="LblRadarEstado" FontSize="Medium" />
+                        <Label Text="/" FontSize="Medium" />
+                        <Label x:Name="LblRadarCidade" FontSize="Medium" />
+                    </StackLayout>                    
 
                     <Button Text="Promoções" BackgroundColor="#ffd56d" Clicked="BtnPromocoes_OnClicked" />
                     <Button Text="Classificados" BackgroundColor="#ffd56d" Clicked="BtnClassificados_OnClicked" />

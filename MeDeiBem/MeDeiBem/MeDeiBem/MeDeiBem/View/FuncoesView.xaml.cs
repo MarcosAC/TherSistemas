@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MeDeiBem.DB;
+using MeDeiBem.Model;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,8 +11,18 @@ namespace MeDeiBem.View
     {
 		public FuncoesView ()
 		{
-			InitializeComponent ();            
+			InitializeComponent ();
+
+            LblRadarEstado.Text =  DadosUsuario().radar_uf;
+            LblRadarCidade.Text =  DadosUsuario().cidade;
+            LblEmail.Text =  DadosUsuario().email;
         }
+
+        private Usuario DadosUsuario()
+        {
+            DataBase DataBase = new DataBase();
+            return DataBase.GetUsuario();
+        }        
 
         private void BtnPromocoes_OnClicked(object sender, EventArgs e)
         {
@@ -26,6 +38,5 @@ namespace MeDeiBem.View
         {
 
         }
-
     }
 }
