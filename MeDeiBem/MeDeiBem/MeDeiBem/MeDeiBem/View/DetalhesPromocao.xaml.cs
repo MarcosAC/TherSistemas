@@ -48,7 +48,17 @@ namespace MeDeiBem.View
                 linkImagem.img_link6
             };
 
-            CarrosselDeImagens.ItemsSource = linkImagens;
+            List<string> imagens = new List<string>();
+
+            foreach (var link in linkImagens)
+            {
+                string flag = "http://";
+
+                if (link != flag)
+                    imagens.Add(link);                    
+            }
+
+            CarrosselDeImagens.ItemsSource = imagens;
         }
 
         private void BtnLerCodigoQR_OnClicked(object sender, EventArgs args)

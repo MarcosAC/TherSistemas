@@ -23,19 +23,6 @@ namespace MeDeiBem.View
             LstPromocoes.ItemsSource = Promocoes;
         }
 
-        //private void LstPromocoes_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        //{
-        //    //if (e.SelectedItem == null)
-        //    //{
-        //    //    return;
-        //    //}
-
-        //    var item = (Promocao)e.SelectedItem;
-        //    Navigation.PushAsync(new DetalhesPromocao(item));
-        //    ListView lst = (ListView)sender;
-        //    lst.SelectedItem = null;
-        //}
-
         private void LstPromocoes_OnItemTapped(object sender, ItemTappedEventArgs e)
         {
             var item = (Promocao)e.Item;
