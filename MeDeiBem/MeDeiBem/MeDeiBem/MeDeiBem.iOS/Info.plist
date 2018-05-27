@@ -50,5 +50,9 @@
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
 	<string>MeDeiBem</string>
+  <key>UILaunchStoryboardName</key>
+  <string>LaunchScreen</string>
+  <key>NSCameraUsageDescription</key>
+  <string>This app needs to access a camera to scan the barcode.</string>
 </dict>
 </plist>

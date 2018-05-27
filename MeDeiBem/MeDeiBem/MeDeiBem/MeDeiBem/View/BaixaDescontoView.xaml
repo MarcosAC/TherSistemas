@@ -4,10 +4,12 @@
              x:Class="MeDeiBem.View.BaixaDescontoView"
              Title="Baixa de Desconto">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Baixa de Desconto"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Spacing="20" Padding="20">
+            <StackLayout x:Name="EscanerQR" HeightRequest="410" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+            <StackLayout>
+                <Label x:Name="LblCodigoQR" Text="Aguardando código qr..." HorizontalOptions="CenterAndExpand" />
+                <Button x:Name="BtnBaixarDesconto" Text="Baixar Desconto" TextColor="#0057ff" BackgroundColor="#b1f1ff" />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

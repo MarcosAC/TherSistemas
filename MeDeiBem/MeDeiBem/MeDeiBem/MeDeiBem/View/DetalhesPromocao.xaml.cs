@@ -61,9 +61,9 @@ namespace MeDeiBem.View
             CarrosselDeImagens.ItemsSource = imagens;
         }
 
-        private void BtnLerCodigoQR_OnClicked(object sender, EventArgs args)
-        {
-
+        private async void BtnLerCodigoQR_OnClicked(object sender, EventArgs args)
+        {   
+            await Navigation.PushAsync(new BaixaDescontoView());
         }
     }
 }
