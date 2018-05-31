@@ -11,8 +11,8 @@
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.View>
-                                <ContentView BackgroundColor="White">
-                                    <Frame BorderColor="#49c1ff" Margin="10" CornerRadius="10">
+                                <ContentView BackgroundColor="White">                                    
+                                    <Frame BorderColor="#49c1ff" Margin="10" CornerRadius="10">                                       
                                         <Grid HorizontalOptions="Center">
                                             <!-- Definação Coluna -->
                                             <Grid.ColumnDefinitions>
@@ -28,13 +28,13 @@
 
                                             <!-- Label Título -->
                                             <Label Grid.Column="0" 
-                                       Grid.Row="0" 
-                                       Text="{Binding titulo}" 
-                                       FontSize="Medium" 
-                                       FontAttributes="Bold" 
-                                       VerticalTextAlignment="Center" 
-                                       HorizontalTextAlignment="Center" 
-                                       HorizontalOptions="Center" />
+                                                   Grid.Row="0" 
+                                                   Text="{Binding titulo}" 
+                                                   FontSize="Medium" 
+                                                   FontAttributes="Bold" 
+                                                   VerticalTextAlignment="Center" 
+                                                   HorizontalTextAlignment="Center" 
+                                                   HorizontalOptions="Center" />
 
                                             <!-- Imagem Promoção -->
                                             <Image Grid.Column="0" Grid.Row="1" Source="{Binding img_link1}" Margin="0, 10, 0, 10" HorizontalOptions="Center" />

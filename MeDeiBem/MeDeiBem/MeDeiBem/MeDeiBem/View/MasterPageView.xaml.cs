@@ -39,7 +39,7 @@ namespace MeDeiBem.View
 
         private void BtnRadarOfertas_Clicked(object sender, EventArgs args)
         {
-            Detail = new NavigationPage(new View.CadastroUsuarioView());
+            Detail = new NavigationPage(new View.ClassificadosView());
             IsPresented = false;
         }
 

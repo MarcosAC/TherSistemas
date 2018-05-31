@@ -14,10 +14,10 @@ namespace MeDeiBem.View
 		{
 			InitializeComponent ();
 
-            CarregarPromocoes();            
+            ListaPromocoes();            
         }
 
-        private async void CarregarPromocoes()
+        private async void ListaPromocoes()
         {
             List<Promocao> Promocoes = await PromocaoService.GetListaPromocoes();            
             LstPromocoes.ItemsSource = Promocoes;

@@ -1,19 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:control="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions" 
              x:Class="MeDeiBem.View.ClassificadosView"
              Title="Classificados">
     <ContentPage.Content>
         <StackLayout Margin="0, 20, 0, 0">
             <SearchBar Placeholder="Digite o que procura" FontSize="24" HorizontalTextAlignment="Center" />
-            <ListView x:Name="LstClassificados" HasUnevenRows="true" ItemTapped="LstClassificados_OnItemTapped" SeparatorVisibility="None">
+            <ListView x:Name="LstClassificados" HasUnevenRows="true" SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <ViewCell.View>
-                                <ContentView BackgroundColor="White">
-                                    <Frame BorderColor="#49c1ff" Margin="10" CornerRadius="10">
-                                        <Grid HorizontalOptions="Center">
+                            <ContentView BackgroundColor="White">
+                                <Frame BorderColor="#49c1ff" Margin="10" CornerRadius="10">
+                                    <StackLayout>
+                                        <Grid RowSpacing="3">
                                             <!-- Definação Coluna -->
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="auto" />
@@ -24,39 +25,41 @@
                                                 <RowDefinition Height="auto" />
                                                 <RowDefinition Height="auto" />
                                                 <RowDefinition Height="auto" />
+                                                <RowDefinition Height="auto" />
+                                                <RowDefinition Height="auto" />
                                             </Grid.RowDefinitions>
 
-                                            <!-- Label Título -->
-                                            <Label Grid.Column="0" 
-                                       Grid.Row="0" 
-                                       Text="{Binding titulo}" 
-                                       FontSize="Medium" 
-                                       FontAttributes="Bold" 
-                                       VerticalTextAlignment="Center" 
-                                       HorizontalTextAlignment="Center" 
-                                       HorizontalOptions="Center" />
+                                            <Label Grid.Column="0"
+                                                   Grid.Row="0"
+                                                   Text="{Binding titulo}"
+                                                   FontSize="Medium"
+                                                   FontAttributes="Bold"
+                                                   TextColor="#498fff"
+                                                   VerticalTextAlignment="Center" 
+                                                   HorizontalTextAlignment="Center" 
+                                                   HorizontalOptions="Center" />
 
-                                            <!-- Imagem Promoção -->
-                                            <Image Grid.Column="0" Grid.Row="1" Source="{Binding img_link1}" Margin="0, 10, 0, 10" HorizontalOptions="Center" />
+                                            <control:CarouselViewControl Grid.Column="0"
+                                                                         Grid.Row="1"
+                                                                         ItemsSource="{Binding Imagens}"
+                                                                         ShowIndicators="True" 
+                                                                         Orientation="Horizontal" 
+                                                                         WidthRequest="270" 
+                                                                         HeightRequest="270">
 
-                                            <!-- Labels dos detalhes da promoção -->
-                                            <StackLayout Grid.Column="0" Grid.Row="2" Orientation="Vertical" HorizontalOptions="Center">
-                                                <StackLayout Orientation="Horizontal">
-                                                    <Label Text="De R$" FontSize="Medium" TextColor="#5a97ff" VerticalTextAlignment="Center" />
-                                                    <Label Text="{Binding preco_original}" FontSize="Medium" TextColor="#5a97ff" VerticalTextAlignment="Center" />
-                                                    <Label Text=" por R$" FontSize="Medium" TextColor="#5a97ff" VerticalTextAlignment="Center" />
-                                                    <Label Text="{Binding preco_promocao}" TextColor="#5a97ff" FontSize="Large" FontAttributes="Bold" VerticalTextAlignment="Center" />
-                                                </StackLayout>
-
-                                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                                                    <Label Text="{Binding desconto}" FontSize="Medium" TextColor="#5a97ff" HorizontalTextAlignment="Center" />
-                                                    <Label Text=" de desconto!" FontSize="Medium" TextColor="#5a97ff" HorizontalTextAlignment="Center" />
-                                                </StackLayout>
-                                            </StackLayout>
+                                                <control:CarouselViewControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Image Source="{Binding .}" />
+                                                    </DataTemplate>
+                                                </control:CarouselViewControl.ItemTemplate>
+                                            </control:CarouselViewControl>
+                                            <Label Grid.Column="0" Grid.Row="2" Text="{Binding contato_tel}" TextColor="#498fff" FontSize="Medium" />
+                                            <Label Grid.Column="0" Grid.Row="3" Text="{Binding contato_email}" TextColor="#498fff" FontSize="Medium" />
+                                            <Label Grid.Column="0" Grid.Row="4" Text="{Binding contato_hora}" TextColor="#498fff" FontSize="Medium" />
                                         </Grid>
-                                    </Frame>
-                                </ContentView>
-                            </ViewCell.View>
+                                    </StackLayout>
+                                </Frame>
+                            </ContentView>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

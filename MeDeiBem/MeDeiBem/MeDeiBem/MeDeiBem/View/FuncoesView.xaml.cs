@@ -31,7 +31,7 @@ namespace MeDeiBem.View
 
         private void BtnClassificados_OnClicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new ClassificadosView());
         }
 
         private void BtnPodcasts_OnClicked(object sender, EventArgs e)
