@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <StackLayout Margin="0, 20, 0, 0">
             <SearchBar Placeholder="Digite o que procura" FontSize="24" HorizontalTextAlignment="Center" />
-            <ListView x:Name="LstPromocoes" HasUnevenRows="true" ItemTapped="LstPromocoes_OnItemTapped" SeparatorVisibility="None">
+            <ListView x:Name="LstPromocoes" HasUnevenRows="true" SeparatorVisibility="None" ItemTapped="LstPromocoes_OnItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

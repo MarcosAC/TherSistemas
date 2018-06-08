@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MeDeiBem.View.ListaImagensClassificado"
+             Title="Classificados">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Imagens do Classificado" TextColor="#5a97ff" FontSize="Medium" HorizontalOptions="Center" />
+
+            <ListView x:Name="LstImagensClassificado" HasUnevenRows="True" SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <ContentView BackgroundColor="White">
+                                    <Frame BorderColor="#49c1ff" Margin="10" CornerRadius="10">
+                                        <Image Source="{Binding .}" />
+                                    </Frame>
+                                </ContentView>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
