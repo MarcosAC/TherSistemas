@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:MeDeiBem.FontsAwesome"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
              x:Class="MeDeiBem.Controls.ButtonIcon">
   <ContentView.Content>
         <Frame Padding="0" Margin="0" BackgroundColor="Transparent" BorderColor="Transparent" CornerRadius="0">
@@ -29,20 +28,8 @@
                    Text="" 
                    FontSize="Medium"
                    HorizontalTextAlignment="Start" 
-                   VerticalOptions="CenterAndExpand" />
-
-                <!--<Grid.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                </Grid.GestureRecognizers>-->
-            </Grid>
-            <!--<StackLayout Orientation="Horizontal" HeightRequest="50" WidthRequest="280">
-            <Label x:Name="icon" Text="" HorizontalTextAlignment="Center" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-            <Label x:Name="textButton" Text="" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-            <StackLayout.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-            </StackLayout.GestureRecognizers>
-
-            </StackLayout>-->
+                   VerticalOptions="CenterAndExpand" />                
+            </Grid>            
             <Frame.GestureRecognizers>
                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
             </Frame.GestureRecognizers>
