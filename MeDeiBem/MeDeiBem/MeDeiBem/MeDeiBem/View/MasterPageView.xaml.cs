@@ -13,47 +13,46 @@ namespace MeDeiBem.View
             NavigationPage.SetHasNavigationBar(this, false);
         }
 
-        private void BtnBaixaDesconto_Clicked(object sender, EventArgs args)
+        private void BtnFuncoes_OnClicked(object sender, EventArgs args)
+        {
+            Detail = new NavigationPage(new FuncoesView());
+            IsPresented = false;
+        }
+
+        private void BtnBaixaDesconto_OnClicked(object sender, EventArgs args)
         {
             Detail = new NavigationPage(new View.BaixaDescontoView());
             IsPresented = false;
         }
 
-        private void BtnFuncoes_Clicked(object sender, EventArgs args)
-        {
-            Detail = new NavigationPage(new FuncoesView());             
-            IsPresented = false;
-        }
-
-        private void BtnMeuClassificado_Clicked(object sender, EventArgs args)
+        private void BtnMeuClassificado_OnClicked(object sender, EventArgs args)
         {
             Detail = new NavigationPage(new View.CadastroClassificadoView());
             IsPresented = false;
         }
 
-        private void BtnMeuCadastro_Clicked(object sender, EventArgs args)
+        private void BtnMeuCadastro_OnClicked(object sender, EventArgs args)
         {
             Detail = new NavigationPage(new View.CadastroUsuarioView());
             IsPresented = false;
         }
 
-        private void BtnRadarOfertas_Clicked(object sender, EventArgs args)
+        private void BtnRadarOfertas_OnClicked(object sender, EventArgs args)
         {
             Detail = new NavigationPage(new View.ClassificadosView());
             IsPresented = false;
         }
 
-        private void BtnSobre_Clicked(object sender, EventArgs args)
+        private void BtnSobre_OnClicked(object sender, EventArgs args)
         {
             Detail = new NavigationPage(new View.SobreView());
             IsPresented = false;
         }
 
-        private void BtnSair_Clicked(object sender, EventArgs args)
+        private void BtnSair_OnClicked(object sender, EventArgs args)
         {
             Detail = new NavigationPage(new View.LoginView());
             IsPresented = false;
         }
-
     }
 }

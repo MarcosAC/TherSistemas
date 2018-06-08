@@ -22,7 +22,7 @@ namespace MeDeiBem.View
         {
             DataBase DataBase = new DataBase();
             return DataBase.GetUsuario();
-        }        
+        }
 
         private void BtnPromocoes_OnClicked(object sender, EventArgs e)
         {

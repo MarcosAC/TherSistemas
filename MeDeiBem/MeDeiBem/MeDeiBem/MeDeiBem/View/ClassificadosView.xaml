@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:control="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions" 
+             xmlns:local="clr-namespace:MeDeiBem.FontsAwesome;assembly=MeDeiBem"
              x:Class="MeDeiBem.View.ClassificadosView"
              Title="Classificados">
     <ContentPage.Content>
@@ -53,9 +54,36 @@
                                                     </DataTemplate>
                                                 </control:CarouselViewControl.ItemTemplate>
                                             </control:CarouselViewControl>
-                                            <Label Grid.Column="0" Grid.Row="2" Text="{Binding contato_tel}" TextColor="#498fff" FontSize="Medium" />
+                                            
+                                            <!--<Label Grid.Column="0" Grid.Row="2" Text="{Binding contato_tel}" TextColor="#498fff" FontSize="Medium" />
                                             <Label Grid.Column="0" Grid.Row="3" Text="{Binding contato_email}" TextColor="#498fff" FontSize="Medium" />
-                                            <Label Grid.Column="0" Grid.Row="4" Text="{Binding contato_hora}" TextColor="#498fff" FontSize="Medium" />
+                                            <Label Grid.Column="0" Grid.Row="4" Text="{Binding contato_hora}" TextColor="#498fff" FontSize="Medium" />-->
+                                        </Grid>
+                                        
+                                        <!-- Informações de Contato -->
+                                        <Grid>
+                                            <!-- Definação Coluna -->
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto" />
+                                                <ColumnDefinition Width="auto" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <!-- Definação Linhas -->
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto" />
+                                                <RowDefinition Height="auto" />
+                                                <RowDefinition Height="auto" />
+                                            </Grid.RowDefinitions>
+                                            
+                                            <!-- Icones -->
+                                            <Label Grid.Column="0" Grid.Row="0" Text="{x:Static local:Fontes.FAPhone}" VerticalTextAlignment="Center" TextColor="#498fff" FontSize="Medium" />
+                                            <Label Grid.Column="0" Grid.Row="1" Text="{x:Static local:Fontes.FAEnvelope}" VerticalTextAlignment="Center" TextColor="#498fff" FontSize="Medium" />
+                                            <Label Grid.Column="0" Grid.Row="2" Text="{x:Static local:Fontes.FAClockO}" VerticalTextAlignment="Center" TextColor="#498fff" FontSize="Medium" />
+
+                                            <!-- Texto -->
+                                            <Label Grid.Column="1" Grid.Row="0" Text="{Binding contato_tel}" VerticalTextAlignment="Center" TextColor="#498fff" FontSize="Medium" />
+                                            <Label Grid.Column="1" Grid.Row="1" Text="{Binding contato_email}" VerticalTextAlignment="Center" TextColor="#498fff" FontSize="Medium" />
+                                            <Label Grid.Column="1" Grid.Row="2" Text="{Binding contato_hora}" VerticalTextAlignment="Center" TextColor="#498fff" FontSize="Medium" />
                                         </Grid>
                                     </StackLayout>
                                 </Frame>

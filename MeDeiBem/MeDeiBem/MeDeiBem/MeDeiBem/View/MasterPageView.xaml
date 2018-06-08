@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                  xmlns:master="clr-namespace:MeDeiBem.View"
+                  xmlns:master="clr-namespace:MeDeiBem.View"                  
+                  xmlns:local="clr-namespace:MeDeiBem.FontsAwesome;assembly=MeDeiBem"
+                  xmlns:controls="clr-namespace:MeDeiBem.Controls;assembly=MeDeiBem"
                   x:Class="MeDeiBem.View.MasterPageView">
     <MasterDetailPage.Master>
         <!-- Menu -->
@@ -13,13 +15,70 @@
                 </StackLayout>
 
                 <!-- Botões Menu -->
-                <Button x:Name="BtnFuncoes" Text="Funcoes" TextColor="White" BackgroundColor="Transparent" Clicked="BtnFuncoes_Clicked" />
+                <controls:ButtonIcon x:Name="BtnFuncoes" 
+                                     HorizontalOptions="Start"
+                                     Margin="15, 0"
+                                     Icon="{Static local:Fontes.FACog}"
+                                     TextButton="Funções"  
+                                     TextButtonColor="White"                                     
+                                     BackgroundColor="Transparent"
+                                     ClickButton="BtnFuncoes_OnClicked" />
+
+                <controls:ButtonIcon HorizontalOptions="Start"
+                                     Margin="15, 0"
+                                     Icon="{Static local:Fontes.FACheckSquare}"
+                                     TextButton="Baixa de Desconto"
+                                     TextButtonColor="White"
+                                     BackgroundColor="Transparent"
+                                     ClickButton="BtnBaixaDesconto_OnClicked" />
+
+                <controls:ButtonIcon HorizontalOptions="Start"
+                                     Margin="15, 0"
+                                     Icon="{Static local:Fontes.FAHandShakeO}"
+                                     TextButton="Meu Classificado"
+                                     TextButtonColor="White"
+                                     BackgroundColor="Transparent"
+                                     ClickButton="BtnMeuClassificado_OnClicked" />
+
+                <controls:ButtonIcon HorizontalOptions="Start"
+                                     Margin="15, 0"
+                                     Icon="{Static local:Fontes.FAAddressCardO}"
+                                     TextButton="Meu Cadastro"
+                                     TextButtonColor="White"
+                                     BackgroundColor="Transparent"
+                                     ClickButton="BtnMeuCadastro_OnClicked" />
+
+                <controls:ButtonIcon HorizontalOptions="Start"
+                                     Margin="15, 0"
+                                     Icon="{Static local:Fontes.FAEye}"
+                                     TextButton="Radar de Ofertas"
+                                     TextButtonColor="White"
+                                     BackgroundColor="Transparent"
+                                     ClickButton="BtnRadarOfertas_OnClicked" />
+
+                <controls:ButtonIcon HorizontalOptions="Start"
+                                     Margin="15, 0"
+                                     Icon="{Static local:Fontes.FAInfoCircle}"
+                                     TextButton="Sobre"
+                                     TextButtonColor="White"
+                                     BackgroundColor="Transparent"
+                                     ClickButton="BtnSobre_OnClicked" />
+
+                <controls:ButtonIcon HorizontalOptions="Start"
+                                     Margin="15, 0"
+                                     Icon="{Static local:Fontes.FASignIn}"
+                                     TextButton="Sair"
+                                     TextButtonColor="White"
+                                     BackgroundColor="Transparent"
+                                     ClickButton="BtnSair_OnClicked" />
+
+                <!--<Button x:Name="BtnFuncoes" Text="Funcoes" TextColor="White" BackgroundColor="Transparent" Clicked="BtnFuncoes_Clicked" />
                 <Button Text="Baixa de Desconto" TextColor="White" BackgroundColor="Transparent" Clicked="BtnBaixaDesconto_Clicked" />
                 <Button Text="Meu Classificado" TextColor="White" BackgroundColor="Transparent" Clicked="BtnMeuClassificado_Clicked" />
                 <Button Text="Meu Cadastro" TextColor="White" BackgroundColor="Transparent" Clicked="BtnMeuCadastro_Clicked" />
                 <Button Text="Radar de Ofertas" TextColor="White" BackgroundColor="Transparent" Clicked="BtnRadarOfertas_Clicked"/>
                 <Button Text="Sobre" TextColor="White" BackgroundColor="Transparent" Clicked="BtnSobre_Clicked" />
-                <Button Text="Sair" TextColor="White" BackgroundColor="Transparent" Clicked="BtnSair_Clicked" />
+                <Button Text="Sair" TextColor="White" BackgroundColor="Transparent" Clicked="BtnSair_Clicked" />-->
             </StackLayout>
         </ContentPage>
     </MasterDetailPage.Master>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using CarouselView.FormsPlugin.iOS;
+using Flex;
 using Foundation;
 using UIKit;
 
@@ -27,6 +28,8 @@ namespace MeDeiBem.iOS
             CarouselViewRenderer.Init();
 
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
+
+            FlexButton.Init();
 
             LoadApplication(new App());
 
