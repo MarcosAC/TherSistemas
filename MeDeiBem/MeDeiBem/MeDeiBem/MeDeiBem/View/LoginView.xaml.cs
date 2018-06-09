@@ -28,7 +28,7 @@ namespace MeDeiBem.View
             _senha = TxtSenha.Text;
         }
 
-        private async void BtnEntrar_OnClicked(object sender, EventArgs args)
+        private async void BtnEntrar_OnClicked(object sender, EventArgs e)
         {
             var parametros = new Login
             {
@@ -43,13 +43,13 @@ namespace MeDeiBem.View
             
         }
 
-        private void BtnEsqueciSenha_OnClicked(object sender, EventArgs args)
+        private void BtnEsqueciSenha_OnClicked(object sender, EventArgs e)
         {
             DataBase dataBase = new DataBase();
             dataBase.UsuarioLogado();
         }
 
-        private void BtnQueroParticipar_OnClicked(object sender, EventArgs args)
+        private void BtnQueroParticipar_OnClicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new CadastroUsuarioView());
         }
