@@ -14,8 +14,8 @@ namespace MeDeiBem.View
 		{
 			InitializeComponent ();
 
-            ListaPromocoes();            
-        }
+            ListaPromocoes();
+        }        
 
         private async void ListaPromocoes()
         {
@@ -27,6 +27,11 @@ namespace MeDeiBem.View
         {
             var item = (Promocao)e.Item;
             Navigation.PushAsync(new DetalhesPromocao(item));
+        }
+
+        private void BtnPesquisar_OnClicked(object sender, EventArgs e)
+        {
+            BtnPesquisar.BackgroundColor = Color.Gray;
         }
     }
 }

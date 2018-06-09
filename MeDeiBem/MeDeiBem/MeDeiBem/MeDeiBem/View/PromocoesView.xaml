@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MeDeiBem.Controls;assembly=MeDeiBem"
              x:Class="MeDeiBem.View.PromocoesView"
              Title="Promoções">
     <ContentPage.Content>
         <StackLayout Margin="0, 20, 0, 0">
-            <SearchBar Placeholder="Digite o que procura" FontSize="24" HorizontalTextAlignment="Center" />
+            <!--<SearchBar Placeholder="Digite o que procura" FontSize="24" HorizontalTextAlignment="Center" />-->
+            <controls:SearchBarCustom x:Name="BtnPesquisar" ClickScope="BtnPesquisar_OnClicked" />
             <ListView x:Name="LstPromocoes" HasUnevenRows="true" SeparatorVisibility="None" ItemTapped="LstPromocoes_OnItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>

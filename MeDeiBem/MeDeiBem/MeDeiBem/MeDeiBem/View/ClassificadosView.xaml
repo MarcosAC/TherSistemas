@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:control="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
+             xmlns:controls="clr-namespace:MeDeiBem.Controls;assembly=MeDeiBem"
              xmlns:local="clr-namespace:MeDeiBem.FontsAwesome;assembly=MeDeiBem"
              x:Class="MeDeiBem.View.ClassificadosView"
              Title="Classificados">
     <ContentPage.Content>
         <StackLayout Margin="0, 20, 0, 0">
-            <SearchBar Placeholder="Digite o que procura" FontSize="24" HorizontalTextAlignment="Center" />
+            <!--<SearchBar Placeholder="Digite o que procura" FontSize="24" HorizontalTextAlignment="Center" />-->
+            <controls:SearchBarCustom />
             <ListView x:Name="LstClassificados" HasUnevenRows="true" SeparatorVisibility="None" ItemTapped="LstClassificados_OnItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -40,10 +41,7 @@
                                                    HorizontalTextAlignment="Center" 
                                                    HorizontalOptions="CenterAndExpand" />
 
-                                            <Image Grid.Column="0" Grid.Row="1" Source="{Binding img_link1}" Margin="0, 10, 0, 10" HorizontalOptions="Center" />
-                                            <!--<Label Grid.Column="0" Grid.Row="2" Text="{Binding contato_tel}" TextColor="#498fff" FontSize="Medium" />
-                                            <Label Grid.Column="0" Grid.Row="3" Text="{Binding contato_email}" TextColor="#498fff" FontSize="Medium" />
-                                            <Label Grid.Column="0" Grid.Row="4" Text="{Binding contato_hora}" TextColor="#498fff" FontSize="Medium" />-->
+                                            <Image Grid.Column="0" Grid.Row="1" Source="{Binding img_link1}" Margin="0, 10, 0, 10" HorizontalOptions="Center" />                                            
                                         </Grid>
                                         
                                         <!-- Informações de Contato -->
