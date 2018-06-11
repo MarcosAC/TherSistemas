@@ -6,13 +6,12 @@
   <ContentView.Content>
         <Frame Margin="10, 0, 10, 0" Padding="2" BorderColor="#49c1ff" CornerRadius="5" BackgroundColor="Transparent" HeightRequest="60">
             <StackLayout Orientation="Horizontal" BackgroundColor="Transparent">
-                <Entry x:Name="textSearch"
+                <Entry x:Name="textSearch"                       
                        Placeholder="Digite o que procura"                       
                        PlaceholderColor="Black"
                        FontSize="Medium"                       
                        BackgroundColor="Transparent"
-                       HorizontalOptions="FillAndExpand" 
-                       />
+                       HorizontalOptions="FillAndExpand" />
                 
                 <Button Text="{x:Static local:Fontes.FASearch}" 
                         FontSize="30"                          

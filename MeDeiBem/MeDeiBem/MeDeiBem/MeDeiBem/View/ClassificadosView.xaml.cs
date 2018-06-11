@@ -9,15 +9,15 @@ using Xamarin.Forms.Xaml;
 namespace MeDeiBem.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ClassificadosView : ContentPage
-	{       
+    public partial class ClassificadosView : ContentPage
+    {                
 		public ClassificadosView ()
 		{
 			InitializeComponent ();
 
             BindingContext = ListaClassificados();
         }
-
+                
         private async Task<List<Classificado>> ListaClassificados()
         {
             List<Classificado> Classificados = await ClassificadoService.GetListaClassificados();
@@ -31,11 +31,18 @@ namespace MeDeiBem.View
             Navigation.PushAsync(new ListaImagensClassificado(item));
         }
 
-        private async void SbcPesquisar_OnClicked(object sender, EventArgs e)
+        private async void SrcbClassificados_OnSearchButtonPressed(object sender, EventArgs e)
         {
-            string busca = SbcPesquisar.TextSearch;
+            string busca = SrcbClassificados.Text;
             List<Classificado> Classificados = await ClassificadoService.GetListaClassificados(busca);
             LstClassificados.ItemsSource = Classificados;
         }
+
+        //private async void SbcPesquisar_OnClicked(object sender, EventArgs e)
+        //{
+        //    string busca = SbcPesquisar.TextSearch;
+        //    List<Classificado> Classificados = await ClassificadoService.GetListaClassificados(busca);
+        //    LstClassificados.ItemsSource = Classificados;
+        //}
     }
 }

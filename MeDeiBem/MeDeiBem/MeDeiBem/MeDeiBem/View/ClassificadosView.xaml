@@ -7,8 +7,14 @@
              Title="Classificados">
     <ContentPage.Content>
         <StackLayout Margin="0, 20, 0, 0">
-            <!--<SearchBar Placeholder="Digite o que procura" FontSize="24" HorizontalTextAlignment="Center" />-->
-            <controls:SearchBarCustom x:Name="SbcPesquisar" ClickScope="SbcPesquisar_OnClicked"/>
+            <Frame Margin="10, 0, 10, 0" Padding="2" BorderColor="#49c1ff" CornerRadius="5" BackgroundColor="Transparent">
+                <SearchBar x:Name="SrcbClassificados"
+                           Placeholder="Digite o que procura" 
+                           FontSize="24" 
+                           HorizontalTextAlignment="Center"
+                           SearchButtonPressed="SrcbClassificados_OnSearchButtonPressed"/>
+            </Frame>
+            <!--<controls:SearchBarCustom x:Name="SbcPesquisar" ClickScope="SbcPesquisar_OnClicked"/>-->
             <ListView x:Name="LstClassificados" HasUnevenRows="true" SeparatorVisibility="None" ItemTapped="LstClassificados_OnItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>

@@ -28,12 +28,19 @@ namespace MeDeiBem.View
             var item = (Promocao)e.Item;
             Navigation.PushAsync(new DetalhesPromocao(item));
         }
-        
-        private async void SbcPesquisar_OnClicked(object sender, EventArgs e)
-        {            
-            string busca = SbcPesquisar.TextSearch;
+
+        private async void SrcbPromocoes_OnSearchButtonPressed(object sender, EventArgs e)
+        {
+            string busca = SrcbPromocoes.Text;
             List<Promocao> Promocoes = await PromocaoService.GetListaPromocoes(busca);
             LstPromocoes.ItemsSource = Promocoes;
         }
+
+        //private async void SbcPesquisar_OnClicked(object sender, EventArgs e)
+        //{
+        //    string busca = SbcPesquisar.TextSearch;
+        //    List<Promocao> Promocoes = await PromocaoService.GetListaPromocoes(busca);
+        //    LstPromocoes.ItemsSource = Promocoes;
+        //}
     }
 }
