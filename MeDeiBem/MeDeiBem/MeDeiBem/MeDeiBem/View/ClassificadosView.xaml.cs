@@ -31,18 +31,11 @@ namespace MeDeiBem.View
             Navigation.PushAsync(new ListaImagensClassificado(item));
         }
 
-        private async void SrcbClassificados_OnSearchButtonPressed(object sender, EventArgs e)
+        private async void SbcClassificados_OnClicked(object sender, EventArgs e)
         {
-            string busca = SrcbClassificados.Text;
+            string busca = SbcClassificados.TextSearch;
             List<Classificado> Classificados = await ClassificadoService.GetListaClassificados(busca);
             LstClassificados.ItemsSource = Classificados;
         }
-
-        //private async void SbcPesquisar_OnClicked(object sender, EventArgs e)
-        //{
-        //    string busca = SbcPesquisar.TextSearch;
-        //    List<Classificado> Classificados = await ClassificadoService.GetListaClassificados(busca);
-        //    LstClassificados.ItemsSource = Classificados;
-        //}
     }
 }

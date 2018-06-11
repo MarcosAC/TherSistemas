@@ -6,14 +6,7 @@
              Title="Promoções">
     <ContentPage.Content>
         <StackLayout Margin="0, 20, 0, 0">
-            <Frame Margin="10, 0, 10, 0" Padding="2" BorderColor="#49c1ff" CornerRadius="5" BackgroundColor="Transparent">
-                <SearchBar x:Name="SrcbPromocoes" 
-                           Placeholder="Digite o que procura" 
-                           FontSize="24" 
-                           HorizontalTextAlignment="Center" 
-                           SearchButtonPressed="SrcbPromocoes_OnSearchButtonPressed" />
-            </Frame>            
-            <!--<controls:SearchBarCustom x:Name="SbcPesquisar" ClickScope="SbcPesquisar_OnClicked" />-->
+            <controls:SearchBarCustom x:Name="SbcPromocoes" ClickScope="SbcPromocoes_OnClicked" />
             <ListView x:Name="LstPromocoes" HasUnevenRows="true" SeparatorVisibility="None" ItemTapped="LstPromocoes_OnItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>

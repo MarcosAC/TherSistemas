@@ -3,12 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MeDeiBem.FontsAwesome;assembly=MeDeiBem"
              x:Class="MeDeiBem.Controls.SearchBarCustom"
-             x:Name="searchBarCustom">
-  <!--<ContentView.BindingContext>
-        <x:Reference searchBarCustom />
-    </ContentView.BindingContext>-->
+             x:Name="searchBarCustom">  
   <ContentView.Content>
-        <Frame Margin="10, 0, 10, 0" Padding="2" BorderColor="#49c1ff" CornerRadius="5" BackgroundColor="Transparent" HeightRequest="60">
+        <Frame Margin="10, 0, 10, 0" 
+               Padding="2" 
+               BorderColor="#49c1ff" 
+               CornerRadius="5" 
+               BackgroundColor="Transparent" 
+               HeightRequest="60"
+               BindingContext="{Reference searchBarCustom}">
             <StackLayout Orientation="Horizontal" BackgroundColor="Transparent">
                 <Entry x:Name="textSearch" 
                        Text="{Binding TextSearch}"
