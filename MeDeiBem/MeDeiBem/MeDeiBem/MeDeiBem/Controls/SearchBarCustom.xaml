@@ -2,11 +2,16 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MeDeiBem.FontsAwesome;assembly=MeDeiBem"
-             x:Class="MeDeiBem.Controls.SearchBarCustom">
+             x:Class="MeDeiBem.Controls.SearchBarCustom"
+             x:Name="searchBarCustom">
+  <!--<ContentView.BindingContext>
+        <x:Reference searchBarCustom />
+    </ContentView.BindingContext>-->
   <ContentView.Content>
         <Frame Margin="10, 0, 10, 0" Padding="2" BorderColor="#49c1ff" CornerRadius="5" BackgroundColor="Transparent" HeightRequest="60">
             <StackLayout Orientation="Horizontal" BackgroundColor="Transparent">
-                <Entry x:Name="textSearch"                       
+                <Entry x:Name="textSearch" 
+                       Text="{Binding TextSearch}"
                        Placeholder="Digite o que procura"                       
                        PlaceholderColor="Black"
                        FontSize="Medium"                       

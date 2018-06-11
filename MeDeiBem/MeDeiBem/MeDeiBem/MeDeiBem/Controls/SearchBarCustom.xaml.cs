@@ -25,8 +25,8 @@ namespace MeDeiBem.Controls
                 returnType: typeof(string),
                 declaringType: typeof(SearchBarCustom),
                 defaultValue: "",
-                defaultBindingMode: BindingMode.TwoWay,
-                propertyChanged: TextSearchPropertyChanged
+                defaultBindingMode: BindingMode.TwoWay
+                //propertyChanged: TextSearchPropertyChanged
             );
         
         public string TextSearch
@@ -35,12 +35,12 @@ namespace MeDeiBem.Controls
             set { SetValue(TextSearchProperty, value); }
         }
 
-        private static void TextSearchPropertyChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            var searchBarCustom = (SearchBarCustom)bindable;
+        //private static void TextSearchPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        //{
+        //    var searchBarCustom = (SearchBarCustom)bindable;
 
-            searchBarCustom.textSearch.Text = (string)newValue;
-        }
+        //    searchBarCustom.textSearch.Text = (string)newValue;
+        //}
 
         private void On_clickScope(object sender, EventArgs e)
         {

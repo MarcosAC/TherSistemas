@@ -28,34 +28,42 @@ namespace MeDeiBem.ServicesAPI
                 new KeyValuePair<string, string>("d", parametrosLogin)
             });
 
-            HttpResponseMessage response = await request.PostAsync(url, parametros);
-
-            var conteudoResponse = await response.Content.ReadAsStringAsync();
-
-            var dadosUsuario = JsonConvert.DeserializeObject<Usuario>(conteudoResponse);
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                switch (dadosUsuario.sinc_stat)
+                HttpResponseMessage response = await request.PostAsync(url, parametros);
+
+                var conteudoResponse = await response.Content.ReadAsStringAsync();
+
+                var dadosUsuario = JsonConvert.DeserializeObject<Usuario>(conteudoResponse);
+
+                if (response.IsSuccessStatusCode)
                 {
-                    case 0:
-                        await App.Current.MainPage.DisplayAlert("Put's, algo de errado não deu certo! :(", dadosUsuario.sinc_msg, "Ok");
-                        break;
-                    case 1:
-                        try
-                        {
-                            DataBase dataBase = new DataBase();
-                            dataBase.AddUsuario(dadosUsuario);
-                            return true;
-                        }
-                        catch (Exception ex)
-                        {
-                            await App.Current.MainPage.DisplayAlert("Put's, algo de errado não deu certo! :(", ex.Message, "Merda X(");
-                        }
-                        break;
-                }                
+                    switch (dadosUsuario.sinc_stat)
+                    {
+                        case 0:
+                            await App.Current.MainPage.DisplayAlert("Put's, algo de errado não deu certo! :(", dadosUsuario.sinc_msg, "Ok");
+                            break;
+                        case 1:
+                            try
+                            {
+                                DataBase dataBase = new DataBase();
+                                dataBase.AddUsuario(dadosUsuario);
+                                return true;
+                            }
+                            catch (Exception ex)
+                            {
+                                await App.Current.MainPage.DisplayAlert("Put's, algo de errado não deu certo! :(", ex.Message, "Merda X(");
+                            }
+                            break;
+                    }
+                }
+                return false;
             }
-            return false;
+            catch (Exception)
+            {
+                await App.Current.MainPage.DisplayAlert("Put's sem acesso a Internet", "Voce não esta conectado a internet!", "Ok");
+                return false;
+            }
         }
     }
 }
