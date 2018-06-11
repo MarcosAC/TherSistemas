@@ -7,7 +7,7 @@
     <ContentPage.Content>
         <StackLayout Margin="0, 20, 0, 0">
             <!--<SearchBar Placeholder="Digite o que procura" FontSize="24" HorizontalTextAlignment="Center" />-->
-            <controls:SearchBarCustom x:Name="BtnPesquisar" ClickScope="BtnPesquisar_OnClicked" />
+            <controls:SearchBarCustom x:Name="SbcPesquisar" ClickScope="SbcPesquisar_OnClicked" />
             <ListView x:Name="LstPromocoes" HasUnevenRows="true" SeparatorVisibility="None" ItemTapped="LstPromocoes_OnItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>

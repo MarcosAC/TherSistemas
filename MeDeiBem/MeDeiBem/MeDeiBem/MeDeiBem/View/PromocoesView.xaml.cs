@@ -28,10 +28,12 @@ namespace MeDeiBem.View
             var item = (Promocao)e.Item;
             Navigation.PushAsync(new DetalhesPromocao(item));
         }
-
-        private void BtnPesquisar_OnClicked(object sender, EventArgs e)
-        {
-            BtnPesquisar.BackgroundColor = Color.Gray;
+        
+        private async void SbcPesquisar_OnClicked(object sender, EventArgs e)
+        {            
+            string busca = SbcPesquisar.TextSearch;
+            List<Promocao> Promocoes = await PromocaoService.GetListaPromocoes(busca);
+            LstPromocoes.ItemsSource = Promocoes;
         }
     }
 }

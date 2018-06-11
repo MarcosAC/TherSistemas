@@ -12,7 +12,7 @@ namespace MeDeiBem.ServicesAPI
     {
         private static readonly string BaseUrl = Constantes.URL;
 
-        public async static Task<List<Classificado>> GetListaClassificados()
+        public async static Task<List<Classificado>> GetListaClassificados(string busca = null)
         {
             var url = BaseUrl;
 
@@ -23,7 +23,7 @@ namespace MeDeiBem.ServicesAPI
 
             string parametrosBuscaPromocoes = "{" + '"' + "range_ini" + '"' + ":" + '"' + "0" + '"' + "," +
                                                     '"' + "range_fim" + '"' + ":" + '"' + "100" + '"' + "," +
-                                                    '"' + "busca" + '"' + ":" + '"' + "" + '"' + "}";
+                                                    '"' + "busca" + '"' + ":" + '"' + busca + '"' + "}";
 
             string appKey = DataBase.GetAppKey();
 

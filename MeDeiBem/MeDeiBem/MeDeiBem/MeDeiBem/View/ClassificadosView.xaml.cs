@@ -1,5 +1,6 @@
 ﻿using MeDeiBem.Model;
 using MeDeiBem.ServicesAPI;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -28,6 +29,13 @@ namespace MeDeiBem.View
         {
             var item = (Classificado)e.Item;
             Navigation.PushAsync(new ListaImagensClassificado(item));
+        }
+
+        private async void SbcPesquisar_OnClicked(object sender, EventArgs e)
+        {
+            string busca = SbcPesquisar.TextSearch;
+            List<Classificado> Classificados = await ClassificadoService.GetListaClassificados(busca);
+            LstClassificados.ItemsSource = Classificados;
         }
     }
 }
