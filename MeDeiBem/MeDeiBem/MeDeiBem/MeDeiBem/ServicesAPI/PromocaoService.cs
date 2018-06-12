@@ -31,21 +31,29 @@ namespace MeDeiBem.ServicesAPI
                 new KeyValuePair<string, string>("a", "lprm"),
                 new KeyValuePair<string, string>("k", appKey),
                 new KeyValuePair<string, string>("d", parametrosBuscaPromocoes),
-            }); 
+            });
 
-            HttpResponseMessage response = await request.PostAsync(url, parametros);
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                string conteudo = await response.Content.ReadAsStringAsync();
+                HttpResponseMessage response = await request.PostAsync(url, parametros);
 
-                if (conteudo.Length > 0)
+                if (response.IsSuccessStatusCode)
                 {
-                    List<Promocao> listaPromocoes = JsonConvert.DeserializeObject<List<Promocao>>(conteudo);                    
-                    return listaPromocoes;
+                    string conteudo = await response.Content.ReadAsStringAsync();
+
+                    if (conteudo.Length > 0)
+                    {
+                        List<Promocao> listaPromocoes = JsonConvert.DeserializeObject<List<Promocao>>(conteudo);
+                        return listaPromocoes;
+                    }
                 }
+                return null;
             }
-            return null;
+            catch (Exception)
+            {
+                await App.Current.MainPage.DisplayAlert("Put's sem acesso a Internet", "Voce não esta conectado a internet!", "Ok");
+                return null;
+            }
         }
 
         public static Promocao GetPromocao(string busca)
@@ -69,14 +77,22 @@ namespace MeDeiBem.ServicesAPI
                 new KeyValuePair<string, string>("d", parametrosBuscaPromocoes),
             });
 
-            HttpResponseMessage response = request.PostAsync(url, parametros).GetAwaiter().GetResult();
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var conteudo = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
-                return JsonConvert.DeserializeObject<Promocao>(conteudo);                                
+                HttpResponseMessage response = request.PostAsync(url, parametros).GetAwaiter().GetResult();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var conteudo = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+                    return JsonConvert.DeserializeObject<Promocao>(conteudo);
+                }
+                return null;
             }
-            return null;
+            catch (Exception)
+            {
+                App.Current.MainPage.DisplayAlert("Put's sem acesso a Internet", "Voce não esta conectado a internet!", "Ok");
+                return null;
+            }
         }
     }
 }

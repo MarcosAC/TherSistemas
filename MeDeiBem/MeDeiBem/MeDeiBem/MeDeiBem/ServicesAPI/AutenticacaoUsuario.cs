@@ -12,7 +12,7 @@ namespace MeDeiBem.ServicesAPI
     {
         private static readonly string BaseUrl = Constantes.BASE_PROTOCOL + Constantes.BASE_URL + Constantes.BASE_API;
 
-        public static async Task<bool> AutenticarUsuario(Login login)
+        public async static Task<bool> AutenticarUsuario(Login login)
         {            
             string url = BaseUrl;
 

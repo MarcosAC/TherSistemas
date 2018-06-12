@@ -20,19 +20,27 @@ namespace MeDeiBem.ServicesAPI
                 BaseAddress = new Uri(url)
             };
 
-            HttpResponseMessage response = await request.GetAsync(url);
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                string conteudo = await response.Content.ReadAsStringAsync();
+                HttpResponseMessage response = await request.GetAsync(url);
 
-                if (conteudo.Length > 0)
+                if (response.IsSuccessStatusCode)
                 {
-                    List<RadarCidade> listaCidades = JsonConvert.DeserializeObject<List<RadarCidade>>(conteudo);
-                    return listaCidades;
+                    string conteudo = await response.Content.ReadAsStringAsync();
+
+                    if (conteudo.Length > 0)
+                    {
+                        List<RadarCidade> listaCidades = JsonConvert.DeserializeObject<List<RadarCidade>>(conteudo);
+                        return listaCidades;
+                    }
                 }
+                return null;
             }
-            return null;
+            catch (Exception)
+            {
+                await App.Current.MainPage.DisplayAlert("Put's sem acesso a Internet", "Voce não esta conectado a internet!", "Ok");
+                return null;
+            }
         }
     }
 }

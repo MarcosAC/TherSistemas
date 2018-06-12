@@ -31,25 +31,32 @@ namespace MeDeiBem.ServicesAPI
                 new KeyValuePair<string, string>("a", "ru"),
                 new KeyValuePair<string, string>("d", dadosUsuario)
             });
-                        
-            HttpResponseMessage response = await request.PostAsync(url, parametros);
 
-            var conteudoResponse = await response.Content.ReadAsStringAsync();
-
-            var dadosResponse = JsonConvert.DeserializeObject<Usuario>(conteudoResponse);
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                switch (dadosResponse.sinc_stat)
+                HttpResponseMessage response = await request.PostAsync(url, parametros);
+
+                var conteudoResponse = await response.Content.ReadAsStringAsync();
+
+                var dadosResponse = JsonConvert.DeserializeObject<Usuario>(conteudoResponse);
+
+                if (response.IsSuccessStatusCode)
                 {
-                    case 0:
-                        await App.Current.MainPage.DisplayAlert("Ohh, esquecido! :P", dadosResponse.sinc_msg, "Ok");
-                        break;
-                    case 1:
-                        await App.Current.MainPage.DisplayAlert("Aeee, mano. Chega aí! :D", dadosResponse.sinc_msg, "Ok");                        
-                        break;
-                }             
-            }         
+                    switch (dadosResponse.sinc_stat)
+                    {
+                        case 0:
+                            await App.Current.MainPage.DisplayAlert("Ohh, esquecido! :P", dadosResponse.sinc_msg, "Ok");
+                            break;
+                        case 1:
+                            await App.Current.MainPage.DisplayAlert("Aeee, mano. Chega aí! :D", dadosResponse.sinc_msg, "Ok");
+                            break;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                await App.Current.MainPage.DisplayAlert("Put's sem acesso a Internet", "Voce não esta conectado a internet!", "Ok");                
+            }       
         }
     }
 }
