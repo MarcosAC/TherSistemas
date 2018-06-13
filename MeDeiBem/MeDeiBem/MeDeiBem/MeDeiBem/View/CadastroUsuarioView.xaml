@@ -29,8 +29,8 @@
                         SelectedIndexChanged="PckRadarCidade_OnSelectIndexChange"      
                     />
 
-                    <Entry x:Name="TxtSenha" Text="{Binding Senha}" Placeholder="Senha" PlaceholderColor="#989898" TextChanged="TxtSenha_OnTextChange" />
-                    <Entry x:Name="TxtConfirmaSenha" Text="{Binding Senha}" Placeholder="Confirma Senha" PlaceholderColor="#989898" TextChanged="TxtConfirmaSenha_OnTextChange" />
+                    <Entry x:Name="TxtSenha" Text="{Binding Senha}" IsPassword="True" Placeholder="Senha" PlaceholderColor="#989898" TextChanged="TxtSenha_OnTextChange" />
+                    <Entry x:Name="TxtConfirmaSenha" Text="{Binding Senha}" IsPassword="True" Placeholder="Confirma Senha" PlaceholderColor="#989898" TextChanged="TxtConfirmaSenha_OnTextChange" />
 
                     <Button Text="Cadastrar" TextColor="#0057ff" BackgroundColor="#b1f1ff" Clicked="BtnCadastrarUsuario_OnClicked" />
                     <Button Text="Limpar" TextColor="#0057ff" BackgroundColor="#b1f1ff" />
