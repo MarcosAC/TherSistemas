@@ -16,7 +16,7 @@
                 <Entry x:Name="textSearch" 
                        Text="{Binding TextSearch}"
                        Placeholder="Digite o que procura"                       
-                       PlaceholderColor="Gray"
+                       PlaceholderColor="#989898"
                        FontSize="Medium"                       
                        BackgroundColor="Transparent"
                        HorizontalOptions="FillAndExpand" />

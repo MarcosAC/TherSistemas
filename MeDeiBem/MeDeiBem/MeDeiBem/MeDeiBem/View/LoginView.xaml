@@ -9,8 +9,8 @@
 
                 <Label Text="Login" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="#5258aa" FontSize="Large" />
 
-                <Entry x:Name="TxtEmail" Text="{Binding Email}" Placeholder="E-Mail" PlaceholderColor="Gray" Keyboard="Email" TextChanged="TxtEmail_OnTextChange" />
-                <Entry x:Name="TxtSenha" Text="{Binding Senha}" Placeholder="Senha" PlaceholderColor="Gray" IsPassword="True" TextChanged="TxtSenha_OnTextChanged" />
+                <Entry x:Name="TxtEmail" Text="{Binding Email}" Placeholder="E-Mail" PlaceholderColor="#989898" Keyboard="Email" TextChanged="TxtEmail_OnTextChange" />
+                <Entry x:Name="TxtSenha" Text="{Binding Senha}" Placeholder="Senha" PlaceholderColor="#989898" IsPassword="True" TextChanged="TxtSenha_OnTextChanged" />
 
                 <Button Text="Entrar" BackgroundColor="#ffd56d" Clicked="BtnEntrar_OnClicked" />
                 <Button Text="Puts, Esqueci a Senha!" BackgroundColor="#ffd56d" Clicked="BtnEsqueciSenha_OnClicked" />
