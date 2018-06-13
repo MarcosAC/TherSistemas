@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0.1" package="mobi.medeibem" android:installLocation="auto" android:versionCode="5">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0.1" package="mobi.medeibem" android:installLocation="auto" android:versionCode="6">
 	<uses-sdk android:minSdkVersion="10" android:targetSdkVersion="27" />
 	<uses-permission android:name="android.permission.CAMERA" />
 	<application android:label="MeDeiBem.Android" android:icon="@drawable/ic_launcher"></application>

@@ -13,9 +13,10 @@
                 <StackLayout HeightRequest="75">
                     <Label Text="Configurações" FontSize="Medium" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
                 </StackLayout>
-
-                <!-- Botões Menu -->
-                <controls:ButtonIcon x:Name="BtnFuncoes" 
+                <ScrollView>
+                    <StackLayout>
+                        <!-- Botões Menu -->
+                        <controls:ButtonIcon x:Name="BtnFuncoes" 
                                      HorizontalOptions="Start"
                                      Margin="15, 0"
                                      Icon="{Static local:Fontes.FACog}"
@@ -24,7 +25,7 @@
                                      BackgroundColor="Transparent"
                                      ClickButton="BtnFuncoes_OnClicked" />
 
-                <controls:ButtonIcon HorizontalOptions="Start"
+                        <controls:ButtonIcon HorizontalOptions="Start"
                                      Margin="15, 0"
                                      Icon="{Static local:Fontes.FACheckSquare}"
                                      TextButton="Baixa de Desconto"
@@ -32,7 +33,7 @@
                                      BackgroundColor="Transparent"
                                      ClickButton="BtnBaixaDesconto_OnClicked" />
 
-                <controls:ButtonIcon HorizontalOptions="Start"
+                        <controls:ButtonIcon HorizontalOptions="Start"
                                      Margin="15, 0"
                                      Icon="{Static local:Fontes.FAHandShakeO}"
                                      TextButton="Meu Classificado"
@@ -40,7 +41,7 @@
                                      BackgroundColor="Transparent"
                                      ClickButton="BtnMeuClassificado_OnClicked" />
 
-                <controls:ButtonIcon HorizontalOptions="Start"
+                        <controls:ButtonIcon HorizontalOptions="Start"
                                      Margin="15, 0"
                                      Icon="{Static local:Fontes.FAAddressCardO}"
                                      TextButton="Meu Cadastro"
@@ -48,7 +49,7 @@
                                      BackgroundColor="Transparent"
                                      ClickButton="BtnMeuCadastro_OnClicked" />
 
-                <controls:ButtonIcon HorizontalOptions="Start"
+                        <controls:ButtonIcon HorizontalOptions="Start"
                                      Margin="15, 0"
                                      Icon="{Static local:Fontes.FAEye}"
                                      TextButton="Radar de Ofertas"
@@ -56,7 +57,7 @@
                                      BackgroundColor="Transparent"
                                      ClickButton="BtnRadarOfertas_OnClicked" />
 
-                <controls:ButtonIcon HorizontalOptions="Start"
+                        <controls:ButtonIcon HorizontalOptions="Start"
                                      Margin="15, 0"
                                      Icon="{Static local:Fontes.FAInfoCircle}"
                                      TextButton="Sobre"
@@ -64,21 +65,15 @@
                                      BackgroundColor="Transparent"
                                      ClickButton="BtnSobre_OnClicked" />
 
-                <controls:ButtonIcon HorizontalOptions="Start"
+                        <controls:ButtonIcon HorizontalOptions="Start"
                                      Margin="15, 0"
                                      Icon="{Static local:Fontes.FASignIn}"
                                      TextButton="Sair"
                                      TextButtonColor="White"
                                      BackgroundColor="Transparent"
                                      ClickButton="BtnSair_OnClicked" />
-
-                <!--<Button x:Name="BtnFuncoes" Text="Funcoes" TextColor="White" BackgroundColor="Transparent" Clicked="BtnFuncoes_Clicked" />
-                <Button Text="Baixa de Desconto" TextColor="White" BackgroundColor="Transparent" Clicked="BtnBaixaDesconto_Clicked" />
-                <Button Text="Meu Classificado" TextColor="White" BackgroundColor="Transparent" Clicked="BtnMeuClassificado_Clicked" />
-                <Button Text="Meu Cadastro" TextColor="White" BackgroundColor="Transparent" Clicked="BtnMeuCadastro_Clicked" />
-                <Button Text="Radar de Ofertas" TextColor="White" BackgroundColor="Transparent" Clicked="BtnRadarOfertas_Clicked"/>
-                <Button Text="Sobre" TextColor="White" BackgroundColor="Transparent" Clicked="BtnSobre_Clicked" />
-                <Button Text="Sair" TextColor="White" BackgroundColor="Transparent" Clicked="BtnSair_Clicked" />-->
+                    </StackLayout>
+                </ScrollView>   
             </StackLayout>
         </ContentPage>
     </MasterDetailPage.Master>
