@@ -53,7 +53,7 @@
                 </Picker>
 
                 <!-- Dados Classificado - Título/Texto -->
-                <Entry Placeholder="Título (40 caracteres)" />
+                <Entry Placeholder="Título (40 caracteres)" PlaceholderColor="Gray" />
 
                 <Label Text="Texto (120 caracteres)" FontSize="Medium" />
                 <Editor HeightRequest="200" />
@@ -85,8 +85,8 @@
                 </Grid>
 
                 <!-- Campos Contato - Telefone/E-Maill -->
-                <Entry Placeholder="Contato - Telefone" Keyboard="Telephone" />                 
-                <Entry Placeholder="Contato - E-Mail" Keyboard="Email" />
+                <Entry Placeholder="Contato - Telefone" Keyboard="Telephone" PlaceholderColor="Gray" />
+                <Entry Placeholder="Contato - E-Mail" Keyboard="Email" PlaceholderColor="Gray" />
 
                 <!-- Botões - Publicar/Cancelar -->
                 <Button Text="Publicar" TextColor="#0057ff" BackgroundColor="#b1f1ff" />
