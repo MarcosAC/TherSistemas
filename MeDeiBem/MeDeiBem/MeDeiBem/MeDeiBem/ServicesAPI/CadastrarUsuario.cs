@@ -45,17 +45,17 @@ namespace MeDeiBem.ServicesAPI
                     switch (dadosResponse.sinc_stat)
                     {
                         case 0:
-                            await App.Current.MainPage.DisplayAlert("Ohh, esquecido! :P", dadosResponse.sinc_msg, "Ok");
+                            await App.Current.MainPage.DisplayAlert("Put's, faltou algo! :O", dadosResponse.sinc_msg, "Ok");
                             break;
                         case 1:
-                            await App.Current.MainPage.DisplayAlert("Aeee, mano. Chega aí! :D", dadosResponse.sinc_msg, "Ok");
+                            await App.Current.MainPage.DisplayAlert("Seja Bemvindo! :D", dadosResponse.sinc_msg, "Ok");
                             break;
                     }
                 }
             }
             catch (Exception)
             {
-                await App.Current.MainPage.DisplayAlert("Put's sem acesso a Internet", "Voce não esta conectado a internet!", "Ok");                
+                await App.Current.MainPage.DisplayAlert("Put's sem acesso a Internet! X(", "Voce não esta conectado a internet!", "Ok");                
             }       
         }
     }

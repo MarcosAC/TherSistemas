@@ -51,7 +51,7 @@ namespace MeDeiBem.ServicesAPI
             }
             catch (Exception)
             {
-                await App.Current.MainPage.DisplayAlert("Put's sem acesso a Internet", "Voce não esta conectado a internet!", "Ok");
+                await App.Current.MainPage.DisplayAlert("Put's sem acesso a Internet! X(", "Voce não esta conectado a internet!", "Ok");
                 return null;
             }
         }

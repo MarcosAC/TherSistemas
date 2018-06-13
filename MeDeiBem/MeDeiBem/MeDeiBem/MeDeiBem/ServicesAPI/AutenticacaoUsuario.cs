@@ -41,7 +41,7 @@ namespace MeDeiBem.ServicesAPI
                     switch (dadosUsuario.sinc_stat)
                     {
                         case 0:
-                            await App.Current.MainPage.DisplayAlert("Put's, algo de errado não deu certo! :(", dadosUsuario.sinc_msg, "Ok");
+                            await App.Current.MainPage.DisplayAlert("Put's, algo deu errado! :(", dadosUsuario.sinc_msg, "Ok");
                             break;
                         case 1:
                             try
@@ -52,7 +52,7 @@ namespace MeDeiBem.ServicesAPI
                             }
                             catch (Exception ex)
                             {
-                                await App.Current.MainPage.DisplayAlert("Put's, algo de errado não deu certo! :(", ex.Message, "Merda X(");
+                                await App.Current.MainPage.DisplayAlert("Put's, algo deu errado! :(", ex.Message, "Merda X(");
                             }
                             break;
                     }
@@ -61,7 +61,7 @@ namespace MeDeiBem.ServicesAPI
             }
             catch (Exception)
             {
-                await App.Current.MainPage.DisplayAlert("Put's sem acesso a Internet", "Voce não esta conectado a internet!", "Ok");
+                await App.Current.MainPage.DisplayAlert("Put's sem acesso a Internet! X(", "Voce não esta conectado a internet!", "Ok");
                 return false;
             }
         }
