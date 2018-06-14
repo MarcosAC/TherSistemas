@@ -1,5 +1,4 @@
-﻿using MeDeiBem.DB;
-using MeDeiBem.Model;
+﻿using MeDeiBem.Model;
 using MeDeiBem.ServicesAPI;
 using System;
 using Xamarin.Forms;
@@ -45,13 +44,17 @@ namespace MeDeiBem.View
             {   
                 await Navigation.PushAsync(new MasterPageView());
             }
+
             ActIndicator.IsVisible = false;
         }
 
         private void BtnEsqueciSenha_OnClicked(object sender, EventArgs e)
         {
-            DataBase dataBase = new DataBase();
-            dataBase.UsuarioLogado();
+            ActIndicator.IsVisible = true;
+
+            AutenticacaoUsuario.GerarNovaSenha(TxtEmail.Text);
+
+            ActIndicator.IsVisible = false;
         }
 
         private void BtnQueroParticipar_OnClicked(object sender, EventArgs e)

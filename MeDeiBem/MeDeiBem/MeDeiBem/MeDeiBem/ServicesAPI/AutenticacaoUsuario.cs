@@ -65,5 +65,48 @@ namespace MeDeiBem.ServicesAPI
                 return false;
             }
         }
+
+        public static void GerarNovaSenha(string email)
+        {
+            var url = BaseUrl;
+
+            HttpClient request = new HttpClient
+            {
+                BaseAddress = new Uri(url)
+            };
+
+            string parametrosLogin = "{" + '"' + "email" + '"' + ":" + '"' + email + '"' + "}";
+
+            FormUrlEncodedContent parametros = new FormUrlEncodedContent(new[] {
+                new KeyValuePair<string, string>("a", "gns"),
+                new KeyValuePair<string, string>("d", parametrosLogin)
+            });
+
+            try
+            {
+                HttpResponseMessage response = request.PostAsync(url, parametros).GetAwaiter().GetResult(); ;
+
+                var conteudoResponse = response.Content.ReadAsStringAsync().GetAwaiter().GetResult(); ;
+
+                var resultado = JsonConvert.DeserializeObject<Login>(conteudoResponse);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    switch (resultado.sinc_stat)
+                    {
+                        case 0:
+                            App.Current.MainPage.DisplayAlert("Put's, algo deu errado! :(", resultado.sinc_msg, "Ok");
+                            break;
+                        case 1:
+                            App.Current.MainPage.DisplayAlert("Gerar Nova Senha! :)", resultado.sinc_msg, "Ok");
+                            break;
+                    }
+                }                
+            }
+            catch (Exception)
+            {
+                App.Current.MainPage.DisplayAlert("Put's sem acesso a Internet! X(", "Voce não esta conectado a internet!", "Ok");
+            }
+        }
     }
 }
