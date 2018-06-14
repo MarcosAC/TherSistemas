@@ -20,8 +20,13 @@ namespace MeDeiBem.View
                 
         private async Task<List<Classificado>> ListaClassificados()
         {
+            ActIndicator.IsVisible = true;
+
             List<Classificado> Classificados = await ClassificadoService.GetListaClassificados();
             LstClassificados.ItemsSource = Classificados;
+
+            ActIndicator.IsVisible = false;
+
             return Classificados;
         }
 
@@ -33,9 +38,13 @@ namespace MeDeiBem.View
 
         private async void SbcClassificados_OnClicked(object sender, EventArgs e)
         {
+            ActIndicator.IsVisible = true;
+
             string busca = SbcClassificados.TextSearch;
             List<Classificado> Classificados = await ClassificadoService.GetListaClassificados(busca);
             LstClassificados.ItemsSource = Classificados;
+
+            ActIndicator.IsVisible = false;
         }
     }
 }

@@ -6,6 +6,12 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Imagens do Classificado" TextColor="#5a97ff" FontSize="Medium" HorizontalOptions="Center" />
+            <ActivityIndicator x:Name="ActIndicator" 
+                               IsVisible="False" 
+                               IsRunning="True" 
+                               Color="#0057ff" 
+                               VerticalOptions="CenterAndExpand"
+            />
 
             <ListView x:Name="LstImagensClassificado" HasUnevenRows="True" SeparatorVisibility="None">
                 <ListView.ItemTemplate>

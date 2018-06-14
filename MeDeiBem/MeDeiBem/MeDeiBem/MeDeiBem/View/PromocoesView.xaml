@@ -7,6 +7,13 @@
     <ContentPage.Content>
         <StackLayout Margin="0, 20, 0, 0">
             <controls:SearchBarCustom x:Name="SbcPromocoes" ClickScope="SbcPromocoes_OnClicked" />
+            <ActivityIndicator x:Name="ActIndicator" 
+                               IsVisible="False" 
+                               IsRunning="True" 
+                               Color="#0057ff"                               
+                               VerticalOptions="CenterAndExpand"
+            />
+            
             <ListView x:Name="LstPromocoes" HasUnevenRows="true" SeparatorVisibility="None" ItemTapped="LstPromocoes_OnItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>

@@ -19,6 +19,8 @@ namespace MeDeiBem.View
 
         private void ListarImagens(Classificado linkImagem)
         {
+            ActIndicator.IsVisible = true;
+
             var linkImagens = new List<string>
             {
                 linkImagem.img_link1,
@@ -40,6 +42,8 @@ namespace MeDeiBem.View
             }
 
             LstImagensClassificado.ItemsSource = imagens;
+
+            ActIndicator.IsVisible = true;
         }
 	}
 }

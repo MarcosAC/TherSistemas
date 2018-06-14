@@ -9,12 +9,15 @@ namespace MeDeiBem.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginView : ContentPage
-	{
-		public LoginView ()
+	{        
+        public LoginView ()
 		{
 			InitializeComponent ();
+
             NavigationPage.SetHasNavigationBar(this, false);
-		}
+            
+            BindingContext = this;
+        }
 
         private string _email;
         private void TxtEmail_OnTextChange(object sender, EventArgs e)
@@ -29,7 +32,9 @@ namespace MeDeiBem.View
         }
 
         private async void BtnEntrar_OnClicked(object sender, EventArgs e)
-        {
+        {   
+            ActIndicator.IsVisible = true;
+
             var parametros = new Login
             {
                 email = _email,
@@ -37,10 +42,10 @@ namespace MeDeiBem.View
             };
 
             if (await AutenticacaoUsuario.AutenticarUsuario(parametros))
-            {
+            {   
                 await Navigation.PushAsync(new MasterPageView());
             }
-            
+            ActIndicator.IsVisible = false;
         }
 
         private void BtnEsqueciSenha_OnClicked(object sender, EventArgs e)

@@ -38,6 +38,8 @@ namespace MeDeiBem.View
 
         private void CarregarCarrossel(Promocao linkImagem)
         {
+            ActIndicator.IsVisible = true;
+
             var linkImagens = new List<string>
             {
                 linkImagem.img_link1,
@@ -59,6 +61,8 @@ namespace MeDeiBem.View
             }
 
             CarrosselDeImagens.ItemsSource = imagens;
+
+            ActIndicator.IsVisible = false;
         }        
     }
 }

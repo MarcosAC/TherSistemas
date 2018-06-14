@@ -12,6 +12,8 @@
                 <Entry x:Name="TxtEmail" Text="{Binding Email}" Placeholder="E-Mail" PlaceholderColor="#989898" Keyboard="Email" TextChanged="TxtEmail_OnTextChange" />
                 <Entry x:Name="TxtSenha" Text="{Binding Senha}" Placeholder="Senha" PlaceholderColor="#989898" IsPassword="True" TextChanged="TxtSenha_OnTextChanged" />
 
+                <ActivityIndicator x:Name="ActIndicator" IsVisible="False" IsRunning="True" Color="#0057ff" VerticalOptions="CenterAndExpand" />
+
                 <Button Text="Entrar" BackgroundColor="#ffd56d" Clicked="BtnEntrar_OnClicked" />
                 <Button Text="Puts, Esqueci a Senha!" BackgroundColor="#ffd56d" Clicked="BtnEsqueciSenha_OnClicked" />
                 <Button Text="Quero Participar!" BackgroundColor="#ffd56d" Clicked="BtnQueroParticipar_OnClicked" />
