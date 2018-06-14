@@ -43,7 +43,7 @@ namespace MeDeiBem.View
 
             LstImagensClassificado.ItemsSource = imagens;
 
-            ActIndicator.IsVisible = true;
+            ActIndicator.IsVisible = false;
         }
 	}
 }
