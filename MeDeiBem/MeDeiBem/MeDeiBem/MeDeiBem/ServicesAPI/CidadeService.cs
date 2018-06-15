@@ -11,18 +11,20 @@ namespace MeDeiBem.ServicesAPI
     {
         private static readonly string BaseUrl = Constantes.BASE_PROTOCOL + Constantes.BASE_URL + Constantes.BASE_API;
 
-        public async static Task<List<RadarCidade>> GetCidade()
+        public async static Task<List<RadarCidade>> GetCidade(string sigla)
         {
-            var url = BaseUrl + "a=lc&uf=mg";
+            var url = BaseUrl + "a=lc&uf=";
 
             HttpClient request = new HttpClient
             {
                 BaseAddress = new Uri(url)
             };
 
+            //string parametros = sigla;
+
             try
             {
-                HttpResponseMessage response = await request.GetAsync(url);
+                HttpResponseMessage response = await request.GetAsync(url + sigla);
 
                 if (response.IsSuccessStatusCode)
                 {

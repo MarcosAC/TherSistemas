@@ -14,8 +14,7 @@ namespace MeDeiBem.View
 		{
 			InitializeComponent ();
 
-            CarregarEstados();
-            CarregarCidades();
+            CarregarEstados();           
         }
 
         /*
@@ -27,9 +26,9 @@ namespace MeDeiBem.View
             PckRadarEstado.ItemsSource = ListaEstados;
         }
 
-        private async void CarregarCidades()
+        private async void CarregarCidades(string sigla)
         {
-            List<RadarCidade> ListaCidades = await CidadeService.GetCidade();
+            List<RadarCidade> ListaCidades = await CidadeService.GetCidade(sigla);
             PckRadarCidade.ItemsSource = ListaCidades;
         }        
 
@@ -80,6 +79,8 @@ namespace MeDeiBem.View
             if (PckRadarEstado.SelectedIndex != -1)
             {
                 radarUf = estado.sigla;
+
+                CarregarCidades(radarUf);
             }
         }
 
