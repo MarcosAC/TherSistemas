@@ -76,13 +76,21 @@ namespace MeDeiBem.View
         private void PckRadarEstado_OnSelectIndexChange(object sender, EventArgs e)
         {
             var estado = (RadarEstado)PckRadarEstado.SelectedItem;
-            radarUf = estado.sigla;
+
+            if (PckRadarEstado.SelectedIndex != -1)
+            {
+                radarUf = estado.sigla;
+            }
         }
 
         private void PckRadarCidade_OnSelectIndexChange(object sender, EventArgs e)
         {
             var cidade = (RadarCidade)PckRadarCidade.SelectedItem;
-            radarCidade = cidade.idcidade;
+
+            if (PckRadarCidade.SelectedIndex != -1)
+            {
+                radarCidade = cidade.idcidade;
+            }
         }
 
         /*
@@ -101,6 +109,17 @@ namespace MeDeiBem.View
             };
 
             await CadastrarUsuario.AddUsuario(usuario);            
-        }        
+        }
+        
+        private void BtnLimpar_OnClicked(object sender, EventArgs e)
+        {
+            TxtNome.Text = string.Empty;
+            TxtSobrenome.Text = string.Empty;
+            TxtEmail.Text = string.Empty;
+            PckRadarEstado.SelectedIndex = -1;
+            PckRadarCidade.SelectedIndex = -1;
+            TxtSenha.Text = string.Empty;
+            TxtConfirmaSenha.Text = string.Empty;
+        }
     }
 }

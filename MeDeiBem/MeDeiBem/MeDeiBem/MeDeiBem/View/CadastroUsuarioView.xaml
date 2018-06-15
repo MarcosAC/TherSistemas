@@ -18,6 +18,7 @@
                         Title="Radar-Estado" 
                         FontSize="18"
                         ItemDisplayBinding="{Binding estado}" 
+                        SelectedIndex="-1"
                         SelectedIndexChanged="PckRadarEstado_OnSelectIndexChange"                        
                      />
 
@@ -26,6 +27,7 @@
                         Title="Radar-Cidade"
                         FontSize="18"
                         ItemDisplayBinding="{Binding cidade_nome}" 
+                        SelectedIndex="-1"
                         SelectedIndexChanged="PckRadarCidade_OnSelectIndexChange"      
                     />
 
@@ -33,7 +35,7 @@
                     <Entry x:Name="TxtConfirmaSenha" Text="{Binding Senha}" IsPassword="True" Placeholder="Confirma Senha" PlaceholderColor="#989898" TextChanged="TxtConfirmaSenha_OnTextChange" />
 
                     <Button Text="Cadastrar" TextColor="#0057ff" BackgroundColor="#b1f1ff" Clicked="BtnCadastrarUsuario_OnClicked" />
-                    <Button Text="Limpar" TextColor="#0057ff" BackgroundColor="#b1f1ff" />
+                    <Button Text="Limpar" TextColor="#0057ff" BackgroundColor="#b1f1ff" Clicked="BtnLimpar_OnClicked" />
                 </StackLayout>
             </ScrollView>            
         </StackLayout>
