@@ -36,6 +36,19 @@ namespace MeDeiBem.DB
             }
         }
 
+        public void DeslogarUsuario()
+        {
+            try
+            {                
+                _conexao.Query<Usuario>("UPDATE Usuario SET sinc_stat=0");
+                Debug.WriteLine("Eita, deu certo. :D");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Erro-> " + ex.Message);
+            }
+        }
+
         public void InserirClassificado(Classificado classificado)
         {
             _conexao.Insert(classificado);
@@ -48,8 +61,14 @@ namespace MeDeiBem.DB
                 return false;
             }
 
-            var dadosUsuario = _conexao.Table<Usuario>().Where(u => u.sinc_stat == 1).FirstOrDefault();
-            return true;
+            var dadosUsuario = _conexao.Table<Usuario>().FirstOrDefault();
+
+            if (dadosUsuario.sinc_stat == 1)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public Classificado GetClassificado(int id)

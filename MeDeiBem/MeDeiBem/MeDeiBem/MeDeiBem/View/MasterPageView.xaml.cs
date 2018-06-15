@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MeDeiBem.DB.ServicesDB;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -51,6 +52,7 @@ namespace MeDeiBem.View
 
         private void BtnSair_OnClicked(object sender, EventArgs args)
         {
+            VerificarUsuarioLogado.Deslogar();
             Detail = new NavigationPage(new View.LoginView());
             IsPresented = false;
         }
