@@ -35,7 +35,7 @@ namespace MeDeiBem.DB
             }
         }
 
-        public void DeslogarUsuario(Usuario usuario)
+        public void DeslogarUsuario()
         {
             try
             {

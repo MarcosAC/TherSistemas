@@ -11,10 +11,9 @@ namespace MeDeiBem.DB.ServicesDB
         } 
         
         public static void Deslogar()
-        {
-            Usuario usuario = new Usuario();
+        {            
             DataBase dataBase = new DataBase();
-            dataBase.DeslogarUsuario(usuario);            
+            dataBase.DeslogarUsuario();            
         }
     }
 }
