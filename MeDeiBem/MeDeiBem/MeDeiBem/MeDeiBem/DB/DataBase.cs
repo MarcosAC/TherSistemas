@@ -28,7 +28,6 @@ namespace MeDeiBem.DB
             try
             {
                 _conexao.Insert(usuario);
-                Debug.WriteLine("Eita, deu certo. :D");
             }
             catch (Exception ex)
             {
@@ -36,12 +35,11 @@ namespace MeDeiBem.DB
             }
         }
 
-        public void DeslogarUsuario()
+        public void DeslogarUsuario(Usuario usuario)
         {
             try
-            {                
-                _conexao.Query<Usuario>("UPDATE Usuario SET sinc_stat=0");
-                Debug.WriteLine("Eita, deu certo. :D");
+            {
+                _conexao.Query<Usuario>("DELETE FROM Usuario");
             }
             catch (Exception ex)
             {

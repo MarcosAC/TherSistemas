@@ -1,4 +1,6 @@
-﻿namespace MeDeiBem.DB.ServicesDB
+﻿using MeDeiBem.Model;
+
+namespace MeDeiBem.DB.ServicesDB
 {
     public class VerificarUsuarioLogado
     {   
@@ -10,8 +12,9 @@
         
         public static void Deslogar()
         {
+            Usuario usuario = new Usuario();
             DataBase dataBase = new DataBase();
-            dataBase.DeslogarUsuario();            
+            dataBase.DeslogarUsuario(usuario);            
         }
     }
 }
