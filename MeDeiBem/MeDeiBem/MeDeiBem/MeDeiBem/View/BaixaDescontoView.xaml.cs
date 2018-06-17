@@ -1,48 +1,44 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using ZXing.Net.Mobile.Forms;
 
 namespace MeDeiBem.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BaixaDescontoView : ContentPage
 	{
-        ZXingScannerView leitorQr;        
-
-        public BaixaDescontoView ()
+		public BaixaDescontoView (string codigoQR = null)
 		{
 			InitializeComponent ();
 
-            leitorQr = new ZXingScannerView
-            {
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                VerticalOptions = LayoutOptions.FillAndExpand,                
-            };
+            BindingContext = this;
 
-            leitorQr.OnScanResult += (result) =>
-            {
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    leitorQr.IsScanning = false;
-                    LblCodigoQR.Text = result.Text;                    
-                });
-            };
+            TxtCodigoDesconto.Text = codigoQR;
+		}
 
-            EscanerQR.Children.Add(leitorQr);            
+        private void TxtCodigoDesconto_OnTextChange(object sender, EventArgs e)
+        {
+
         }
 
-        protected override void OnAppearing()
+        private void TxtSenhaVendedor_OnTextChange(object sender, EventArgs e)
         {
-            base.OnAppearing();
 
-            leitorQr.IsScanning = true;
         }
 
-        protected override void OnDisappearing()
+        private void TxtQuantidadeVendida_OnTextChange(object sender, EventArgs e)
         {
-            leitorQr.IsScanning = false;
 
-            base.OnDisappearing();
+        }
+
+        private void BtnLerCodigoQR_OnClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new LeitorQRView());
+        }
+
+        private void BtnRegistrar_OnClicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

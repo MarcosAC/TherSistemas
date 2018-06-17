@@ -1,15 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MeDeiBem.View.BaixaDescontoView"
-             Title="Baixa de Desconto">
+             x:Class="MeDeiBem.View.BaixaDescontoView">
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="20">
-            <StackLayout x:Name="EscanerQR" HeightRequest="410" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
-            <StackLayout>
-                <Label x:Name="LblCodigoQR" Text="Aguardando código qr..." HorizontalOptions="CenterAndExpand" />
-                <Button x:Name="BtnBaixarDesconto" Text="Baixar Desconto" TextColor="#0057ff" BackgroundColor="#b1f1ff" />
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
+                <Image Source="logo.png"/>
+
+                <Label Text="Baixa de Desconto" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="#5258aa" FontSize="Large" />
+
+                <Button Text="Ler Código QR" BackgroundColor="#ffd56d" Clicked="BtnLerCodigoQR_OnClicked" />
+
+                <Entry x:Name="TxtCodigoDesconto" 
+                   Text="{Binding CodigoDesconto}" 
+                   Placeholder="Codigo de Desconto" 
+                   PlaceholderColor="#989898" 
+                   TextChanged="TxtCodigoDesconto_OnTextChange"
+                />
+                <Entry x:Name="TxtSenhaVendedor" 
+                   Text="{Binding SenhaVendedor}" 
+                   Placeholder="Senha do Vendedor" 
+                   PlaceholderColor="#989898"
+                   IsPassword="True"
+                   TextChanged="TxtSenhaVendedor_OnTextChange" 
+                />
+                <Entry x:Name="TxtQuantidadeVendida" 
+                   Text="{Binding QuantidadeVendida}" 
+                   Placeholder="Quantidade Vendida" 
+                   PlaceholderColor="#989898"
+                   Keyboard="Numeric"
+                   TextChanged="TxtQuantidadeVendida_OnTextChange" 
+                />
+
+                <Button Text="Registrar" TextColor="#0057ff" BackgroundColor="#b1f1ff" Clicked="BtnRegistrar_OnClicked" />
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

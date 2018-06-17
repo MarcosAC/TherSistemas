@@ -20,8 +20,6 @@ namespace MeDeiBem.ServicesAPI
                 BaseAddress = new Uri(url)
             };
 
-            //string parametros = sigla;
-
             try
             {
                 HttpResponseMessage response = await request.GetAsync(url + sigla);
