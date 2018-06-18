@@ -14,64 +14,65 @@
                     <Label Text="Configurações" FontSize="Medium" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
                 </StackLayout>
                 <ScrollView>
-                    <StackLayout>
+                    <StackLayout x:Name="MenuBotoes">
                         <!-- Botões Menu -->
                         <controls:ButtonIcon x:Name="BtnFuncoes" 
-                                     HorizontalOptions="Start"
-                                     Margin="15, 0"
-                                     Icon="{Static local:Fontes.FACog}"
-                                     TextButton="Funções"  
-                                     TextButtonColor="White"                                     
-                                     BackgroundColor="Transparent"
-                                     ClickButton="BtnFuncoes_OnClicked" />
+                                             HorizontalOptions="Start"
+                                             Margin="15, 0"
+                                             Icon="{Static local:Fontes.FACog}"
+                                             TextButton="Funções"  
+                                             TextButtonColor="White"                                     
+                                             BackgroundColor="Transparent"
+                                             ClickButton="BtnFuncoes_OnClicked" />
+
+                        <controls:ButtonIcon x:Name="BtnBaixaDesconto" 
+                                             HorizontalOptions="Start"
+                                             Margin="15, 0"
+                                             Icon="{Static local:Fontes.FACheckSquare}"
+                                             TextButton="Baixa de Desconto"
+                                             TextButtonColor="White"
+                                             BackgroundColor="Transparent"
+                                             ClickButton="BtnBaixaDesconto_OnClicked" />
 
                         <controls:ButtonIcon HorizontalOptions="Start"
-                                     Margin="15, 0"
-                                     Icon="{Static local:Fontes.FACheckSquare}"
-                                     TextButton="Baixa de Desconto"
-                                     TextButtonColor="White"
-                                     BackgroundColor="Transparent"
-                                     ClickButton="BtnBaixaDesconto_OnClicked" />
+                                             Margin="15, 0"
+                                             Icon="{Static local:Fontes.FAHandShakeO}"
+                                             TextButton="Meu Classificado"
+                                             TextButtonColor="White"
+                                             BackgroundColor="Transparent"
+                                             ClickButton="BtnMeuClassificado_OnClicked" />
 
                         <controls:ButtonIcon HorizontalOptions="Start"
-                                     Margin="15, 0"
-                                     Icon="{Static local:Fontes.FAHandShakeO}"
-                                     TextButton="Meu Classificado"
-                                     TextButtonColor="White"
-                                     BackgroundColor="Transparent"
-                                     ClickButton="BtnMeuClassificado_OnClicked" />
+                                             Margin="15, 0"
+                                             Icon="{Static local:Fontes.FAAddressCardO}"
+                                             TextButton="Meu Cadastro"
+                                             TextButtonColor="White"
+                                             BackgroundColor="Transparent"
+                                             ClickButton="BtnMeuCadastro_OnClicked" />
 
                         <controls:ButtonIcon HorizontalOptions="Start"
-                                     Margin="15, 0"
-                                     Icon="{Static local:Fontes.FAAddressCardO}"
-                                     TextButton="Meu Cadastro"
-                                     TextButtonColor="White"
-                                     BackgroundColor="Transparent"
-                                     ClickButton="BtnMeuCadastro_OnClicked" />
+                                             Margin="15, 0"
+                                             Icon="{Static local:Fontes.FAEye}"
+                                             TextButton="Radar de Ofertas"
+                                             TextButtonColor="White"
+                                             BackgroundColor="Transparent"
+                                             ClickButton="BtnRadarOfertas_OnClicked" />
 
                         <controls:ButtonIcon HorizontalOptions="Start"
-                                     Margin="15, 0"
-                                     Icon="{Static local:Fontes.FAEye}"
-                                     TextButton="Radar de Ofertas"
-                                     TextButtonColor="White"
-                                     BackgroundColor="Transparent"
-                                     ClickButton="BtnRadarOfertas_OnClicked" />
+                                             Margin="15, 0"
+                                             Icon="{Static local:Fontes.FAInfoCircle}"
+                                             TextButton="Sobre"
+                                             TextButtonColor="White"
+                                             BackgroundColor="Transparent"
+                                             ClickButton="BtnSobre_OnClicked" />
 
                         <controls:ButtonIcon HorizontalOptions="Start"
-                                     Margin="15, 0"
-                                     Icon="{Static local:Fontes.FAInfoCircle}"
-                                     TextButton="Sobre"
-                                     TextButtonColor="White"
-                                     BackgroundColor="Transparent"
-                                     ClickButton="BtnSobre_OnClicked" />
-
-                        <controls:ButtonIcon HorizontalOptions="Start"
-                                     Margin="15, 0"
-                                     Icon="{Static local:Fontes.FASignIn}"
-                                     TextButton="Sair"
-                                     TextButtonColor="White"
-                                     BackgroundColor="Transparent"
-                                     ClickButton="BtnSair_OnClicked" />
+                                             Margin="15, 0"
+                                             Icon="{Static local:Fontes.FASignIn}"
+                                             TextButton="Sair"
+                                             TextButtonColor="White"
+                                             BackgroundColor="Transparent"
+                                             ClickButton="BtnSair_OnClicked" />
                     </StackLayout>
                 </ScrollView>   
             </StackLayout>

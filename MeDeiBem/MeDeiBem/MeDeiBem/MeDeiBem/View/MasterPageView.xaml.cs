@@ -13,7 +13,19 @@ namespace MeDeiBem.View
 		public MasterPageView ()
 		{
 			InitializeComponent ();
+
             NavigationPage.SetHasNavigationBar(this, false);
+
+            DesabilitaBotãoBaixaDesconto();
+        }
+
+        private void DesabilitaBotãoBaixaDesconto()
+        {
+            if (MostraPaginaBaixaDesconto.MostraPagina(DataBase.GetAppKey()))
+            {
+                BtnBaixaDesconto.IsEnabled = false;
+                MenuBotoes.Children.Remove(BtnBaixaDesconto);                
+            }
         }
 
         private void BtnFuncoes_OnClicked(object sender, EventArgs args)
@@ -24,15 +36,8 @@ namespace MeDeiBem.View
 
         private void BtnBaixaDesconto_OnClicked(object sender, EventArgs args)
         {
-            if (MostraPaginaBaixaDesconto.MostraPagina(DataBase.GetAppKey()))
-            {
-                Detail = new NavigationPage(new BaixaDescontoView());
-                IsPresented = false;
-            }
-            else
-            {
-                DisplayAlert("Put's, algo deu errado! :(", "Baixa de Desconto disponivel apenas para logistas.", "Ok");
-            }
+            Detail = new NavigationPage(new BaixaDescontoView());
+            IsPresented = false;            
         }
 
         private void BtnMeuClassificado_OnClicked(object sender, EventArgs args)

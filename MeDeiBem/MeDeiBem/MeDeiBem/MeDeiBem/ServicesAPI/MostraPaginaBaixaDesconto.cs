@@ -39,9 +39,9 @@ namespace MeDeiBem.ServicesAPI
                     switch (dadosResponse.mostra_baixa_promo)
                     {
                         case 0:
-                            return false;
+                            return true;
                         case 1:
-                            return true;                            
+                            return false;                            
                     }
                 }                
             }
