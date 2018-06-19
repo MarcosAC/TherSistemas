@@ -30,7 +30,19 @@ namespace MeDeiBem.View
         {
             List<RadarCidade> ListaCidades = await CidadeService.GetCidade(sigla);
             PckRadarCidade.ItemsSource = ListaCidades;
-        }        
+        }    
+        
+        private void LimparCampos()
+        {
+            TxtNome.Text = string.Empty;
+            TxtSobrenome.Text = string.Empty;
+            TxtEmail.Text = string.Empty;
+            PckRadarEstado.SelectedIndex = -1;
+            PckRadarCidade.ItemsSource = null;
+            PckRadarCidade.Items.Clear();
+            TxtSenha.Text = string.Empty;
+            TxtConfirmaSenha.Text = string.Empty;
+        }
 
         #region Variaveis que recebe os dados dos campos de cadastro.
         private string nome;
@@ -39,6 +51,7 @@ namespace MeDeiBem.View
         private string radarUf;
         private string radarCidade;
         private string senha;
+        private string confirmaSenha;
         #endregion
 
         /*
@@ -66,7 +79,7 @@ namespace MeDeiBem.View
 
         private void TxtConfirmaSenha_OnTextChange(object sender, EventArgs e)
         {
-            senha = TxtConfirmaSenha.Text;
+            confirmaSenha = TxtConfirmaSenha.Text;
         }
 
         /*
@@ -78,9 +91,9 @@ namespace MeDeiBem.View
 
             if (PckRadarEstado.SelectedIndex != -1)
             {
-                radarUf = estado.sigla;
+                CarregarCidades(estado.sigla);
 
-                CarregarCidades(radarUf);
+                radarUf = estado.sigla;
             }
         }
 
@@ -99,28 +112,32 @@ namespace MeDeiBem.View
          */
         private async void BtnCadastrarUsuario_OnClicked(object sender, EventArgs e)
         {
-            var usuario = new Usuario
+            if (confirmaSenha == senha)
             {
-                nome = nome,
-                sobrenome = sobrenome,
-                email = email,
-                radar_uf = radarUf,
-                radar_cid = radarCidade,
-                senha = senha
-            };
+                var usuario = new Usuario
+                {
+                    nome = nome,
+                    sobrenome = sobrenome,
+                    email = email,
+                    radar_uf = radarUf,
+                    radar_cid = radarCidade,
+                    senha = senha
+                };
 
-            await CadastrarUsuario.AddUsuario(usuario);            
+                await CadastrarUsuario.AddUsuario(usuario);
+
+                LimparCampos();
+            }
+            else
+            {
+                await DisplayAlert("Put´s algo deu arrado :(", "As senhas não são iguais. Por favor digite novamente.", "Ok");
+                TxtConfirmaSenha.Text = string.Empty;
+            }           
         }
         
         private void BtnLimpar_OnClicked(object sender, EventArgs e)
         {
-            TxtNome.Text = string.Empty;
-            TxtSobrenome.Text = string.Empty;
-            TxtEmail.Text = string.Empty;
-            PckRadarEstado.SelectedIndex = -1;
-            PckRadarCidade.SelectedIndex = -1;
-            TxtSenha.Text = string.Empty;
-            TxtConfirmaSenha.Text = string.Empty;
+            LimparCampos();
         }
     }
 }
