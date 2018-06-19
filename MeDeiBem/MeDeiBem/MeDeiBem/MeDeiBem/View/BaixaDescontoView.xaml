@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MeDeiBem.View.BaixaDescontoView">
+             x:Class="MeDeiBem.View.BaixaDescontoView"
+             Title="Baixa de Desconto">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
@@ -9,7 +10,7 @@
 
                 <Label Text="Baixa de Desconto" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="#5258aa" FontSize="Large" />
 
-                <Button Text="Ler Código QR" BackgroundColor="#ffd56d" Clicked="BtnLerCodigoQR_OnClicked" />
+                <Button Text="Ler Código QR" BackgroundColor="#ffd56d" Clicked="BtnLerCodigoQR_OnClicked" />                
 
                 <Entry x:Name="TxtCodigoDesconto" 
                    Text="{Binding CodigoDesconto}" 
@@ -32,7 +33,14 @@
                    TextChanged="TxtQuantidadeVendida_OnTextChange" 
                 />
 
-                <Button Text="Registrar" TextColor="#0057ff" BackgroundColor="#b1f1ff" Clicked="BtnRegistrar_OnClicked" />
+                <ActivityIndicator x:Name="ActIndicator" 
+                                   IsVisible="False" 
+                                   IsRunning="True" 
+                                   Color="#0057ff" 
+                                   VerticalOptions="CenterAndExpand" 
+                />
+
+                <Button Text="Registrar" TextColor="#0057ff" BackgroundColor="#b1f1ff" Clicked="BtnRegistrar_OnClicked" />                
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
