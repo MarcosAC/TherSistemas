@@ -62,7 +62,7 @@
                     <Label Grid.Column="1" Grid.Row="1" Text="{Binding preco_promocao}" TextColor="#5a97ff" FontSize="Medium" HorizontalTextAlignment="Start" />
                     <Label Grid.Column="1" Grid.Row="2" Text="{Binding desconto}" TextColor="#5a97ff" FontSize="Medium" HorizontalTextAlignment="Start" />
                     <Label Grid.Column="1" Grid.Row="3" Text="{Binding validade}" TextColor="#5a97ff" FontSize="Medium" HorizontalTextAlignment="Start" />
-                    <Label Grid.Column="1" Grid.Row="4" Text="{Binding qtde_ofertada}" TextColor="#5a97ff" FontSize="Medium" HorizontalTextAlignment="Start" />
+                    <Label Grid.Column="1" Grid.Row="4" Text="{Binding qtde_disponivel}" TextColor="#5a97ff" FontSize="Medium" HorizontalTextAlignment="Start" />
                 </Grid>
 
                 <!-- Label Nome do Campo -->
