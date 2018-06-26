@@ -17,6 +17,16 @@ namespace MeDeiBem.View
             CarregarEstados();           
         }
 
+        #region Variaveis que recebe os dados dos campos de cadastro.
+        private string nome;
+        private string sobrenome;
+        private string email;
+        private string radarUf;
+        private string radarCidade;
+        private string senha;
+        private string confirmaSenha;
+        #endregion
+
         /*
          * Métodos que carrega os estados e as cidades para o picker. 
          */
@@ -43,16 +53,6 @@ namespace MeDeiBem.View
             TxtSenha.Text = string.Empty;
             TxtConfirmaSenha.Text = string.Empty;
         }
-
-        #region Variaveis que recebe os dados dos campos de cadastro.
-        private string nome;
-        private string sobrenome;
-        private string email;
-        private string radarUf;
-        private string radarCidade;
-        private string senha;
-        private string confirmaSenha;
-        #endregion
 
         /*
          * Campos do formulario.

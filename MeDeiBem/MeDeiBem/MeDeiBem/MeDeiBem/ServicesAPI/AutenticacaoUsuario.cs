@@ -46,8 +46,7 @@ namespace MeDeiBem.ServicesAPI
                         case 1:
                             try
                             {
-                                DataBase dataBase = new DataBase();
-                                dataBase.AddUsuario(dadosUsuario);
+                                DataBase.AddUsuario(dadosUsuario);
                                 return true;
                             }
                             catch (Exception ex)

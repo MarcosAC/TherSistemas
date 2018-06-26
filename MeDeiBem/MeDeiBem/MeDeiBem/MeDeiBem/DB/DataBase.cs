@@ -23,7 +23,7 @@ namespace MeDeiBem.DB
             _conexao.CreateTable<Classificado>();
         }
 
-        public void AddUsuario(Usuario usuario)
+        public static void AddUsuario(Usuario usuario)
         {
             try
             {
@@ -40,6 +40,7 @@ namespace MeDeiBem.DB
             try
             {
                 _conexao.Query<Usuario>("DELETE FROM Usuario");
+                _conexao.Query<Classificado>("DELETE FROM Classificado");
             }
             catch (Exception ex)
             {
@@ -47,9 +48,17 @@ namespace MeDeiBem.DB
             }
         }
 
-        public void InserirClassificado(Classificado classificado)
+        public static void AddClassificado(Classificado classificado)
         {
-            _conexao.Insert(classificado);
+            try
+            {
+                _conexao.Insert(classificado);
+                App.Current.MainPage.DisplayAlert("Put's, Deu certo!!!! :D", "Dados do Classificado inserido com sucesso na base local ", "Ok");
+            }
+            catch (Exception Erro)
+            {
+                App.Current.MainPage.DisplayAlert("Put's, algo deu errado! :(", "Erro ao inserir dados do Classificado na base de dados local " + Erro, "Ok");
+            }
         }
 
         public bool UsuarioLogado()
@@ -69,9 +78,15 @@ namespace MeDeiBem.DB
             return false;
         }
 
-        public Classificado GetClassificado(int id)
+        public static Classificado GetClassificado()
         {
-            return _conexao.Table<Classificado>().Where(c => c.IdClassificado == id).FirstOrDefault();
+            if (_conexao.Table<Classificado>().Count() > 0)
+            {
+                var dadosClassificado = _conexao.Table<Classificado>().FirstOrDefault();
+                return dadosClassificado;
+            }
+
+            return null;
         }
 
         public static string GetAppKey()

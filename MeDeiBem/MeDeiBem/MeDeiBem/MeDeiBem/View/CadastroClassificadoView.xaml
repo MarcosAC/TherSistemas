@@ -9,7 +9,14 @@
 
                 <!-- Imagem logo -->
                 <Image Source="logo.png"/>
-                
+
+                <ActivityIndicator x:Name="ActIndicator" 
+                                   IsVisible="False" 
+                                   IsRunning="True" 
+                                   Color="#0057ff"                               
+                                   VerticalOptions="CenterAndExpand"
+                />
+
                 <!-- Situação do Calssificado -->
                 <Grid>
                     <!-- Colunas -->
@@ -26,37 +33,34 @@
 
                     <Label Grid.Column="0" Grid.Row="0" Text="Situação:" FontSize="Medium" HorizontalOptions="FillAndExpand" />
                     <Label Grid.Column="0" Grid.Row="1" Text="Obs:" HorizontalTextAlignment="End" FontSize="Medium" HorizontalOptions="FillAndExpand" />
-                    <Label Grid.Column="1" Grid.Row="0" Text="Disponível" FontSize="Medium" TextColor="Red" HorizontalOptions="FillAndExpand" />
-                    <Label Grid.Column="1" Grid.Row="1" Text="Apenas 1 anuncio por vez. Duração de 7 dias. Renove sempre que desejar." FontSize="Medium" TextColor="Red" HorizontalOptions="FillAndExpand" />
+                    <Label Grid.Column="1" Grid.Row="0" x:Name="LblSituacao" Text="Disponível" FontSize="Medium" TextColor="Red" HorizontalOptions="FillAndExpand" />
+                    <Label Grid.Column="1" Grid.Row="1" x:Name="LblObservacao" Text="Apenas um Anuncio por vez. Duração de 7 dias. Renove sempre que precisar." FontSize="Medium" TextColor="Red" HorizontalOptions="FillAndExpand" />
                 </Grid>
 
                 <!-- Picker Categoria -->
-                <Picker Title="Categoria" FontSize="18">
-                    <Picker.Items>
-                        <x:String>ACESSÓRIOS PARA VEÍCULOS</x:String>
-                        <x:String>ACESSÓRIOS PARA VEÍCULOS</x:String>
-                        <x:String>ACESSÓRIOS PARA VEÍCULOS</x:String>
-                        <x:String>ACESSÓRIOS PARA VEÍCULOS</x:String>
-                        <x:String>ACESSÓRIOS PARA VEÍCULOS</x:String>
-                    </Picker.Items>
-                </Picker>
+                <Picker x:Name="PckCategoria"
+                        Title="Categorias" 
+                        FontSize="18"
+                        ItemDisplayBinding="{Binding categoria}"
+                        SelectedItem="{Binding Categoria}"
+                        SelectedIndex="-1"
+                        SelectedIndexChanged="PckCategoria_OnSelectIndexChange"
+                />
 
                 <!-- Picker Subcategoria -->
-                <Picker Title="SubCategoria" FontSize="18">
-                    <Picker.Items>
-                        <x:String>ACESSÓRIOS PARA VEÍCULOS</x:String>
-                        <x:String>ACESSÓRIOS PARA VEÍCULOS</x:String>
-                        <x:String>ACESSÓRIOS PARA VEÍCULOS</x:String>
-                        <x:String>ACESSÓRIOS PARA VEÍCULOS</x:String>
-                        <x:String>ACESSÓRIOS PARA VEÍCULOS</x:String>
-                    </Picker.Items>
-                </Picker>
+                <Picker x:Name="PckSubCategoria"
+                        Title="SubCategorias"
+                        FontSize="18"
+                        ItemDisplayBinding="{Binding subcategoria}" 
+                        SelectedIndex="-1"
+                        SelectedIndexChanged="PckSubCategoria_OnSelectIndexChange" 
+                />
 
                 <!-- Dados Classificado - Título/Texto -->
-                <Entry Placeholder="Título (40 caracteres)" PlaceholderColor="#989898"/>
+                <Entry x:Name="TxtTitulo" Placeholder="Título (40 caracteres)" PlaceholderColor="#989898" MaxLength="40" TextChanged="TxtTitulo_OnTextChanged" />
 
-                <Label Text="Texto (120 caracteres)" FontSize="Medium" />
-                <Editor HeightRequest="200" />
+                <Label x:Name="LblTexto" Text="Texto (120 caracteres)" FontSize="Medium" />
+                <Editor x:Name="TxtTexto" HeightRequest="100" MaxLength="120" TextChanged="TxtTexto_OnTextChanged" />
 
                 <!-- Grid - TimePicker -->
                 <Grid RowSpacing="15">
@@ -76,21 +80,48 @@
 
                     <!-- TimePicker -->
                     <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" Text="Contato - Horario Disponivel #1" FontSize="Medium" />
-                    <TimePicker Grid.Column="0" Grid.Row="1" HorizontalOptions="FillAndExpand" Format="HH:mm" Time="00:00" />
-                    <TimePicker Grid.Column="1" Grid.Row="1" HorizontalOptions="FillAndExpand" Format="HH:mm" Time="00:00" />
+                    <!--<TimePicker x:Name="TmpckHora1Inicial" Grid.Column="0" Grid.Row="1" HorizontalOptions="FillAndExpand" Format="HH:mm" Time="00:00" />-->
+                    <!--<TimePicker x:Name="TmpckHora1Final" Grid.Column="1" Grid.Row="1" HorizontalOptions="FillAndExpand" Format="HH:mm" Time="00:00" />-->
+                    <Picker x:Name="PckHora1Inicial" 
+                            Grid.Column="0" 
+                            Grid.Row="1"
+                            FontSize="18"
+                            HorizontalOptions="FillAndExpand" 
+                            ItemDisplayBinding="{Binding Horas}" 
+                            SelectedIndex="0"
+                            SelectedIndexChanged="PckHora1Inicial_OnSelectIndexChange" 
+                    />
+
+                    <Picker x:Name="PckHora1Final" 
+                            Grid.Column="1" 
+                            Grid.Row="1"
+                            FontSize="18"
+                            HorizontalOptions="FillAndExpand" 
+                            ItemDisplayBinding="{Binding Horas}" 
+                            SelectedIndex="0"
+                            SelectedIndexChanged="PckHora1Final_OnSelectIndexChange" 
+                    />
+
 
                     <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" Text="Contato - Horario Disponivel #2" FontSize="Medium" />
-                    <TimePicker Grid.Column="0" Grid.Row="3" HorizontalOptions="FillAndExpand" Format="HH:mm" Time="00:00" />
-                    <TimePicker Grid.Column="1" Grid.Row="3" HorizontalOptions="FillAndExpand" Format="HH:mm" Time="00:00" />
+                    <TimePicker x:Name="TmpckHora2Inicial" Grid.Column="0" Grid.Row="3" HorizontalOptions="FillAndExpand" Format="HH:mm" Time="00:00" />
+                    <TimePicker x:Name="TmpckHora2Final" Grid.Column="1" Grid.Row="3" HorizontalOptions="FillAndExpand" Format="HH:mm" Time="00:00" />
                 </Grid>
 
                 <!-- Campos Contato - Telefone/E-Maill -->
-                <Entry Placeholder="Contato - Telefone" Keyboard="Telephone" PlaceholderColor="#989898" />
-                <Entry Placeholder="Contato - E-Mail" Keyboard="Email" PlaceholderColor="#989898" />
+                <Entry x:Name="TxtTelefone" Placeholder="Contato - Telefone" Keyboard="Telephone" PlaceholderColor="#989898" TextChanged="TxtTelefone_OnTextChanged" />
+                <Entry x:Name="TxtEmail" Placeholder="Contato - E-Mail" Keyboard="Email" PlaceholderColor="#989898" TextChanged="TxtEmail_OnTextChanged" />
+
+                <ActivityIndicator x:Name="ActIndicatorRegistrar" 
+                                   IsVisible="False" 
+                                   IsRunning="True" 
+                                   Color="#0057ff"                               
+                                   VerticalOptions="CenterAndExpand"
+                />
 
                 <!-- Botões - Publicar/Cancelar -->
-                <Button Text="Publicar" TextColor="#0057ff" BackgroundColor="#b1f1ff" />
-                <Button Text="Cancelar" TextColor="#0057ff" BackgroundColor="#b1f1ff" />
+                <Button x:Name="BtnPublicar" Text="Publicar" TextColor="#0057ff" BackgroundColor="#b1f1ff" Clicked="BtnPublicar_OnCliked" />
+                <Button x:Name="BtnCancelar" Text="Cancelar" TextColor="#0057ff" BackgroundColor="#b1f1ff" Clicked="BtnCancelar_OnCliked" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
