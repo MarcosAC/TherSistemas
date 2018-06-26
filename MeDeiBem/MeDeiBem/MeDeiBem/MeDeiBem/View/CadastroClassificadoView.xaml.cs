@@ -39,10 +39,8 @@ namespace MeDeiBem.View
         private string telefone;
         private string email;
         #endregion
-
-        /*
-         * Métodos que carrega as categorias e as subcategorias para o picker. 
-         */
+        
+        #region Métodos que carrega as categorias, subcategorias e horarios para o picker. 
         private async void CarregarCategorias()
         {
             List<Categoria> ListaCategorias = await CategoriaService.GetCategoria(DataBase.GetAppKey());
@@ -58,10 +56,18 @@ namespace MeDeiBem.View
         private void CarregarHorarios()
         {
             ListaHorarios = Horarios.GetHoras();
-            PckHora1Final.ItemsSource = ListaHorarios;
 
+            PckHora1Inicial.ItemsSource = ListaHorarios;
+            PckHora1Final.ItemsSource = ListaHorarios;
+            PckHora2Inicial.ItemsSource = ListaHorarios;
+            PckHora2Final.ItemsSource = ListaHorarios;
+
+            PckHora1Inicial.SelectedIndex = 0;
             PckHora1Final.SelectedIndex = 0;
+            PckHora2Inicial.SelectedIndex = 0;
+            PckHora2Final.SelectedIndex = 0;
         }
+        #endregion
 
         private async void VerificaClassificadoBaseLocal()
         {
@@ -84,9 +90,7 @@ namespace MeDeiBem.View
                 PckSubCategoria.SelectedIndex = _subCategoria;
 
                 TxtTitulo.Text = dadosClassificadoLocal.titulo;
-                TxtTexto.Text = dadosClassificadoLocal.texto;
-                //TmpckHora1Inicial.Time = TimeSpan.Parse(dadosClassificadoLocal.contato_h1.Substring(0, 5));
-                //TmpckHora2Inicial.Time = TimeSpan.Parse(dadosClassificadoLocal.contato_h2.Substring(13, 5));
+                TxtTexto.Text = dadosClassificadoLocal.texto;                
                 TxtTelefone.Text = dadosClassificadoLocal.contato_tel;
                 TxtEmail.Text = dadosClassificadoLocal.contato_email;
             }
@@ -99,10 +103,10 @@ namespace MeDeiBem.View
             PckSubCategoria.Items.Clear();
             TxtTitulo.Text = string.Empty;
             TxtTexto.Text = string.Empty;
-            //TmpckHora1Inicial.Time = TimeSpan.Zero;
-            //TmpckHora1Final.Time = TimeSpan.Zero;
-            TmpckHora2Inicial.Time = TimeSpan.Zero;
-            TmpckHora2Final.Time = TimeSpan.Zero;
+            PckHora1Inicial.SelectedIndex = 0;
+            PckHora1Final.SelectedIndex = 0;
+            PckHora2Inicial.SelectedIndex = 0;
+            PckHora2Final.SelectedIndex = 0;
             TxtEmail.Text = string.Empty;
             TxtTelefone.Text = string.Empty;
         }
@@ -146,6 +150,26 @@ namespace MeDeiBem.View
             if (PckHora1Final.SelectedIndex != -1)
             {
                 contatoHora1Final = objHorarios.Horas;
+            }
+        }
+
+        private void PckHora2Inicial_OnSelectIndexChange(object sender, EventArgs e)
+        {
+            var objHorarios = (Hora)PckHora2Inicial.SelectedItem;
+
+            if (PckHora2Inicial.SelectedIndex != -1)
+            {
+                contatoHora2Inicial = objHorarios.Horas;
+            }
+        }
+
+        private void PckHora2Final_OnSelectIndexChange(object sender, EventArgs e)
+        {
+            var objHorarios = (Hora)PckHora2Final.SelectedItem;
+
+            if (PckHora2Final.SelectedIndex != -1)
+            {
+                contatoHora2Final = objHorarios.Horas;
             }
         }
 

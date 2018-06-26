@@ -80,8 +80,7 @@
 
                     <!-- TimePicker -->
                     <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" Text="Contato - Horario Disponivel #1" FontSize="Medium" />
-                    <!--<TimePicker x:Name="TmpckHora1Inicial" Grid.Column="0" Grid.Row="1" HorizontalOptions="FillAndExpand" Format="HH:mm" Time="00:00" />-->
-                    <!--<TimePicker x:Name="TmpckHora1Final" Grid.Column="1" Grid.Row="1" HorizontalOptions="FillAndExpand" Format="HH:mm" Time="00:00" />-->
+                    
                     <Picker x:Name="PckHora1Inicial" 
                             Grid.Column="0" 
                             Grid.Row="1"
@@ -104,8 +103,26 @@
 
 
                     <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" Text="Contato - Horario Disponivel #2" FontSize="Medium" />
-                    <TimePicker x:Name="TmpckHora2Inicial" Grid.Column="0" Grid.Row="3" HorizontalOptions="FillAndExpand" Format="HH:mm" Time="00:00" />
-                    <TimePicker x:Name="TmpckHora2Final" Grid.Column="1" Grid.Row="3" HorizontalOptions="FillAndExpand" Format="HH:mm" Time="00:00" />
+                    
+                    <Picker x:Name="PckHora2Inicial" 
+                            Grid.Column="0" 
+                            Grid.Row="3"
+                            FontSize="18"
+                            HorizontalOptions="FillAndExpand" 
+                            ItemDisplayBinding="{Binding Horas}" 
+                            SelectedIndex="0"
+                            SelectedIndexChanged="PckHora2Inicial_OnSelectIndexChange" 
+                    />
+
+                    <Picker x:Name="PckHora2Final" 
+                            Grid.Column="1" 
+                            Grid.Row="3"
+                            FontSize="18"
+                            HorizontalOptions="FillAndExpand" 
+                            ItemDisplayBinding="{Binding Horas}" 
+                            SelectedIndex="0"
+                            SelectedIndexChanged="PckHora2Final_OnSelectIndexChange" 
+                    />
                 </Grid>
 
                 <!-- Campos Contato - Telefone/E-Maill -->

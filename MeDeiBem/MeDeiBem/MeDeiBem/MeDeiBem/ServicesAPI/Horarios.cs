@@ -20,7 +20,7 @@ namespace MeDeiBem.Controls
                 ListaHoras.Add(new Hora() { Horas = "03:00" });
                 ListaHoras.Add(new Hora() { Horas = "04:00" });
                 ListaHoras.Add(new Hora() { Horas = "05:00" });
-                ListaHoras.Add(new Hora() { Horas = "05:00" });
+                ListaHoras.Add(new Hora() { Horas = "06:00" });
                 ListaHoras.Add(new Hora() { Horas = "07:00" });
                 ListaHoras.Add(new Hora() { Horas = "08:00" });
                 ListaHoras.Add(new Hora() { Horas = "09:00" });
