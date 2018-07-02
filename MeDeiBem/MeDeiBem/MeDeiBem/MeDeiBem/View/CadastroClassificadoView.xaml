@@ -12,7 +12,7 @@
 
                 <ActivityIndicator x:Name="ActIndicator" 
                                    IsVisible="False" 
-                                   IsRunning="True" 
+                                   IsRunning="False" 
                                    Color="#0057ff"                               
                                    VerticalOptions="CenterAndExpand"
                 />
@@ -33,7 +33,7 @@
 
                     <Label Grid.Column="0" Grid.Row="0" Text="Situação:" FontSize="Medium" HorizontalOptions="FillAndExpand" />
                     <Label Grid.Column="0" Grid.Row="1" Text="Obs:" HorizontalTextAlignment="End" FontSize="Medium" HorizontalOptions="FillAndExpand" />
-                    <Label Grid.Column="1" Grid.Row="0" x:Name="LblSituacao" Text="Disponível" FontSize="Medium" TextColor="Red" HorizontalOptions="FillAndExpand" />
+                    <Label Grid.Column="1" Grid.Row="0" x:Name="LblSituacao" Text="Disponivel" FontSize="Medium" TextColor="Red" HorizontalOptions="FillAndExpand" />
                     <Label Grid.Column="1" Grid.Row="1" x:Name="LblObservacao" Text="Apenas um Anuncio por vez. Duração de 7 dias. Renove sempre que precisar." FontSize="Medium" TextColor="Red" HorizontalOptions="FillAndExpand" />
                 </Grid>
 
@@ -46,15 +46,17 @@
                         SelectedIndex="-1"
                         SelectedIndexChanged="PckCategoria_OnSelectIndexChange"
                 />
-
+                
                 <!-- Picker Subcategoria -->
                 <Picker x:Name="PckSubCategoria"
                         Title="SubCategorias"
                         FontSize="18"
                         ItemDisplayBinding="{Binding subcategoria}" 
+                        SelectedItem="{Binding subcateg}"
                         SelectedIndex="-1"
                         SelectedIndexChanged="PckSubCategoria_OnSelectIndexChange" 
                 />
+                <!--SelectedIndexChanged="PckSubCategoria_OnSelectIndexChange"-->
 
                 <!-- Dados Classificado - Título/Texto -->
                 <Entry x:Name="TxtTitulo" Placeholder="Título (40 caracteres)" PlaceholderColor="#989898" MaxLength="40" TextChanged="TxtTitulo_OnTextChanged" />
@@ -85,10 +87,10 @@
                             Grid.Column="0" 
                             Grid.Row="1"
                             FontSize="18"
-                            HorizontalOptions="FillAndExpand" 
+                            HorizontalOptions="FillAndExpand"
                             ItemDisplayBinding="{Binding Horas}" 
                             SelectedIndex="0"
-                            SelectedIndexChanged="PckHora1Inicial_OnSelectIndexChange" 
+                            SelectedIndexChanged="PckHora1Inicial_OnSelectIndexChange"
                     />
 
                     <Picker x:Name="PckHora1Final" 
@@ -98,7 +100,7 @@
                             HorizontalOptions="FillAndExpand" 
                             ItemDisplayBinding="{Binding Horas}" 
                             SelectedIndex="0"
-                            SelectedIndexChanged="PckHora1Final_OnSelectIndexChange" 
+                            SelectedIndexChanged="PckHora1Final_OnSelectIndexChange"
                     />
 
 
@@ -108,10 +110,10 @@
                             Grid.Column="0" 
                             Grid.Row="3"
                             FontSize="18"
-                            HorizontalOptions="FillAndExpand" 
+                            HorizontalOptions="FillAndExpand"
                             ItemDisplayBinding="{Binding Horas}" 
                             SelectedIndex="0"
-                            SelectedIndexChanged="PckHora2Inicial_OnSelectIndexChange" 
+                            SelectedIndexChanged="PckHora2Inicial_OnSelectIndexChange"
                     />
 
                     <Picker x:Name="PckHora2Final" 
@@ -121,7 +123,7 @@
                             HorizontalOptions="FillAndExpand" 
                             ItemDisplayBinding="{Binding Horas}" 
                             SelectedIndex="0"
-                            SelectedIndexChanged="PckHora2Final_OnSelectIndexChange" 
+                            SelectedIndexChanged="PckHora2Final_OnSelectIndexChange"
                     />
                 </Grid>
 
@@ -137,7 +139,7 @@
                 />
 
                 <!-- Botões - Publicar/Cancelar -->
-                <Button x:Name="BtnPublicar" Text="Publicar" TextColor="#0057ff" BackgroundColor="#b1f1ff" Clicked="BtnPublicar_OnCliked" />
+                <Button x:Name="BtnPublicar" Text="Publicar" TextColor="#0057ff" BackgroundColor="#b1f1ff" Command="{Binding PublicarClassificado}" Clicked="BtnPublicar_OnCliked" />
                 <Button x:Name="BtnCancelar" Text="Cancelar" TextColor="#0057ff" BackgroundColor="#b1f1ff" Clicked="BtnCancelar_OnCliked" />
             </StackLayout>
         </ScrollView>

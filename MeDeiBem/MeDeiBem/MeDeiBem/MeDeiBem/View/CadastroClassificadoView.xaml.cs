@@ -4,7 +4,6 @@ using MeDeiBem.Model;
 using MeDeiBem.ServicesAPI;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,17 +12,32 @@ namespace MeDeiBem.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CadastroClassificadoView : ContentPage
 	{
-        private ObservableCollection<Hora> ListaHorarios;
+        
         public CadastroClassificadoView ()
 		{
 			InitializeComponent ();
-            
-            VerificaClassificadoBaseLocal();
 
             CarregarCategorias();
 
             CarregarHorarios();
+
+            VerificaClassificadoBaseLocal();
         }
+
+        //private void PckCategoria_OnSelectIndexChange(object sender, EventArgs e)
+        //{
+        //    var objCategoria = (Categoria)PckCategoria.SelectedItem;
+
+        //    if (PckCategoria.SelectedIndex != -1)
+        //    {
+        //        ViewModel.CarregarSubCategorias(objCategoria.idcategoria);
+        //    }
+        //}
+
+        //private void PckSubCategoria_OnSelectIndexChange(object sender, EventArgs e)
+        //{
+
+        //}
 
         #region Variaveis que recebe os dados dos campos de cadastro.
         private string situacao;
@@ -39,7 +53,7 @@ namespace MeDeiBem.View
         private string telefone;
         private string email;
         #endregion
-        
+
         #region Métodos que carrega as categorias, subcategorias e horarios para o picker. 
         private async void CarregarCategorias()
         {
@@ -49,13 +63,13 @@ namespace MeDeiBem.View
 
         private async void CarregarSubCategorias(string keyUsuario, string idCategoria)
         {
-            List<SubCategoria> ListaSubCategorias = await SubCategoriaService.GetSubCategoria(keyUsuario, idCategoria);
+            List<SubCategoria> ListaSubCategorias = await SubCategoriaService.GetSubCategoria(keyUsuario, idCategoria);            
             PckSubCategoria.ItemsSource = ListaSubCategorias;
         }
 
         private void CarregarHorarios()
         {
-            ListaHorarios = Horarios.GetHoras();
+            List<Hora> ListaHorarios = Horarios.GetHoras();
 
             PckHora1Inicial.ItemsSource = ListaHorarios;
             PckHora1Final.ItemsSource = ListaHorarios;
@@ -73,26 +87,53 @@ namespace MeDeiBem.View
         {
             if (DataBase.GetClassificado() != null)
             {
-                var dadosSituacao = await SituacaoClassificadoService.VerificaSituacaoClassificado(DataBase.GetAppKey());
-               
-                LblSituacao.Text = dadosSituacao.situacao;
-                LblObservacao.Text = dadosSituacao.obs;
+                ActIndicator.IsVisible = true;
+                ActIndicator.IsRunning = true;
 
-                var dadosClassificadoLocal = DataBase.GetClassificado();
+                try
+                {
+                    var dadosSituacao = await SituacaoClassificadoService.VerificaSituacaoClassificado(DataBase.GetAppKey());
 
-                List<Categoria> ListaCategorias = await CategoriaService.GetCategoria(DataBase.GetAppKey());
-                var _categoria = ListaCategorias.FindIndex(c => c.categoria == dadosClassificadoLocal.categ);
-                PckCategoria.SelectedIndex = _categoria;
+                    LblSituacao.Text = dadosSituacao.situacao;
+                    LblObservacao.Text = dadosSituacao.obs;
 
-                var objCategoria = (Categoria)PckCategoria.SelectedItem;
-                List<SubCategoria> ListaSubCategorias = await SubCategoriaService.GetSubCategoria(DataBase.GetAppKey(), objCategoria.idcategoria);
-                var _subCategoria = ListaSubCategorias.FindIndex(s => s.subcategoria == dadosClassificadoLocal.subcateg);
-                PckSubCategoria.SelectedIndex = _subCategoria;
+                    var dadosClassificadoLocal = DataBase.GetClassificado();
 
-                TxtTitulo.Text = dadosClassificadoLocal.titulo;
-                TxtTexto.Text = dadosClassificadoLocal.texto;                
-                TxtTelefone.Text = dadosClassificadoLocal.contato_tel;
-                TxtEmail.Text = dadosClassificadoLocal.contato_email;
+                    List<Categoria> ListaCategorias = await CategoriaService.GetCategoria(DataBase.GetAppKey());
+                    var _categoria = ListaCategorias.FindIndex(c => c.categoria == dadosClassificadoLocal.categ);
+                    PckCategoria.SelectedIndex = _categoria;
+                    
+                    var objCategoria = (Categoria)PckCategoria.SelectedItem;
+                    List<SubCategoria> ListaSubCategorias = await SubCategoriaService.GetSubCategoria(DataBase.GetAppKey(), objCategoria.idcategoria);
+                    var _subCategoria = ListaSubCategorias.FindIndex(s => s.subcategoria == dadosClassificadoLocal.subcateg);
+                    PckSubCategoria.SelectedIndex = _subCategoria;
+                    
+                    List<Hora> ListaHoras = Horarios.GetHoras();
+                    var Hora1Inicial = ListaHoras.FindIndex(h => h.Horas == dadosClassificadoLocal.contato_h1.Substring(0, 5));
+                    PckHora1Inicial.SelectedIndex = Hora1Inicial;
+
+                    var Hora1Final = ListaHoras.FindIndex(h => h.Horas == dadosClassificadoLocal.contato_h1.Substring(5, 5));
+                    PckHora1Final.SelectedIndex = Hora1Final;
+
+                    var Hora2Inicial = ListaHoras.FindIndex(h => h.Horas == dadosClassificadoLocal.contato_h2.Substring(0, 5));
+                    PckHora2Inicial.SelectedIndex = Hora2Inicial;
+
+                    var Hora2Final = ListaHoras.FindIndex(h => h.Horas == dadosClassificadoLocal.contato_h2.Substring(5, 5));
+                    PckHora2Final.SelectedIndex = Hora2Final;
+
+                    TxtTitulo.Text = dadosClassificadoLocal.titulo;
+                    TxtTexto.Text = dadosClassificadoLocal.texto;
+                    TxtTelefone.Text = dadosClassificadoLocal.contato_tel;
+                    TxtEmail.Text = dadosClassificadoLocal.contato_email;
+                    
+                }
+                catch (Exception erro)
+                {
+                    await DisplayAlert("Erro", "Erro => " + erro, "Ok");
+                }
+
+                ActIndicator.IsVisible = false;
+                ActIndicator.IsRunning = false;
             }
         }
 
@@ -135,14 +176,14 @@ namespace MeDeiBem.View
 
         private void PckHora1Inicial_OnSelectIndexChange(object sender, EventArgs e)
         {
-            var objHorarios = (Hora)PckHora1Final.SelectedItem;
+            var objHorarios = (Hora)PckHora1Inicial.SelectedItem;
 
             if (PckHora1Final.SelectedIndex != -1)
             {
                 contatoHora1Inicial = objHorarios.Horas;
             }
         }
-        
+
         private void PckHora1Final_OnSelectIndexChange(object sender, EventArgs e)
         {
             var objHorarios = (Hora)PckHora1Final.SelectedItem;
@@ -194,7 +235,7 @@ namespace MeDeiBem.View
         }
 
         private async void BtnPublicar_OnCliked(object sender, EventArgs e)
-        {   
+        {
 
             var classificado = new Classificado
             {
@@ -227,5 +268,6 @@ namespace MeDeiBem.View
         {
             LimparCampos();
         }
+
     }
 }
