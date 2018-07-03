@@ -2,6 +2,7 @@
 using MeDeiBem.DB;
 using MeDeiBem.Model;
 using MeDeiBem.ServicesAPI;
+using MeDeiBem.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,6 @@ namespace MeDeiBem.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CadastroClassificadoView : ContentPage
 	{
-        
         public CadastroClassificadoView ()
 		{
 			InitializeComponent ();
@@ -24,21 +24,6 @@ namespace MeDeiBem.View
 
             VerificaClassificadoBaseLocal();
         }
-
-        //private void PckCategoria_OnSelectIndexChange(object sender, EventArgs e)
-        //{
-        //    var objCategoria = (Categoria)PckCategoria.SelectedItem;
-
-        //    if (PckCategoria.SelectedIndex != -1)
-        //    {
-        //        ViewModel.CarregarSubCategorias(objCategoria.idcategoria);
-        //    }
-        //}
-
-        //private void PckSubCategoria_OnSelectIndexChange(object sender, EventArgs e)
-        //{
-
-        //}
 
         #region Variaveis que recebe os dados dos campos de cadastro.
         private string situacao;
@@ -102,8 +87,8 @@ namespace MeDeiBem.View
 
                     List<Categoria> ListaCategorias = await CategoriaService.GetCategoria(DataBase.GetAppKey());
                     var _categoria = ListaCategorias.FindIndex(c => c.categoria == dadosClassificadoLocal.categ);
-                    PckCategoria.SelectedIndex =  _categoria;
-                    
+                    PckCategoria.SelectedIndex = _categoria;
+
                     var objCategoria = (Categoria)PckCategoria.SelectedItem;
                     List<SubCategoria> ListaSubCategorias = await SubCategoriaService.GetSubCategoria(DataBase.GetAppKey(), objCategoria.idcategoria);
                     var _subCategoria = ListaSubCategorias.FindIndex(s => s.subcategoria == dadosClassificadoLocal.subcateg);
@@ -126,7 +111,7 @@ namespace MeDeiBem.View
                     TxtTexto.Text = dadosClassificadoLocal.texto;
                     TxtTelefone.Text = dadosClassificadoLocal.contato_tel;
                     TxtEmail.Text = dadosClassificadoLocal.contato_email;
-                    
+
                 }
                 catch (Exception erro)
                 {
