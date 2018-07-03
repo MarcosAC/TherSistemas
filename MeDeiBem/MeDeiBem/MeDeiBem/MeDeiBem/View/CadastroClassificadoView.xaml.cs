@@ -4,6 +4,7 @@ using MeDeiBem.Model;
 using MeDeiBem.ServicesAPI;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -101,13 +102,13 @@ namespace MeDeiBem.View
 
                     List<Categoria> ListaCategorias = await CategoriaService.GetCategoria(DataBase.GetAppKey());
                     var _categoria = ListaCategorias.FindIndex(c => c.categoria == dadosClassificadoLocal.categ);
-                    PckCategoria.SelectedIndex = _categoria;
+                    PckCategoria.SelectedIndex =  _categoria;
                     
                     var objCategoria = (Categoria)PckCategoria.SelectedItem;
                     List<SubCategoria> ListaSubCategorias = await SubCategoriaService.GetSubCategoria(DataBase.GetAppKey(), objCategoria.idcategoria);
                     var _subCategoria = ListaSubCategorias.FindIndex(s => s.subcategoria == dadosClassificadoLocal.subcateg);
                     PckSubCategoria.SelectedIndex = _subCategoria;
-                    
+
                     List<Hora> ListaHoras = Horarios.GetHoras();
                     var Hora1Inicial = ListaHoras.FindIndex(h => h.Horas == dadosClassificadoLocal.contato_h1.Substring(0, 5));
                     PckHora1Inicial.SelectedIndex = Hora1Inicial;
@@ -268,6 +269,5 @@ namespace MeDeiBem.View
         {
             LimparCampos();
         }
-
     }
 }
