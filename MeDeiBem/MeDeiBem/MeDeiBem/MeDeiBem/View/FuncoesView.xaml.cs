@@ -36,7 +36,7 @@ namespace MeDeiBem.View
 
         private void BtnPodcasts_OnClicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new PodCastView());
         }
     }
 }
