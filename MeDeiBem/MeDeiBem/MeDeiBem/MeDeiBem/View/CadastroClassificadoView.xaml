@@ -31,10 +31,35 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <Label Grid.Column="0" Grid.Row="0" Text="Situação:" FontSize="Medium" HorizontalOptions="FillAndExpand" />
-                    <Label Grid.Column="0" Grid.Row="1" Text="Obs:" HorizontalTextAlignment="End" FontSize="Medium" HorizontalOptions="FillAndExpand" />
-                    <Label Grid.Column="1" Grid.Row="0" x:Name="LblSituacao" Text="Disponivel" FontSize="Medium" TextColor="Red" HorizontalOptions="FillAndExpand" />
-                    <Label Grid.Column="1" Grid.Row="1" x:Name="LblObservacao" Text="Apenas um Anuncio por vez. Duração de 7 dias. Renove sempre que precisar." FontSize="Medium" TextColor="Red" HorizontalOptions="FillAndExpand" />
+                    <Label Grid.Column="0" 
+                           Grid.Row="0"
+                           Text="Situação:" 
+                           FontSize="Medium" 
+                           HorizontalOptions="FillAndExpand"
+                    />
+                    <Label Grid.Column="0" 
+                           Grid.Row="1"
+                           Text="Obs:" 
+                           HorizontalTextAlignment="End" 
+                           FontSize="Medium"
+                           HorizontalOptions="FillAndExpand" 
+                    />
+                    <Label Grid.Column="1" 
+                           Grid.Row="0"
+                           x:Name="LblSituacao" 
+                           Text="Disponivel" 
+                           FontSize="Medium" 
+                           TextColor="Red" 
+                           HorizontalOptions="FillAndExpand" 
+                    />
+                    <Label Grid.Column="1" 
+                           Grid.Row="1" 
+                           x:Name="LblObservacao"
+                           Text="Apenas um Anuncio por vez. Duração de 7 dias. Renove sempre que precisar."
+                           FontSize="Medium" 
+                           TextColor="Red"
+                           HorizontalOptions="FillAndExpand" 
+                    />
                 </Grid>
 
                 <!-- Picker Categoria -->
@@ -56,10 +81,23 @@
                 />
 
                 <!-- Dados Classificado - Título/Texto -->
-                <Entry x:Name="TxtTitulo" Placeholder="Título (40 caracteres)" PlaceholderColor="#989898" MaxLength="40" TextChanged="TxtTitulo_OnTextChanged" />
+                <Entry x:Name="TxtTitulo" 
+                       Text="{Binding titulo}" 
+                       Placeholder="Título (40 caracteres)"
+                       PlaceholderColor="#989898" MaxLength="40" 
+                       TextChanged="TxtTitulo_OnTextChanged" 
+                />
                 
-                <Label x:Name="LblTexto" Text="Texto (120 caracteres)" FontSize="Medium" />
-                <Editor x:Name="TxtTexto" HeightRequest="100" MaxLength="120" TextChanged="TxtTexto_OnTextChanged" />
+                <Label x:Name="LblTexto" 
+                       Text="Texto (120 caracteres)" 
+                       FontSize="Medium" 
+                />
+                <Editor x:Name="TxtTexto"
+                        Text="{Binding texto}" 
+                        HeightRequest="100"
+                        MaxLength="120"
+                        TextChanged="TxtTexto_OnTextChanged" 
+                />
                 
                 <!-- Grid - TimePicker -->
                 <Grid RowSpacing="15">
@@ -78,7 +116,13 @@
                     </Grid.RowDefinitions>
 
                     <!-- TimePicker -->
-                    <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" Text="Contato - Horario Disponivel #1" FontSize="Medium" />
+                    <Label Grid.Column="0" 
+                           Grid.Row="0"
+                           Grid.ColumnSpan="2" 
+                           HorizontalOptions="FillAndExpand" 
+                           Text="Contato - Horario Disponivel #1" 
+                           FontSize="Medium" 
+                    />
                     
                     <Picker x:Name="PckHora1Inicial" 
                             Grid.Column="0" 
@@ -100,7 +144,13 @@
                             SelectedIndexChanged="PckHora1Final_OnSelectIndexChange"
                     />
                     
-                    <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" Text="Contato - Horario Disponivel #2" FontSize="Medium" />
+                    <Label Grid.Column="0" 
+                           Grid.Row="2"
+                           Grid.ColumnSpan="2" 
+                           HorizontalOptions="FillAndExpand" 
+                           Text="Contato - Horario Disponivel #2" 
+                           FontSize="Medium" 
+                    />
                     
                     <Picker x:Name="PckHora2Inicial" 
                             Grid.Column="0" 
@@ -124,9 +174,21 @@
                 </Grid>
 
                 <!-- Campos Contato - Telefone/E-Maill -->
-                <Entry x:Name="TxtTelefone" Placeholder="Contato - Telefone" Keyboard="Telephone" PlaceholderColor="#989898" TextChanged="TxtTelefone_OnTextChanged" />
-                
-                <Entry x:Name="TxtEmail" Placeholder="Contato - E-Mail" Keyboard="Email" PlaceholderColor="#989898" TextChanged="TxtEmail_OnTextChanged" />
+                <Entry x:Name="TxtTelefone" 
+                       Text="{Binding contato_tel}" 
+                       Placeholder="Contato - Telefone" 
+                       Keyboard="Telephone" 
+                       PlaceholderColor="#989898" 
+                       TextChanged="TxtTelefone_OnTextChanged" 
+                />
+
+                <Entry x:Name="TxtEmail" 
+                       Text="{Binding contato_email}" 
+                       Placeholder="Contato - E-Mail" 
+                       Keyboard="Email" 
+                       PlaceholderColor="#989898" 
+                       TextChanged="TxtEmail_OnTextChanged" 
+                />
                 
                 <ActivityIndicator x:Name="ActIndicatorRegistrar" 
                                    IsVisible="False" 
@@ -136,8 +198,18 @@
                 />
 
                 <!-- Botões - Publicar/Cancelar -->
-                <Button x:Name="BtnPublicar" Text="Publicar" TextColor="#0057ff" BackgroundColor="#b1f1ff" Clicked="BtnPublicar_OnCliked" />
-                <Button x:Name="BtnCancelar" Text="Cancelar" TextColor="#0057ff" BackgroundColor="#b1f1ff" Clicked="BtnCancelar_OnCliked" />
+                <Button x:Name="BtnPublicar" 
+                        Text="Publicar" 
+                        TextColor="#0057ff" 
+                        BackgroundColor="#b1f1ff"
+                        Clicked="BtnPublicar_OnCliked" 
+                />
+                <Button x:Name="BtnCancelar" 
+                        Text="Cancelar"
+                        TextColor="#0057ff" 
+                        BackgroundColor="#b1f1ff" 
+                        Clicked="BtnCancelar_OnCliked" 
+                />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

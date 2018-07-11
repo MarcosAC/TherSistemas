@@ -2,10 +2,8 @@
 using MeDeiBem.DB;
 using MeDeiBem.Model;
 using MeDeiBem.ServicesAPI;
-using MeDeiBem.ViewModel;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,11 +16,13 @@ namespace MeDeiBem.View
 		{
 			InitializeComponent ();
 
+            BindingContext = VerificaClassificadoBaseLocal();
+
+            CarregaSituacao();
+
             CarregarCategorias();
 
             CarregarHorarios();
-
-            VerificaClassificadoBaseLocal();
         }
 
         #region Variaveis que recebe os dados dos campos de cadastro.
@@ -43,18 +43,51 @@ namespace MeDeiBem.View
         #region Métodos que carrega as categorias, subcategorias e horarios para o picker. 
         private async void CarregarCategorias()
         {
-            List<Categoria> ListaCategorias = await CategoriaService.GetCategoria(DataBase.GetAppKey());
-            PckCategoria.ItemsSource = ListaCategorias;
+            ActIndicator.IsVisible = true;
+            ActIndicator.IsRunning = true;
+
+            var dadosClassificadoLocal = DataBase.GetClassificado();
+
+            if (dadosClassificadoLocal != null)
+            {
+                List<Categoria> ListaCategorias = await CategoriaService.GetCategoria(DataBase.GetAppKey());
+                PckCategoria.ItemsSource = ListaCategorias;
+                var _categoria = ListaCategorias.FindIndex(c => c.categoria == dadosClassificadoLocal.categ);
+                PckCategoria.SelectedIndex = _categoria;
+            }
+            else
+            {
+                List<Categoria> ListaCategorias = await CategoriaService.GetCategoria(DataBase.GetAppKey());
+                PckCategoria.ItemsSource = ListaCategorias;
+            }
+
+            ActIndicator.IsVisible = false;
+            ActIndicator.IsRunning = false;
         }
 
         private async void CarregarSubCategorias(string keyUsuario, string idCategoria)
-        {
-            List<SubCategoria> ListaSubCategorias = await SubCategoriaService.GetSubCategoria(keyUsuario, idCategoria);            
-            PckSubCategoria.ItemsSource = ListaSubCategorias;
+        {   
+            var dadosClassificadoLocal = DataBase.GetClassificado();
+
+            if (dadosClassificadoLocal != null)
+            {
+                var objCategoria = (Categoria)PckCategoria.SelectedItem;
+                List<SubCategoria> ListaSubCategorias = await SubCategoriaService.GetSubCategoria(DataBase.GetAppKey(), objCategoria.idcategoria);
+                PckSubCategoria.ItemsSource = ListaSubCategorias;
+                var _subCategoria = ListaSubCategorias.FindIndex(s => s.subcategoria == dadosClassificadoLocal.subcateg);
+                PckSubCategoria.SelectedIndex = _subCategoria;
+            }
+            else
+            {
+                List<SubCategoria> ListaSubCategorias = await SubCategoriaService.GetSubCategoria(keyUsuario, idCategoria);
+                PckSubCategoria.ItemsSource = ListaSubCategorias;
+            }
         }
 
         private void CarregarHorarios()
         {
+            var dadosClassificadoLocal = DataBase.GetClassificado();
+
             List<Hora> ListaHorarios = Horarios.GetHoras();
 
             PckHora1Inicial.ItemsSource = ListaHorarios;
@@ -62,65 +95,51 @@ namespace MeDeiBem.View
             PckHora2Inicial.ItemsSource = ListaHorarios;
             PckHora2Final.ItemsSource = ListaHorarios;
 
-            PckHora1Inicial.SelectedIndex = 0;
-            PckHora1Final.SelectedIndex = 0;
-            PckHora2Inicial.SelectedIndex = 0;
-            PckHora2Final.SelectedIndex = 0;
+            if (dadosClassificadoLocal != null)
+            {   
+                var Hora1Inicial = ListaHorarios.FindIndex(h => h.Horas == dadosClassificadoLocal.contato_h1.Substring(0, 5));
+                PckHora1Inicial.SelectedIndex = Hora1Inicial;
+
+                var Hora1Final = ListaHorarios.FindIndex(h => h.Horas == dadosClassificadoLocal.contato_h1.Substring(5, 5));
+                PckHora1Final.SelectedIndex = Hora1Final;
+
+                var Hora2Inicial = ListaHorarios.FindIndex(h => h.Horas == dadosClassificadoLocal.contato_h2.Substring(0, 5));
+                PckHora2Inicial.SelectedIndex = Hora2Inicial;
+
+                var Hora2Final = ListaHorarios.FindIndex(h => h.Horas == dadosClassificadoLocal.contato_h2.Substring(5, 5));
+                PckHora2Final.SelectedIndex = Hora2Final;
+            }
+            else
+            {
+                PckHora1Inicial.SelectedIndex = 0;
+                PckHora1Final.SelectedIndex = 0;
+                PckHora2Inicial.SelectedIndex = 0;
+                PckHora2Final.SelectedIndex = 0;
+            }
         }
         #endregion
 
-        private async void VerificaClassificadoBaseLocal()
+        private async void CarregaSituacao()
         {
             if (DataBase.GetClassificado() != null)
             {
-                ActIndicator.IsVisible = true;
-                ActIndicator.IsRunning = true;
-
-                try
-                {
-                    var dadosSituacao = await SituacaoClassificadoService.VerificaSituacaoClassificado(DataBase.GetAppKey());
-
-                    LblSituacao.Text = dadosSituacao.situacao;
-                    LblObservacao.Text = dadosSituacao.obs;
-
-                    var dadosClassificadoLocal = DataBase.GetClassificado();
-
-                    List<Categoria> ListaCategorias = await CategoriaService.GetCategoria(DataBase.GetAppKey());
-                    var _categoria = ListaCategorias.FindIndex(c => c.categoria == dadosClassificadoLocal.categ);
-                    PckCategoria.SelectedIndex = _categoria;
-
-                    var objCategoria = (Categoria)PckCategoria.SelectedItem;
-                    List<SubCategoria> ListaSubCategorias = await SubCategoriaService.GetSubCategoria(DataBase.GetAppKey(), objCategoria.idcategoria);
-                    var _subCategoria = ListaSubCategorias.FindIndex(s => s.subcategoria == dadosClassificadoLocal.subcateg);
-                    PckSubCategoria.SelectedIndex = _subCategoria;
-
-                    List<Hora> ListaHoras = Horarios.GetHoras();
-                    var Hora1Inicial = ListaHoras.FindIndex(h => h.Horas == dadosClassificadoLocal.contato_h1.Substring(0, 5));
-                    PckHora1Inicial.SelectedIndex = Hora1Inicial;
-
-                    var Hora1Final = ListaHoras.FindIndex(h => h.Horas == dadosClassificadoLocal.contato_h1.Substring(5, 5));
-                    PckHora1Final.SelectedIndex = Hora1Final;
-
-                    var Hora2Inicial = ListaHoras.FindIndex(h => h.Horas == dadosClassificadoLocal.contato_h2.Substring(0, 5));
-                    PckHora2Inicial.SelectedIndex = Hora2Inicial;
-
-                    var Hora2Final = ListaHoras.FindIndex(h => h.Horas == dadosClassificadoLocal.contato_h2.Substring(5, 5));
-                    PckHora2Final.SelectedIndex = Hora2Final;
-
-                    TxtTitulo.Text = dadosClassificadoLocal.titulo;
-                    TxtTexto.Text = dadosClassificadoLocal.texto;
-                    TxtTelefone.Text = dadosClassificadoLocal.contato_tel;
-                    TxtEmail.Text = dadosClassificadoLocal.contato_email;
-
-                }
-                catch (Exception erro)
-                {
-                    await DisplayAlert("Erro", "Erro => " + erro, "Ok");
-                }
-
-                ActIndicator.IsVisible = false;
-                ActIndicator.IsRunning = false;
+                var dadosSituacao = await SituacaoClassificadoService.VerificaSituacaoClassificado(DataBase.GetAppKey());
+                LblSituacao.Text = dadosSituacao.situacao;
+                LblObservacao.Text = dadosSituacao.obs;
             }
+        }
+
+        private Classificado VerificaClassificadoBaseLocal()
+        {
+            ActIndicator.IsVisible = true;
+            ActIndicator.IsRunning = true;
+
+            var dadosClassificadoLocal = DataBase.GetClassificado();
+
+            ActIndicator.IsVisible = false;
+            ActIndicator.IsRunning = false;
+
+            return dadosClassificadoLocal;
         }
 
         private void LimparCampos()
