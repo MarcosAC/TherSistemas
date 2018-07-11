@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:MeDeiBem.Controls;assembly=MeDeiBem"
-             xmlns:audio="clr-namespace:Plugin.MediaManager.Forms;assembly=Plugin.MediaManager.Forms"
              x:Class="MeDeiBem.View.PodCastView"
              Title="Podcast">
     <ContentPage.Content>
@@ -15,32 +14,34 @@
                                Color="#0057ff" 
                                VerticalOptions="CenterAndExpand" 
             />
-            
+            <controls:AudioPlayer />
             <ListView x:Name="LstPodcast"
                       HasUnevenRows="true" 
-                      SeparatorVisibility="None"
-                      ItemSelected="LstPodcast_OnItemSelected">
+                      SeparatorVisibility="None"><!--ItemSelected="LstPodcast_OnItemSelected"-->
                 
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ContentView BackgroundColor="White">
-                                <Frame BorderColor="#ffd56d" Margin="10" CornerRadius="10" Padding="0">
+
+                                
+
+                                <!--<Frame BorderColor="#ffd56d" Margin="10" CornerRadius="10" Padding="0">
                                     <StackLayout>
                                         <Grid RowSpacing="3" HorizontalOptions="Center">
-                                            <!--Definação Coluna-->
+                                            --><!--Definação Coluna--><!--
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="auto" />
                                                 <ColumnDefinition Width="auto" />
                                             </Grid.ColumnDefinitions>
 
-                                            <!--Definação Linhas-->
+                                            --><!--Definação Linhas--><!--
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="auto" />
                                                 <RowDefinition Height="auto" />
                                             </Grid.RowDefinitions>
 
-                                            <!--<Label Grid.Column="0" 
+                                            --><!--<Label Grid.Column="0" 
                                                    Grid.RowSpan="2"                                                   
                                                    Text="&#xf144;" 
                                                    FontSize="80" 
@@ -69,7 +70,7 @@
                                                 <Label.GestureRecognizers>
                                                     <TapGestureRecognizer Tapped="Pause" CommandParameter="{Binding .}" />
                                                 </Label.GestureRecognizers>
-                                            </Label>-->
+                                            </Label>--><!--
                                             
                                             <Button Grid.Column="0" 
                                                     Grid.RowSpan="2"                                
@@ -77,13 +78,13 @@
                                                     BackgroundColor="Transparent"
                                                     Image="play.png"
                                                     Margin="0, 0, 10, 0"
-                                                    Clicked="BtnPlay_OnClicked"
+                                                    
                                                     CommandParameter="{Binding .}">
 
                                                 <Button.FontFamily>
                                                     <OnPlatform x:TypeArguments="x:String" Android="fontawesome.ttf#Font Awesome 4 Free Regular" iOS="Font Awesome 4 Free Regular"/>
                                                 </Button.FontFamily>
-                                            </Button>
+                                            </Button> --><!--Clicked="BtnPlay_OnClicked"--><!--
 
                                             <Button Grid.Column="0" 
                                                     Grid.RowSpan="2"                                
@@ -91,14 +92,14 @@
                                                     BackgroundColor="Transparent"
                                                     Image="play.png"
                                                     Margin="0, 0, 10, 0"
-                                                    IsVisible="False"
-                                                    Clicked="BtnPause_OnClicked"
+                                                    IsVisible="False"                                                    
                                                     CommandParameter="{Binding .}">
 
                                                 <Button.FontFamily>
                                                     <OnPlatform x:TypeArguments="x:String" Android="fontawesome.ttf#Font Awesome 4 Free Regular" iOS="Font Awesome 4 Free Regular"/>
                                                 </Button.FontFamily>
                                             </Button>
+                                            --><!--Clicked="BtnPause_OnClicked"--><!--
 
                                             <Label Grid.Column="1"
                                                    Grid.Row="0" 
@@ -125,7 +126,7 @@
                                             </StackLayout>
                                         </Grid>
                                     </StackLayout>
-                                </Frame>
+                                </Frame>-->
                             </ContentView>
                         </ViewCell>
                     </DataTemplate>

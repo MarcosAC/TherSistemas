@@ -1,4 +1,5 @@
-﻿using MeDeiBem.Model;
+﻿using MeDeiBem.DB;
+using MeDeiBem.Model;
 using MeDeiBem.ServicesAPI;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,9 @@ namespace MeDeiBem.View
 		{
 			InitializeComponent ();
 
-            CarregarEstados();           
+            BindingContext = CarregaDadosUsuario();
+
+            CarregarEstados();
         }
 
         #region Variaveis que recebe os dados dos campos de cadastro.
@@ -22,9 +25,12 @@ namespace MeDeiBem.View
         private string sobrenome;
         private string email;
         private string radarUf;
+        private string estado;
         private string radarCidade;
+        private string cidade;
         private string senha;
         private string confirmaSenha;
+        
         #endregion
 
         /*
@@ -32,16 +38,50 @@ namespace MeDeiBem.View
          */
         private async void CarregarEstados()
         {
-            List<RadarEstado> ListaEstados = await EstadoService.GetEstado();
-            PckRadarEstado.ItemsSource = ListaEstados;
+            var dadosUsuario = DataBase.GetUsuario();
+
+            if (dadosUsuario != null)
+            {
+                List<RadarEstado> ListaEstados = await EstadoService.GetEstado();
+                PckRadarEstado.ItemsSource = ListaEstados;
+                var index = ListaEstados.FindIndex(e => e.estado == dadosUsuario.estado);
+                PckRadarEstado.SelectedIndex = index;
+            }
+            else
+            {
+                List<RadarEstado> ListaEstados = await EstadoService.GetEstado();
+                PckRadarEstado.ItemsSource = ListaEstados;
+            }
+            
         }
 
         private async void CarregarCidades(string sigla)
         {
-            List<RadarCidade> ListaCidades = await CidadeService.GetCidade(sigla);
-            PckRadarCidade.ItemsSource = ListaCidades;
-        }    
-        
+            var dadosUsuario = DataBase.GetUsuario();
+
+            if (dadosUsuario != null)
+            {
+                var objEstado = (RadarEstado)PckRadarEstado.SelectedItem;
+                List<RadarCidade> ListaCidades = await CidadeService.GetCidade(objEstado.sigla);
+                PckRadarCidade.ItemsSource = ListaCidades;
+                var index = ListaCidades.FindIndex(c => c.cidade_nome == dadosUsuario.cidade);
+                PckRadarCidade.SelectedIndex = index;
+            }
+            else
+            {
+                List<RadarCidade> ListaCidades = await CidadeService.GetCidade(sigla);
+                PckRadarCidade.ItemsSource = ListaCidades;
+            }
+            
+        }
+
+        private Usuario CarregaDadosUsuario()
+        {
+            var dadosUsuario = DataBase.GetUsuario();
+
+            return dadosUsuario;
+        }
+
         private void LimparCampos()
         {
             TxtNome.Text = string.Empty;
@@ -120,7 +160,9 @@ namespace MeDeiBem.View
                     sobrenome = sobrenome,
                     email = email,
                     radar_uf = radarUf,
+                    estado = estado,
                     radar_cid = radarCidade,
+                    cidade = cidade,
                     senha = senha
                 };
 

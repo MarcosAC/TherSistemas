@@ -18,6 +18,7 @@ namespace MeDeiBem.Model
         public string nome { get; set; }
         public string sobrenome { get; set; }
         public string radar_uf { get; set; }
+        public string estado { get; set; }
         public string radar_cid { get; set; }
         public string cidade { get; set; }
         public string dth_last_sincr { get; set; }

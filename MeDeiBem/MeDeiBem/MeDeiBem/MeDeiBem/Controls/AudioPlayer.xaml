@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MeDeiBem.Controls.AudioPlayer">
+  <ContentView.Content>
+        <Frame BorderColor="#ffd56d" Margin="10" CornerRadius="10">
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="BtnPlay" 
+                            Text="&#xf144;"
+                            BackgroundColor="Transparent"
+                            Margin="0, 0, 10, 0"
+                            CommandParameter="{Binding .}"
+                            Clicked="BtnPlay_OnClicked">
+
+                    <Button.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String" Android="fontawesome.ttf#Font Awesome 4 Free Regular" iOS="Font Awesome 4 Free Regular"/>
+                    </Button.FontFamily>
+                </Button>
+
+                <Button x:Name="BtnPause" 
+                        Text="&#xf04c;"
+                        BackgroundColor="Transparent"
+                        Margin="0, 0, 10, 0"
+                        IsVisible="False"                                                    
+                        CommandParameter="{Binding .}"
+                        Clicked="BtnPause_OnClicked">
+
+                    <Button.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String" Android="fontawesome.ttf#Font Awesome 4 Free Regular" iOS="Font Awesome 4 Free Regular"/>
+                    </Button.FontFamily>
+                </Button>
+
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Código"
+                               HorizontalTextAlignment="Center"
+                               FontSize="30"
+                               TextColor="#ffd56d" 
+                               Margin="0, 15, 0, 0"/>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="&#xf025;" FontSize="18" VerticalOptions="Center">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String" Android="fontawesome.ttf#Font Awespme 4 Free Regular" iOS="Font Awesome 4 free REgular"/>
+                            </Label.FontFamily>
+                        </Label>
+                        <Label Text="{Binding duracao}" FontSize="18" Margin="0, 0, 10, 0" />
+
+                        <Label Text="&#xf25b;" FontSize="18" Margin="10, 0, 0, 0" VerticalOptions="Center">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String" Android="fontawesome.ttf#Font Awesome 4 Free Regular" iOS="Font Awesome 4 Free Regular"/>
+                            </Label.FontFamily>
+                        </Label>
+                        <Label Text="{Binding reproducao}" FontSize="18" />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

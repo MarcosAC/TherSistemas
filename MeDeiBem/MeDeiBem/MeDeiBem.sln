@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeDeiBem.Android", "MeDeiBe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeDeiBem.iOS", "MeDeiBem\MeDeiBem.iOS\MeDeiBem.iOS.csproj", "{19BD1DE0-F655-4317-BC20-9C4165A86282}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeDeiBem", "MeDeiBem\MeDeiBem\MeDeiBem.csproj", "{7592A84C-EEBB-45AC-AF2D-F853DA73CBD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeDeiBem", "MeDeiBem\MeDeiBem\MeDeiBem.csproj", "{7592A84C-EEBB-45AC-AF2D-F853DA73CBD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
