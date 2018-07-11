@@ -1,4 +1,5 @@
-﻿using MeDeiBem.DB;
+﻿using MeDeiBem.Controls;
+using MeDeiBem.DB;
 using MeDeiBem.Model;
 using MeDeiBem.ServicesAPI;
 using System;
@@ -38,6 +39,9 @@ namespace MeDeiBem.View
          */
         private async void CarregarEstados()
         {
+            ActIndicator.IsVisible = true;
+            ActIndicator.IsRunning = true;
+
             var dadosUsuario = DataBase.GetUsuario();
 
             if (dadosUsuario != null)
@@ -52,7 +56,9 @@ namespace MeDeiBem.View
                 List<RadarEstado> ListaEstados = await EstadoService.GetEstado();
                 PckRadarEstado.ItemsSource = ListaEstados;
             }
-            
+
+            ActIndicator.IsVisible = false;
+            ActIndicator.IsRunning = false;
         }
 
         private async void CarregarCidades(string sigla)
@@ -77,7 +83,13 @@ namespace MeDeiBem.View
 
         private Usuario CarregaDadosUsuario()
         {
+            ActIndicator.IsVisible = true;
+            ActIndicator.IsRunning = true;
+
             var dadosUsuario = DataBase.GetUsuario();
+
+            ActIndicator.IsVisible = false;
+            ActIndicator.IsRunning = false;
 
             return dadosUsuario;
         }

@@ -4,88 +4,91 @@
              x:Class="MeDeiBem.View.CadastroUsuarioView"
              Title="Me Dei Bem !">
     <ContentPage.Content>
-        <StackLayout>
-            <ScrollView>
-                <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
-                    <Image Source="logo.png"/>
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
+                <Image Source="logo.png"/>
 
-                    <ActivityIndicator x:Name="ActIndicator" 
+                <ActivityIndicator x:Name="ActIndicator" 
                                    IsVisible="False" 
                                    IsRunning="False" 
                                    Color="#0057ff"                               
                                    VerticalOptions="CenterAndExpand"
-                    />
+                />
 
-                    <Label Text="Cadastro" 
-                           VerticalOptions="CenterAndExpand" 
-                           HorizontalOptions="CenterAndExpand" 
-                           TextColor="#5258aa" 
-                           FontSize="Large" 
-                    />
-                    
-                    <Entry x:Name="TxtNome" 
-                           Text="{Binding nome}" 
-                           Placeholder="Nome" 
-                           PlaceholderColor="#989898" 
-                           TextChanged="TxtNome_OnTextChange" 
-                    />
-                    <Entry x:Name="TxtSobrenome"
-                           Text="{Binding sobrenome}" 
-                           Placeholder="Sobrenome" 
-                           PlaceholderColor="#989898" 
-                           TextChanged="TxtSobrenome_OnTextChange"
-                    />
-                    <Entry x:Name="TxtEmail" 
-                           Text="{Binding email}" 
-                           Placeholder="E-Mail" 
-                           Keyboard="Email" 
-                           PlaceholderColor="#989898" 
-                           TextChanged="TxtEmail_OnTextChange" 
-                    />
-                    
-                    <Picker
-                        x:Name="PckRadarEstado"
+                <Label Text="Cadastro" 
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand" 
+                       TextColor="#5258aa" 
+                       FontSize="Large" 
+                />
+
+                <Entry x:Name="TxtNome" 
+                       Text="{Binding nome}" 
+                       Placeholder="Nome" 
+                       PlaceholderColor="#989898" 
+                       TextChanged="TxtNome_OnTextChange" 
+                />
+                <Entry x:Name="TxtSobrenome"
+                       Text="{Binding sobrenome}" 
+                       Placeholder="Sobrenome" 
+                       PlaceholderColor="#989898" 
+                       TextChanged="TxtSobrenome_OnTextChange"
+                />
+                <Entry x:Name="TxtEmail" 
+                       Text="{Binding email}" 
+                       Placeholder="E-Mail" 
+                       Keyboard="Email" 
+                       PlaceholderColor="#989898" 
+                       TextChanged="TxtEmail_OnTextChange" 
+                />
+
+                <Picker x:Name="PckRadarEstado"
                         Title="Radar-Estado" 
                         FontSize="18"
                         ItemDisplayBinding="{Binding estado}"
                         SelectedIndexChanged="PckRadarEstado_OnSelectIndexChange"                        
-                     />
+                />
 
-                    <Picker 
-                        x:Name="PckRadarCidade"
+                <Picker x:Name="PckRadarCidade"
                         Title="Radar-Cidade"
                         FontSize="18"
                         ItemDisplayBinding="{Binding cidade_nome}" 
                         SelectedIndexChanged="PckRadarCidade_OnSelectIndexChange"      
-                    />
+                />
 
-                    <Entry x:Name="TxtSenha" 
-                           Text="{Binding Senha}" 
-                           IsPassword="True" 
-                           Placeholder="Senha" 
-                           PlaceholderColor="#989898" 
-                           TextChanged="TxtSenha_OnTextChange" 
-                    />
-                    <Entry x:Name="TxtConfirmaSenha"
-                           Text="{Binding Senha}" 
-                           IsPassword="True" 
-                           Placeholder="Confirma Senha" 
-                           PlaceholderColor="#989898" 
-                           TextChanged="TxtConfirmaSenha_OnTextChange" 
-                    />
+                <Entry x:Name="TxtSenha" 
+                       Text="{Binding Senha}" 
+                       IsPassword="True" 
+                       Placeholder="Senha" 
+                       PlaceholderColor="#989898" 
+                       TextChanged="TxtSenha_OnTextChange" 
+                />
+                <Entry x:Name="TxtConfirmaSenha"
+                       Text="{Binding Senha}" 
+                       IsPassword="True" 
+                       Placeholder="Confirma Senha" 
+                       PlaceholderColor="#989898" 
+                       TextChanged="TxtConfirmaSenha_OnTextChange" 
+                />
 
-                    <Button Text="Cadastrar" 
-                            TextColor="#0057ff" 
-                            BackgroundColor="#b1f1ff" 
-                            Clicked="BtnCadastrarUsuario_OnClicked" 
-                    />
-                    <Button Text="Limpar" 
-                            TextColor="#0057ff"
-                            BackgroundColor="#b1f1ff"
-                            Clicked="BtnLimpar_OnClicked" 
-                    />
-                </StackLayout>
-            </ScrollView>            
-        </StackLayout>
+                <ActivityIndicator x:Name="ActIndicatorCadastrar" 
+                                   IsVisible="False" 
+                                   IsRunning="False" 
+                                   Color="#0057ff"                               
+                                   VerticalOptions="CenterAndExpand"
+                />
+
+                <Button Text="Cadastrar" 
+                        TextColor="#0057ff" 
+                        BackgroundColor="#b1f1ff" 
+                        Clicked="BtnCadastrarUsuario_OnClicked" 
+                />
+                <Button Text="Limpar" 
+                        TextColor="#0057ff"
+                        BackgroundColor="#b1f1ff"
+                        Clicked="BtnLimpar_OnClicked" 
+                />
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
