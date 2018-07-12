@@ -1,5 +1,6 @@
 ﻿using MeDeiBem.DB.ServicesDB;
 using Xamarin.Forms;
+using Xamarin.Essentials;
 
 namespace MeDeiBem
 {
@@ -13,14 +14,24 @@ namespace MeDeiBem
 		protected override void OnStart ()
 		{
             // Handle when your app starts 
-            if (VerificarUsuarioLogado.Logado())
+            var current = Connectivity.NetworkAccess;
+
+            if (current == NetworkAccess.Internet)
             {
-                MainPage = new View.MasterPageView();
+                if (VerificarUsuarioLogado.Logado())
+                {
+                    MainPage = new View.MasterPageView();
+                }
+                else
+                {
+                    MainPage = new NavigationPage(new View.LoginView());
+                }
             }
             else
             {
-                MainPage = new NavigationPage(new View.LoginView());
+                MainPage = new View.SemConexao();
             }
+            
         }
 
 		protected override void OnSleep ()
