@@ -15,20 +15,20 @@
                 </Grid.RowDefinitions>
 
                 <Label x:Name="icon" 
-                   Grid.Column="0" 
-                   Grid.Row="0"                    
-                   Text="" 
-                   FontSize="Medium"
-                   HorizontalTextAlignment="End" 
-                   VerticalOptions="CenterAndExpand" />
+                       Grid.Column="0" 
+                       Grid.Row="0"                    
+                       Text="" 
+                       FontSize="Medium"
+                       HorizontalTextAlignment="End" 
+                       VerticalOptions="CenterAndExpand" />
 
                 <Label x:Name="textButton" 
-                   Grid.Column="1"
-                   Grid.Row="0"                   
-                   Text="" 
-                   FontSize="Medium"
-                   HorizontalTextAlignment="Start" 
-                   VerticalOptions="CenterAndExpand" />                
+                       Grid.Column="1"
+                       Grid.Row="0"                   
+                       Text="" 
+                       FontSize="Medium"
+                       HorizontalTextAlignment="Start" 
+                       VerticalOptions="CenterAndExpand" />                
             </Grid>            
             <Frame.GestureRecognizers>
                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />

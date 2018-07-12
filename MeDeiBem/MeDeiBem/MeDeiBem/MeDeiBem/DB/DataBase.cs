@@ -53,7 +53,6 @@ namespace MeDeiBem.DB
             try
             {
                 _conexao.Insert(classificado);
-                App.Current.MainPage.DisplayAlert("Put's, Deu certo!!!! :D", "Dados do Classificado inserido com sucesso na base local ", "Ok");
             }
             catch (Exception Erro)
             {
