@@ -67,8 +67,8 @@ namespace MeDeiBem.ServicesAPI
 
             string key = keyUsuario;
 
-            string dadosClassificado = "{" + '"' + "categ" + '"' + ":" + '"' + classificado.categ + '"' + "," +
-                                        '"' + "subcateg" + '"' + ":" + '"' + classificado.subcateg + '"' + "," +
+            string dadosClassificado = "{" + '"' + "categ" + '"' + ":" + '"' + classificado.idCategoria + '"' + "," +
+                                        '"' + "subcateg" + '"' + ":" + '"' + classificado.idSubcategoria + '"' + "," +
                                         '"' + "titulo" + '"' + ":" + '"' + classificado.titulo + '"' + "," +
                                         '"' + "texto" + '"' + ":" + '"' + classificado.texto + '"' + "," +
                                         '"' + "contato_h1" + '"' + ":" + '"' + classificado.contato_h1 + '"' + "," +
@@ -97,8 +97,16 @@ namespace MeDeiBem.ServicesAPI
                         case 0:
                             await App.Current.MainPage.DisplayAlert("Put's, faltou algo! :O", dadosResponse.sinc_msg, "Ok");
                             break;
-                        case 1:                            
-                            await App.Current.MainPage.DisplayAlert("Sucesso! :D", dadosResponse.sinc_msg, "Ok");                            
+                        case 1:
+                            await App.Current.MainPage.DisplayAlert("Sucesso! :D", dadosResponse.sinc_msg, "Ok");
+                            try
+                            {
+                                DataBase.AddClassificado(classificado);
+                            }
+                            catch (Exception erro)
+                            {
+                                await App.Current.MainPage.DisplayAlert("Erro base local", "Erro ao cadastrar dados classificado na base local. " + erro, "Ok");
+                            }
                             break;
                     }
                 }

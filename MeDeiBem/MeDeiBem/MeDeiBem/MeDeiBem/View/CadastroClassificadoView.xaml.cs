@@ -28,8 +28,10 @@ namespace MeDeiBem.View
         #region Variaveis que recebe os dados dos campos de cadastro.
         private string situacao;
         private string observacao;
+        private string idCategoria;
         private string categoria;
-        private string subCategoria;
+        private string idSubcategoria;
+        private string subcategoria;
         private string titulo;
         private string texto;
         private string contatoHora1Inicial;
@@ -97,24 +99,24 @@ namespace MeDeiBem.View
 
             if (dadosClassificadoLocal != null)
             {   
-                var Hora1Inicial = ListaHorarios.FindIndex(h => h.Horas == dadosClassificadoLocal.contato_h1.Substring(0, 5));
+                var Hora1Inicial = ListaHorarios.FindIndex(h => h.Horas == dadosClassificadoLocal.contatoHorario1.Substring(0, 5));
                 PckHora1Inicial.SelectedIndex = Hora1Inicial;
 
-                var Hora1Final = ListaHorarios.FindIndex(h => h.Horas == dadosClassificadoLocal.contato_h1.Substring(5, 5));
+                var Hora1Final = ListaHorarios.FindIndex(h => h.Horas == dadosClassificadoLocal.contatoHorario1.Substring(5, 5));
                 PckHora1Final.SelectedIndex = Hora1Final;
 
-                var Hora2Inicial = ListaHorarios.FindIndex(h => h.Horas == dadosClassificadoLocal.contato_h2.Substring(0, 5));
+                var Hora2Inicial = ListaHorarios.FindIndex(h => h.Horas == dadosClassificadoLocal.contatoHorario2.Substring(0, 5));
                 PckHora2Inicial.SelectedIndex = Hora2Inicial;
 
-                var Hora2Final = ListaHorarios.FindIndex(h => h.Horas == dadosClassificadoLocal.contato_h2.Substring(5, 5));
+                var Hora2Final = ListaHorarios.FindIndex(h => h.Horas == dadosClassificadoLocal.contatoHorario2.Substring(5, 5));
                 PckHora2Final.SelectedIndex = Hora2Final;
             }
             else
             {
-                PckHora1Inicial.SelectedIndex = 0;
-                PckHora1Final.SelectedIndex = 0;
-                PckHora2Inicial.SelectedIndex = 0;
-                PckHora2Final.SelectedIndex = 0;
+                PckHora1Inicial.SelectedIndex = 8;
+                PckHora1Final.SelectedIndex = 12;
+                PckHora2Inicial.SelectedIndex = 14;
+                PckHora2Final.SelectedIndex = 18;
             }
         }
         #endregion
@@ -149,10 +151,10 @@ namespace MeDeiBem.View
             PckSubCategoria.Items.Clear();
             TxtTitulo.Text = string.Empty;
             TxtTexto.Text = string.Empty;
-            PckHora1Inicial.SelectedIndex = 0;
-            PckHora1Final.SelectedIndex = 0;
-            PckHora2Inicial.SelectedIndex = 0;
-            PckHora2Final.SelectedIndex = 0;
+            PckHora1Inicial.SelectedIndex = 8;
+            PckHora1Final.SelectedIndex = 12;
+            PckHora2Inicial.SelectedIndex = 14;
+            PckHora2Final.SelectedIndex = 18;
             TxtEmail.Text = string.Empty;
             TxtTelefone.Text = string.Empty;
         }
@@ -165,6 +167,7 @@ namespace MeDeiBem.View
             {
                 CarregarSubCategorias(DataBase.GetAppKey(), objCategoria.idcategoria);
 
+                idCategoria = objCategoria.idcategoria;
                 categoria = objCategoria.categoria;
             }
         }
@@ -175,7 +178,8 @@ namespace MeDeiBem.View
 
             if (PckSubCategoria.SelectedIndex != -1)
             {
-                subCategoria = objSubCategoria.subcategoria;
+                idSubcategoria = objSubCategoria.idsubcategoria;
+                subcategoria = objSubCategoria.subcategoria;
             }
         }
 
@@ -183,7 +187,7 @@ namespace MeDeiBem.View
         {
             var objHorarios = (Hora)PckHora1Inicial.SelectedItem;
 
-            if (PckHora1Final.SelectedIndex != -1)
+            if (PckHora1Inicial.SelectedIndex != -1)
             {
                 contatoHora1Inicial = objHorarios.Horas;
             }
@@ -244,12 +248,24 @@ namespace MeDeiBem.View
 
             var classificado = new Classificado
             {
+                idCategoria = idCategoria,
                 categ = categoria,
-                subcateg = subCategoria,
+                idSubcategoria = idSubcategoria,
+                subcateg = subcategoria,
                 titulo = titulo,
                 texto = texto,
-                contato_h1 = contatoHora1Inicial + contatoHora1Final,
-                contato_h2 = contatoHora2Inicial + contatoHora2Final,
+                contato_h1 = contatoHora1Inicial.Substring(0, 2) + "-" + 
+                             contatoHora1Inicial.Substring(3, 2) + "-" + 
+                             contatoHora1Final.Substring(0, 2) + "-" + 
+                             contatoHora1Final.Substring(3, 2),
+
+                contato_h2 = contatoHora2Inicial.Substring(0, 2) + "-" +
+                             contatoHora2Inicial.Substring(3, 2) + "-" +
+                             contatoHora2Final.Substring(0, 2) + "-" +
+                             contatoHora2Final.Substring(3, 2),
+
+                contatoHorario1 = contatoHora1Inicial + contatoHora1Final,
+                contatoHorario2 = contatoHora2Inicial + contatoHora2Final,
                 contato_tel = telefone,
                 contato_email = email
             };
@@ -263,8 +279,6 @@ namespace MeDeiBem.View
 
             classificado.situacao = dadosVerificacaoClassificado.situacao;
             classificado.observacao = dadosVerificacaoClassificado.obs;
-
-            DataBase.AddClassificado(classificado);
 
             LimparCampos();
         }

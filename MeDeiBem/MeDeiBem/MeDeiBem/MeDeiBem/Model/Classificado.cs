@@ -18,8 +18,12 @@ namespace MeDeiBem.Model
         public string contato_hora { get; set; }
         public string contato_h1 { get; set; }
         public string contato_h2 { get; set; }
+        public string contatoHorario1 { get; set; }
+        public string contatoHorario2 { get; set; }
         public string pago { get; set; }
-        public string categ { get; set; }        
+        public string idCategoria { get; set; }
+        public string categ { get; set; }
+        public string idSubcategoria { get; set; }
         public string subcateg { get; set; }
         public string situacao { get; set; }
         public string observacao { get; set; }

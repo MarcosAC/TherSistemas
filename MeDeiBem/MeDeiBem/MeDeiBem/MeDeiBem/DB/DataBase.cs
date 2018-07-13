@@ -27,7 +27,7 @@ namespace MeDeiBem.DB
         {
             try
             {
-                _conexao.Insert(usuario);
+                _conexao.InsertOrReplace(usuario);
             }
             catch (Exception ex)
             {
@@ -52,7 +52,7 @@ namespace MeDeiBem.DB
         {
             try
             {
-                _conexao.Insert(classificado);
+                _conexao.InsertOrReplace(classificado);
             }
             catch (Exception Erro)
             {
@@ -84,7 +84,7 @@ namespace MeDeiBem.DB
                 var dadosClassificado = _conexao.Table<Classificado>().FirstOrDefault();
                 return dadosClassificado;
             }
-
+            
             return null;
         }
 
