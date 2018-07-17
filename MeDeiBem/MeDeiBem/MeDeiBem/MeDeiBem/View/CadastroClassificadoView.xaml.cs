@@ -113,10 +113,10 @@ namespace MeDeiBem.View
             }
             else
             {
-                PckHora1Inicial.SelectedIndex = 8;
-                PckHora1Final.SelectedIndex = 12;
-                PckHora2Inicial.SelectedIndex = 14;
-                PckHora2Final.SelectedIndex = 18;
+                PckHora1Inicial.SelectedIndex = 28;
+                PckHora1Final.SelectedIndex = 48;
+                PckHora2Inicial.SelectedIndex = 56;
+                PckHora2Final.SelectedIndex = 72;
             }
         }
         #endregion
