@@ -57,14 +57,14 @@
                 />
 
                 <Entry x:Name="TxtSenha" 
-                       Text="{Binding Senha}" 
+                       Text="{Binding senha}" 
                        IsPassword="True" 
                        Placeholder="Senha" 
                        PlaceholderColor="#989898" 
                        TextChanged="TxtSenha_OnTextChange" 
                 />
                 <Entry x:Name="TxtConfirmaSenha"
-                       Text="{Binding Senha}" 
+                       Text="{Binding senha}" 
                        IsPassword="True" 
                        Placeholder="Confirma Senha" 
                        PlaceholderColor="#989898" 
