@@ -64,7 +64,7 @@
                        TextChanged="TxtSenha_OnTextChange" 
                 />
                 <Entry x:Name="TxtConfirmaSenha"
-                       Text="{Binding senha}" 
+                       Text="{Binding confirmaSenha}" 
                        IsPassword="True" 
                        Placeholder="Confirma Senha" 
                        PlaceholderColor="#989898" 

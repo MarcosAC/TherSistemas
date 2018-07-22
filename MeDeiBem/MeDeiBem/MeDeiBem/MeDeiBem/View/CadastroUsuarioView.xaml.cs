@@ -87,10 +87,30 @@ namespace MeDeiBem.View
 
             var dadosUsuario = DataBase.GetUsuario();
 
-            ActIndicator.IsVisible = false;
-            ActIndicator.IsRunning = false;
+            if (dadosUsuario != null)
+            {
+                var usuario = new Usuario
+                {
+                    nome = dadosUsuario.nome,
+                    sobrenome = dadosUsuario.sobrenome,
+                    email = dadosUsuario.email,
+                    radar_uf = dadosUsuario.radar_uf,
+                    estado = dadosUsuario.estado,
+                    radar_cid = dadosUsuario.radar_cid,
+                    cidade = dadosUsuario.cidade,
+                    senha = dadosUsuario.senha,
+                    confirmaSenha = string.Empty
+                };
 
-            return dadosUsuario;
+                TxtEmail.IsEnabled = false;
+
+                ActIndicator.IsVisible = false;
+                ActIndicator.IsRunning = false;
+
+                return usuario;
+            }
+
+            return null;
         }
 
         private void LimparCampos()
@@ -163,29 +183,55 @@ namespace MeDeiBem.View
          */
         private async void BtnCadastrarUsuario_OnClicked(object sender, EventArgs e)
         {
+            var usuario = new Usuario
+            {
+                nome = nome,
+                sobrenome = sobrenome,
+                email = email,
+                radar_uf = radarUf,
+                estado = estado,
+                radar_cid = radarCidade,
+                cidade = cidade,
+                senha = senha
+            };
+
             if (confirmaSenha == senha)
             {
-                var usuario = new Usuario
+                if (DataBase.GetUsuario() == null)
                 {
-                    nome = nome,
-                    sobrenome = sobrenome,
-                    email = email,
-                    radar_uf = radarUf,
-                    estado = estado,
-                    radar_cid = radarCidade,
-                    cidade = cidade,
-                    senha = senha
-                };
+                    await UsuarioService.AddUsuario(usuario);
 
-                await CadastrarUsuario.AddUsuario(usuario);
-
-                LimparCampos();
+                    LimparCampos();
+                }
+                else
+                {
+                    await UsuarioService.EditUsuario(DataBase.GetAppKey(), usuario);
+                }
             }
             else
             {
                 await DisplayAlert("Put´s algo deu arrado :(", "As senhas não são iguais. Por favor digite novamente.", "Ok");
                 TxtConfirmaSenha.Text = string.Empty;
-            }           
+            }
+
+            //if (DataBase.GetUsuario() == null)
+            //{
+            //    if (confirmaSenha == senha)
+            //    {
+            //        await UsuarioService.AddUsuario(usuario);
+
+            //        LimparCampos();
+            //    }
+            //    else
+            //    {
+            //        await DisplayAlert("Put´s algo deu arrado :(", "As senhas não são iguais. Por favor digite novamente.", "Ok");
+            //        TxtConfirmaSenha.Text = string.Empty;
+            //    }
+            //}
+            //else
+            //{ 
+            //    await UsuarioService.EditUsuario(DataBase.GetAppKey(), usuario);
+            //}          
         }
         
         private void BtnLimpar_OnClicked(object sender, EventArgs e)

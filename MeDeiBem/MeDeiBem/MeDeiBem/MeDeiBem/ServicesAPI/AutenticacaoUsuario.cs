@@ -46,7 +46,41 @@ namespace MeDeiBem.ServicesAPI
                         case 1:
                             try
                             {
-                                DataBase.AddUsuario(dadosUsuario);
+                                var usuario = new Usuario
+                                {
+                                    senha = login.senha,
+                                    sinc_stat = dadosUsuario.sinc_stat,
+                                    sinc_msg = dadosUsuario.sinc_msg,
+                                    app_key = dadosUsuario.app_key,
+                                    email = dadosUsuario.email,
+                                    nome = dadosUsuario.nome,
+                                    sobrenome = dadosUsuario.sobrenome,                                    
+                                    radar_uf = dadosUsuario.radar_uf,
+                                    estado = dadosUsuario.estado,
+                                    radar_cid = dadosUsuario.radar_cid,
+                                    cidade = dadosUsuario.cidade,
+                                    dth_last_sincr = dadosUsuario.dth_last_sincr
+                                };
+
+                                var classificado = new Classificado
+                                {
+                                    titulo = dadosUsuario.clf_titulo,
+                                    texto = dadosUsuario.clf_texto,                                    
+                                    contatoHorario1 = dadosUsuario.clf_contato_h1.Substring(0, 5).Replace("-", ":") + dadosUsuario.clf_contato_h1.Substring(6, 5).Replace("-", ":"),
+                                    contatoHorario2 = dadosUsuario.clf_contato_h2.Substring(0, 5).Replace("-", ":") + dadosUsuario.clf_contato_h2.Substring(6, 5).Replace("-", ":"),
+                                    contato_tel = dadosUsuario.clf_contato_tel,
+                                    contato_email = dadosUsuario.clf_contato_email,
+                                    data_ini = dadosUsuario.clf_data_ini,
+                                    data_fim = dadosUsuario.clf_data_fim,                                    
+                                    dth_last_sincr = dadosUsuario.dth_last_sincr,
+                                    sinc_stat = dadosUsuario.sinc_stat,
+                                    sinc_msg = dadosUsuario.sinc_msg,                                    
+                                    idCategoria = dadosUsuario.clf_idcateg,                                    
+                                    idSubcategoria = dadosUsuario.clf_idsubcateg                                    
+                                };
+
+                                DataBase.AddClassificado(classificado);
+                                DataBase.AddUsuario(usuario);
                                 return true;
                             }
                             catch (Exception ex)

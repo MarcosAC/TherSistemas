@@ -27,6 +27,9 @@ namespace MeDeiBem.Model
         public string subcateg { get; set; }
         public string situacao { get; set; }
         public string observacao { get; set; }
+        public string data_ini { get; set; }
+        public string data_fim { get; set; }
+        public string dth_last_sincr { get; set; }
         private string _img_link1;
         public string img_link1 { get { return "http://" + _img_link1; } set { _img_link1 = value; } }
         private string _img_link2;

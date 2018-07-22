@@ -54,7 +54,7 @@ namespace MeDeiBem.View
             {
                 List<Categoria> ListaCategorias = await CategoriaService.GetCategoria(DataBase.GetAppKey());
                 PckCategoria.ItemsSource = ListaCategorias;
-                var _categoria = ListaCategorias.FindIndex(c => c.categoria == dadosClassificadoLocal.categ);
+                var _categoria = ListaCategorias.FindIndex(c => c.idcategoria == dadosClassificadoLocal.idCategoria);
                 PckCategoria.SelectedIndex = _categoria;
             }
             else
@@ -76,7 +76,7 @@ namespace MeDeiBem.View
                 var objCategoria = (Categoria)PckCategoria.SelectedItem;
                 List<SubCategoria> ListaSubCategorias = await SubCategoriaService.GetSubCategoria(DataBase.GetAppKey(), objCategoria.idcategoria);
                 PckSubCategoria.ItemsSource = ListaSubCategorias;
-                var _subCategoria = ListaSubCategorias.FindIndex(s => s.subcategoria == dadosClassificadoLocal.subcateg);
+                var _subCategoria = ListaSubCategorias.FindIndex(s => s.idsubcategoria == dadosClassificadoLocal.idSubcategoria);
                 PckSubCategoria.SelectedIndex = _subCategoria;
             }
             else
