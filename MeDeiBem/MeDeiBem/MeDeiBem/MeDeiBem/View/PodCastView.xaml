@@ -7,7 +7,7 @@
     <ContentPage.Content>
         <StackLayout Margin="0, 20, 0, 0">
             <controls:SearchBarCustom x:Name="SbcClassificados" />
-            <!--ClickScope="SbcClassificados_OnClicked"-->
+            
             <ActivityIndicator x:Name="ActIndicator" 
                                IsVisible="False" 
                                IsRunning="True" 
@@ -17,45 +17,12 @@
             <controls:AudioPlayer />
             <ListView x:Name="LstPodcast"
                       HasUnevenRows="true" 
-                      SeparatorVisibility="None"><!--ItemSelected="LstPodcast_OnItemSelected"-->
+                      SeparatorVisibility="None">
                 
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ContentView BackgroundColor="White">
-
-                                
-
-                                <!--<Frame BorderColor="#ffd56d" Margin="10" CornerRadius="10" Padding="0">
-                                    <StackLayout>
-                                        <Grid RowSpacing="3" HorizontalOptions="Center">
-                                            --><!--Definação Coluna--><!--
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="auto" />
-                                                <ColumnDefinition Width="auto" />
-                                            </Grid.ColumnDefinitions>
-
-                                            --><!--Definação Linhas--><!--
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="auto" />
-                                                <RowDefinition Height="auto" />
-                                            </Grid.RowDefinitions>
-
-                                            --><!--<Label Grid.Column="0" 
-                                                   Grid.RowSpan="2"                                                   
-                                                   Text="&#xf144;" 
-                                                   FontSize="80" 
-                                                   TextColor="#ffd56d">
-                                                
-                                                <Label.FontFamily>
-                                                    <OnPlatform x:TypeArguments="x:String" Android="fontawesome.ttf#Font Awespme 4 Free Regular" iOS="Font Awesome 4 free REgular"/>
-                                                </Label.FontFamily>
-
-                                                <Label.GestureRecognizers>
-                                                    <TapGestureRecognizer Tapped="Play" CommandParameter="{Binding .}" />
-                                                </Label.GestureRecognizers>
-                                            </Label>
-
                                             <Label Grid.Column="0" 
                                                    Grid.RowSpan="2"
                                                    Text="&#xf04c;" 
@@ -70,63 +37,7 @@
                                                 <Label.GestureRecognizers>
                                                     <TapGestureRecognizer Tapped="Pause" CommandParameter="{Binding .}" />
                                                 </Label.GestureRecognizers>
-                                            </Label>--><!--
-                                            
-                                            <Button Grid.Column="0" 
-                                                    Grid.RowSpan="2"                                
-                                                    Text=""
-                                                    BackgroundColor="Transparent"
-                                                    Image="play.png"
-                                                    Margin="0, 0, 10, 0"
-                                                    
-                                                    CommandParameter="{Binding .}">
-
-                                                <Button.FontFamily>
-                                                    <OnPlatform x:TypeArguments="x:String" Android="fontawesome.ttf#Font Awesome 4 Free Regular" iOS="Font Awesome 4 Free Regular"/>
-                                                </Button.FontFamily>
-                                            </Button> --><!--Clicked="BtnPlay_OnClicked"--><!--
-
-                                            <Button Grid.Column="0" 
-                                                    Grid.RowSpan="2"                                
-                                                    Text=""
-                                                    BackgroundColor="Transparent"
-                                                    Image="play.png"
-                                                    Margin="0, 0, 10, 0"
-                                                    IsVisible="False"                                                    
-                                                    CommandParameter="{Binding .}">
-
-                                                <Button.FontFamily>
-                                                    <OnPlatform x:TypeArguments="x:String" Android="fontawesome.ttf#Font Awesome 4 Free Regular" iOS="Font Awesome 4 Free Regular"/>
-                                                </Button.FontFamily>
-                                            </Button>
-                                            --><!--Clicked="BtnPause_OnClicked"--><!--
-
-                                            <Label Grid.Column="1"
-                                                   Grid.Row="0" 
-                                                   Text="{Binding codigo}"
-                                                   HorizontalTextAlignment="Center"
-                                                   FontSize="30"
-                                                   TextColor="#ffd56d" 
-                                                   Margin="0, 15, 0, 0"/>
-
-                                            <StackLayout Grid.Column="1" Grid.Row="1" Orientation="Horizontal" VerticalOptions="Start">
-                                                <Label Text="&#xf025;" FontSize="18" VerticalOptions="Center">
-                                                    <Label.FontFamily>
-                                                        <OnPlatform x:TypeArguments="x:String" Android="fontawesome.ttf#Font Awespme 4 Free Regular" iOS="Font Awesome 4 free REgular"/>
-                                                    </Label.FontFamily>
-                                                </Label>
-                                                <Label Text="{Binding duracao}" FontSize="18" Margin="0, 0, 10, 0" />
-
-                                                <Label Text="&#xf25b;" FontSize="18" Margin="10, 0, 0, 0" VerticalOptions="Center">
-                                                    <Label.FontFamily>
-                                                        <OnPlatform x:TypeArguments="x:String" Android="fontawesome.ttf#Font Awesome 4 Free Regular" iOS="Font Awesome 4 Free Regular"/>
-                                                    </Label.FontFamily>
-                                                </Label>
-                                                <Label Text="{Binding reproducao}" FontSize="18" />
-                                            </StackLayout>
-                                        </Grid>
-                                    </StackLayout>
-                                </Frame>-->
+                                            </Label>
                             </ContentView>
                         </ViewCell>
                     </DataTemplate>

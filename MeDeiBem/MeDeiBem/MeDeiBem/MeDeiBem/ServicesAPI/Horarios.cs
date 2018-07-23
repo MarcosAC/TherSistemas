@@ -1,8 +1,5 @@
-﻿using System;
+﻿using MeDeiBem.Model;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
-using MeDeiBem.Model;
 
 namespace MeDeiBem.Controls
 {

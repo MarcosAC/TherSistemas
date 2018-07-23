@@ -1,5 +1,4 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ZXing.Net.Mobile.Forms;
 
@@ -26,25 +25,10 @@ namespace MeDeiBem.View
             {
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    leitorQr.IsAnalyzing = false;
-                    //leitorQr.IsScanning = false;
-                    //await Navigation.PopAsync();
+                    leitorQr.IsAnalyzing = false;                    
                     await Navigation.PushAsync(new BaixaDescontoView());
                 });
             };
-
-            //BtnBaixarDesconto.Clicked += (sender, e) =>
-            //{
-            //    leitorQr.IsScanning = false;
-            //    leitorQr.OnScanResult += (result) =>
-            //    {
-            //        Device.BeginInvokeOnMainThread(() =>
-            //        {
-            //            Navigation.PopAsync();
-            //            Navigation.PushAsync(new BaixaDescontoView(result.Text));
-            //        });
-            //    };
-            //};
 
             EscanerQR.Children.Add(leitorQr);
         }
@@ -62,10 +46,5 @@ namespace MeDeiBem.View
 
             base.OnDisappearing();
         }
-
-        //private void BtnBaixarDesconto_OnCliked(object sender, EventTrigger e)
-        //{   
-        //    Navigation.PushAsync(new BaixaDescontoView(LblCodigoQR.Text));
-        //}
     }
 }

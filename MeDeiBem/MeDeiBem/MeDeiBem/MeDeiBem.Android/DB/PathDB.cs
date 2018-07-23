@@ -1,25 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using MeDeiBem.DB;
+﻿using MeDeiBem.DB;
 using MeDeiBem.Droid.DB;
+using System.IO;
 using Xamarin.Forms;
 
-[assembly:Dependency(typeof(PathDB))]
+[assembly: Dependency(typeof(PathDB))]
 namespace MeDeiBem.Droid.DB
 {
     /*
      * Classe cria o arquivo de banco de dados em uma paste interna do sistema Android.
-     */    
+     */
     public class PathDB : IPathDataBase
     {
         public string GetPath(string NomeArquivoBanco)

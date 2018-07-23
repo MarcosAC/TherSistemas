@@ -7,8 +7,7 @@
         <StackLayout Spacing="20" Padding="20">
             <StackLayout x:Name="EscanerQR" HeightRequest="410" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
             <StackLayout>
-                <Label x:Name="LblCodigoQR" Text="Aguardando código qr..." HorizontalOptions="CenterAndExpand" />
-                <!--<Button x:Name="BtnBaixarDesconto" Text="Baixar Desconto" TextColor="#0057ff" BackgroundColor="#b1f1ff" Clicked="BtnBaixarDesconto_OnCliked" />-->
+                <Label x:Name="LblCodigoQR" Text="Aguardando código qr..." HorizontalOptions="CenterAndExpand" />                
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

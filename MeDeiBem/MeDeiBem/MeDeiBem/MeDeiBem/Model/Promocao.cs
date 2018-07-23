@@ -35,12 +35,4 @@
         public string vnd_end2 { get; set; }
         public string AppKey { get; set; }        
     }
-}  
-
-    
-    
-
-    
-    
-
-
+}

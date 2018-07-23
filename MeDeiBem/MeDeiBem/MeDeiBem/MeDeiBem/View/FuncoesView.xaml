@@ -22,18 +22,7 @@
                         <Label Text="/" FontSize="Medium" />
                         <Label x:Name="LblRadarCidade" FontSize="Medium" />
                     </StackLayout>
-
-                    <!--<flex:FlexButton WidthRequest="280" 
-                                     HeightRequest="50"
-                                     Icon="cinema.png"
-                                     Text="Promoção"
-                                     FontSize="18"
-                                     Padding="0, 12, 0, 12"
-                                     BorderColor="Transparent" 
-                                     ForegroundColor="Black"                                                                         
-                                     BackgroundColor="#ffd56d"
-                                     HighlightBackgroundColor="#e5bd59" />-->
-
+                    
                     <controls:ButtonIcon Icon="{x:Static local:Fontes.FATicket}"                                          
                                          TextButton="Promoções" 
                                          BackgroundColor="#ffd56d"
@@ -48,10 +37,6 @@
                                          TextButton="Podcasts"
                                          BackgroundColor="#ffd56d"
                                          ClickButton="BtnPodcasts_OnClicked" />
-
-                    <!--<Button Text="Promoções" BackgroundColor="#ffd56d" Clicked="BtnPromocoes_OnClicked" />
-                    <Button Text="Classificados" BackgroundColor="#ffd56d" Clicked="BtnClassificados_OnClicked" />
-                    <Button Text="Podcasts" BackgroundColor="#ffd56d" Clicked="BtnPodcasts_OnClicked" />-->
                     
                     <Label Text="© 2018 - Ther Sistemas Inovadores" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium" />
                     <Label Text="www.medeibem.mobi" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium" />

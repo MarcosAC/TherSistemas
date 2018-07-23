@@ -212,26 +212,7 @@ namespace MeDeiBem.View
             {
                 await DisplayAlert("Put´s algo deu arrado :(", "As senhas não são iguais. Por favor digite novamente.", "Ok");
                 TxtConfirmaSenha.Text = string.Empty;
-            }
-
-            //if (DataBase.GetUsuario() == null)
-            //{
-            //    if (confirmaSenha == senha)
-            //    {
-            //        await UsuarioService.AddUsuario(usuario);
-
-            //        LimparCampos();
-            //    }
-            //    else
-            //    {
-            //        await DisplayAlert("Put´s algo deu arrado :(", "As senhas não são iguais. Por favor digite novamente.", "Ok");
-            //        TxtConfirmaSenha.Text = string.Empty;
-            //    }
-            //}
-            //else
-            //{ 
-            //    await UsuarioService.EditUsuario(DataBase.GetAppKey(), usuario);
-            //}          
+            }          
         }
         
         private void BtnLimpar_OnClicked(object sender, EventArgs e)

@@ -40,13 +40,9 @@ namespace MeDeiBem.ServicesAPI
                     switch (dadosResponse.sinc_stat)
                     {
                         case 0:
-                            return dadosResponse;
-                            //App.Current.MainPage.DisplayAlert("Put's, algo deu errado! :(", dadosResponse.sinc_msg, "Ok");
-                            //break;
+                            return dadosResponse;                            
                         case 1:
-                            return dadosResponse;
-                            //App.Current.MainPage.DisplayAlert("Sucesso :D", "Classificado cadastrado com sucesso.", "Ok");
-                            //break;
+                            return dadosResponse;                            
                     }
                 }
             }

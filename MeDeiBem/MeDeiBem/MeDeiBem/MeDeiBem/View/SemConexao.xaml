@@ -5,8 +5,8 @@
     <ContentPage.Content>
         <StackLayout Margin="20"
                      VerticalOptions="CenterAndExpand" 
-                     HorizontalOptions="CenterAndExpand"
-        >
+                     HorizontalOptions="CenterAndExpand">
+            
             <Label Text="Put's sem acesso a Internet! X(."
                    FontSize="Medium"
             />
