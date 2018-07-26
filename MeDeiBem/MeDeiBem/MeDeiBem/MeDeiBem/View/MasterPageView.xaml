@@ -50,13 +50,13 @@
                                              BackgroundColor="Transparent"
                                              ClickButton="BtnMeuCadastro_OnClicked" />
 
-                        <controls:ButtonIcon HorizontalOptions="Start"
+                        <!--<controls:ButtonIcon HorizontalOptions="Start"
                                              Margin="15, 0"
                                              Icon="{Static local:Fontes.FAEye}"
                                              TextButton="Radar de Ofertas"
                                              TextButtonColor="White"
                                              BackgroundColor="Transparent"
-                                             ClickButton="BtnRadarOfertas_OnClicked" />
+                                             ClickButton="BtnRadarOfertas_OnClicked" />-->
 
                         <controls:ButtonIcon HorizontalOptions="Start"
                                              Margin="15, 0"
