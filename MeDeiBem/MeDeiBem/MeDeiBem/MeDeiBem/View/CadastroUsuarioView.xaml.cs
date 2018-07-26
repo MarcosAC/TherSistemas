@@ -183,6 +183,50 @@ namespace MeDeiBem.View
          */
         private async void BtnCadastrarUsuario_OnClicked(object sender, EventArgs e)
         {
+            #region Validações dos Campos
+            if (String.IsNullOrEmpty(TxtNome.Text))
+            {
+                await DisplayAlert("Put's, faltou algo! :O", "O campo NOME é obrigatório!", "Ok");
+                return;
+            }
+
+            if (String.IsNullOrEmpty(TxtSobrenome.Text))
+            {
+                await DisplayAlert("Put's, faltou algo! :O", "O campo SOBRENOME é obrigatório!", "Ok");
+                return;
+            }
+
+            if (String.IsNullOrEmpty(TxtEmail.Text))
+            {
+                await DisplayAlert("Put's, faltou algo! :O", "O campo EMAIL é obrigatório!", "Ok");
+                return;
+            }
+
+            if (PckRadarEstado.SelectedIndex == -1)
+            {
+                await DisplayAlert("Put's, faltou algo! :O", "O campo RADAR ESTADO é obrigatório!", "Ok");
+                return;
+            }
+
+            if (PckRadarCidade.SelectedIndex == -1)
+            {
+                await DisplayAlert("Put's, faltou algo! :O", "O campo RADAR CIDADE é obrigatório!", "Ok");
+                return;
+            }
+
+            if (String.IsNullOrEmpty(TxtSenha.Text))
+            {
+                await DisplayAlert("Put's, faltou algo! :O", "O campo SENHA é obrigatório!", "Ok");
+                return;
+            }
+
+            if (String.IsNullOrEmpty(TxtConfirmaSenha.Text))
+            {
+                await DisplayAlert("Put's, faltou algo! :O", "O campo CONFIRMA SENHA é obrigatório!", "Ok");
+                return;
+            }
+            #endregion
+
             var usuario = new Usuario
             {
                 nome = nome,
@@ -212,7 +256,7 @@ namespace MeDeiBem.View
             {
                 await DisplayAlert("Put´s algo deu arrado :(", "As senhas não são iguais. Por favor digite novamente.", "Ok");
                 TxtConfirmaSenha.Text = string.Empty;
-            }          
+            }
         }
         
         private void BtnLimpar_OnClicked(object sender, EventArgs e)

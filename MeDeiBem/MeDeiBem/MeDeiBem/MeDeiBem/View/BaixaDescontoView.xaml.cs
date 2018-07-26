@@ -62,6 +62,29 @@ namespace MeDeiBem.View
         {
             ActIndicator.IsVisible = true;
 
+            #region Validação de Campos
+            if (string.IsNullOrEmpty(TxtCodigoDesconto.Text))
+            {
+                DisplayAlert("Put's, faltou algo! :O", "O campo CÓDIGO DESCONTO é obrigatório!", "Ok");
+                ActIndicator.IsVisible = false;
+                return;
+            }
+
+            if (string.IsNullOrEmpty(TxtSenhaVendedor.Text))
+            {
+                DisplayAlert("Put's, faltou algo! :O", "O campo CÓDIGO sENHA DO VENDEDOR é obrigatório!", "Ok");
+                ActIndicator.IsVisible = false;
+                return;
+            }
+
+            if (string.IsNullOrEmpty(TxtQuantidadeVendida.Text))
+            {
+                DisplayAlert("Put's, faltou algo! :O", "O campo QUANTIDADE VENDIDA é obrigatório!", "Ok");
+                ActIndicator.IsVisible = false;
+                return;
+            }
+            #endregion
+
             var baixaDesconto = new BaixaDesconto
             {
                 cod_desc = codigoDesconto,

@@ -13,9 +13,9 @@ namespace MeDeiBem.Droid.DB
     {
         public string GetPath(string NomeArquivoBanco)
         {
-            string pathFolfer = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            string pathFolder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
 
-            string pathDataBase = Path.Combine(pathFolfer, NomeArquivoBanco);
+            string pathDataBase = Path.Combine(pathFolder, NomeArquivoBanco);
 
             return pathDataBase;
         }

@@ -34,9 +34,9 @@
                                                     <OnPlatform x:TypeArguments="x:String" Android="fontawesome.ttf#Font Awespme 4 Free Regular" iOS="Font Awesome 4 free REgular"/>
                                                 </Label.FontFamily>
 
-                                                <Label.GestureRecognizers>
+                                                <!--<Label.GestureRecognizers>
                                                     <TapGestureRecognizer Tapped="Pause" CommandParameter="{Binding .}" />
-                                                </Label.GestureRecognizers>
+                                                </Label.GestureRecognizers>-->
                                             </Label>
                             </ContentView>
                         </ViewCell>

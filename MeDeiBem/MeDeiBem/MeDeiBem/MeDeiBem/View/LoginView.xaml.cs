@@ -34,6 +34,22 @@ namespace MeDeiBem.View
         {   
             ActIndicator.IsVisible = true;
 
+            #region Validação de Campos
+            if (string.IsNullOrEmpty(TxtEmail.Text))
+            {
+                await DisplayAlert("Put's, faltou algo! :O", "O campo EMAIL é obrigatório!", "Ok");
+                ActIndicator.IsVisible = false;
+                return;
+            }
+
+            if (string.IsNullOrEmpty(TxtSenha.Text))
+            {
+                await DisplayAlert("Put's, faltou algo! :O", "O campo SENHA é obrigatório!", "Ok");
+                ActIndicator.IsVisible = false;
+                return;
+            }
+            #endregion
+
             var parametros = new Login
             {
                 email = _email,

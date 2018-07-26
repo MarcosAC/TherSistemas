@@ -245,6 +245,55 @@ namespace MeDeiBem.View
 
         private async void BtnPublicar_OnCliked(object sender, EventArgs e)
         {
+            #region Validação de campos
+            if (PckCategoria.SelectedIndex == -1 || idCategoria == null)
+            {
+                await DisplayAlert("Put's, faltou algo! :O", "O campo CATEGORIA é obrigatório!", "Ok");
+                return;
+            }
+
+            if (PckSubCategoria.SelectedIndex == -1 || idSubcategoria == null)
+            {
+                await DisplayAlert("Put's, faltou algo! :O", "O campo SUBCATEGORIA é obrigatório!", "Ok");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(TxtTitulo.Text))
+            {
+                await DisplayAlert("Put's, faltou algo! :O", "O campo TÍTULO é obrigatório!", "Ok");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(TxtTexto.Text))
+            {
+                await DisplayAlert("Put's, faltou algo! :O", "O campo TEXTO é obrigatório!", "Ok");
+                return;
+            }
+
+            if (PckHora1Inicial.SelectedIndex == -1 || PckHora1Inicial.SelectedIndex == -1 || contatoHora1Final == null ||contatoHora1Final == null)
+            {
+                await DisplayAlert("Put's, faltou algo! :O", "O campo HORARIO DE CONTATO 1 é obrigatório!", "Ok");
+                return;
+            }
+
+            if (PckHora2Inicial.SelectedIndex == -1 || PckHora2Final.SelectedIndex == -1 || contatoHora2Inicial == null || contatoHora2Final == null)
+            {
+                await DisplayAlert("Put's, faltou algo! :O", "O campo HORARIO DE CONTATO 2 é obrigatório!", "Ok");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(TxtTelefone.Text))
+            {
+                await DisplayAlert("Put's, faltou algo! :O", "O campo TELEFONE é obrigatório!", "Ok");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(TxtEmail.Text))
+            {
+                await DisplayAlert("Put's, faltou algo! :O", "O campo EMAIL é obrigatório!", "Ok");
+                return;
+            }
+            #endregion
 
             var classificado = new Classificado
             {
@@ -269,16 +318,15 @@ namespace MeDeiBem.View
                 contato_tel = telefone,
                 contato_email = email
             };
-
+            
             ActIndicatorRegistrar.IsVisible = true;
 
             await ClassificadoService.AddClassificado(DataBase.GetAppKey(), classificado);
             var dadosVerificacaoClassificado = await SituacaoClassificadoService.VerificaSituacaoClassificado(DataBase.GetAppKey());
-
-            ActIndicatorRegistrar.IsVisible = false;
-
             classificado.situacao = dadosVerificacaoClassificado.situacao;
             classificado.observacao = dadosVerificacaoClassificado.obs;
+            
+            ActIndicatorRegistrar.IsVisible = false;
 
             LimparCampos();
         }
