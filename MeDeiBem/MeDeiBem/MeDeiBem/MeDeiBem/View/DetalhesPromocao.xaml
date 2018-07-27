@@ -6,7 +6,7 @@
              Title="Detalhe da Promoção">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Margin="0, 20, 0, 0" Padding="20, 0, 20, 0" Spacing="10">
+            <StackLayout Margin="0, 20, 0, 0" Padding="20, 0, 20, 20" Spacing="10">
                 <ActivityIndicator x:Name="ActIndicator" 
                                    IsVisible="False" 
                                    IsRunning="True" 
