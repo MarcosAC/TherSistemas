@@ -126,8 +126,16 @@ namespace MeDeiBem.View
             if (DataBase.GetClassificado() != null)
             {
                 var dadosSituacao = await SituacaoClassificadoService.VerificaSituacaoClassificado(DataBase.GetAppKey());
-                LblSituacao.Text = dadosSituacao.situacao;
-                LblObservacao.Text = dadosSituacao.obs;
+
+                if (dadosSituacao.situacao != string.Empty || dadosSituacao.obs != string.Empty)
+                {
+                    LblSituacao.Text = dadosSituacao.situacao;
+                    LblObservacao.Text = dadosSituacao.obs;
+                }
+                else
+                {
+                    DataBase.DeleteClassificado();
+                }
             }
         }
 
@@ -138,10 +146,15 @@ namespace MeDeiBem.View
 
             var dadosClassificadoLocal = DataBase.GetClassificado();
 
+            if (dadosClassificadoLocal != null)
+            {
+                return dadosClassificadoLocal;
+            }
+
             ActIndicator.IsVisible = false;
             ActIndicator.IsRunning = false;
 
-            return dadosClassificadoLocal;
+            return null;
         }
 
         private void LimparCampos()
@@ -270,7 +283,7 @@ namespace MeDeiBem.View
                 return;
             }
 
-            if (PckHora1Inicial.SelectedIndex == -1 || PckHora1Inicial.SelectedIndex == -1 || contatoHora1Final == null ||contatoHora1Final == null)
+            if (PckHora1Inicial.SelectedIndex == -1 || PckHora1Inicial.SelectedIndex == -1 || contatoHora1Final == null || contatoHora1Final == null)
             {
                 await DisplayAlert("Put's, faltou algo! :O", "O campo HORARIO DE CONTATO 1 é obrigatório!", "Ok");
                 return;
@@ -322,13 +335,14 @@ namespace MeDeiBem.View
             ActIndicatorRegistrar.IsVisible = true;
 
             await ClassificadoService.AddClassificado(DataBase.GetAppKey(), classificado);
+
             var dadosVerificacaoClassificado = await SituacaoClassificadoService.VerificaSituacaoClassificado(DataBase.GetAppKey());
             classificado.situacao = dadosVerificacaoClassificado.situacao;
             classificado.observacao = dadosVerificacaoClassificado.obs;
-            
-            ActIndicatorRegistrar.IsVisible = false;
+            LblSituacao.Text = dadosVerificacaoClassificado.situacao;
+            LblObservacao.Text = dadosVerificacaoClassificado.obs;
 
-            LimparCampos();
+            ActIndicatorRegistrar.IsVisible = false;            
         }
 
         private void BtnCancelar_OnCliked(object sender, EventArgs e)

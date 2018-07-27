@@ -35,6 +35,19 @@ namespace MeDeiBem.DB
             }
         }
 
+        public static void DeleteUsuario()
+        {
+            _conexao.Query<Usuario>("DELETE FROM Usuario");
+        }
+
+        public static void DeleteClassificado()
+        {
+            if (_conexao.Table<Classificado>().Count() > 0)
+            {
+                _conexao.Query<Classificado>("DELETE FROM Classificado");
+            }
+        }
+
         public void DeslogarUsuario()
         {
             try

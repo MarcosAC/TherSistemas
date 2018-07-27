@@ -52,11 +52,11 @@ namespace MeDeiBem.View
             IsPresented = false;
         }
 
-        private void BtnRadarOfertas_OnClicked(object sender, EventArgs args)
-        {
-            Detail = new NavigationPage(new ClassificadosView());
-            IsPresented = false;
-        }
+        //private void BtnRadarOfertas_OnClicked(object sender, EventArgs args)
+        //{
+        //    Detail = new NavigationPage(new ClassificadosView());
+        //    IsPresented = false;
+        //}
 
         private void BtnSobre_OnClicked(object sender, EventArgs args)
         {
