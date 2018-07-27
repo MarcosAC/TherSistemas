@@ -30,15 +30,14 @@ namespace MeDeiBem.View
             return Classificados;
         }
 
-        private void AlterarCorBordaFrame()
-        {
-
-        }
-
         private void LstClassificados_OnItemTapped(object sender, ItemTappedEventArgs e)
-        {
+        {            
             var item = (Classificado)e.Item;
-            Navigation.PushAsync(new ListaImagensClassificado(item));            
+
+            if (item.img_link1 != "http://")
+            {
+                Navigation.PushAsync(new ListaImagensClassificado(item));
+            }          
         }
 
         private async void SbcClassificados_OnClicked(object sender, EventArgs e)
