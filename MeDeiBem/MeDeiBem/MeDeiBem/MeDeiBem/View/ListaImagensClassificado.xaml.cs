@@ -12,6 +12,8 @@ namespace MeDeiBem.View
 		{
 			InitializeComponent ();
 
+            LstImagensClassificado.IsVisible = false;
+
             BindingContext = itemClassificado;
 
             ListarImagens(itemClassificado);
@@ -44,6 +46,8 @@ namespace MeDeiBem.View
             LstImagensClassificado.ItemsSource = imagens;
 
             ActIndicator.IsVisible = false;
+
+            LstImagensClassificado.IsVisible = true;
         }
 	}
 }

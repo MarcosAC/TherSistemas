@@ -131,6 +131,18 @@ namespace MeDeiBem.View
                 {
                     LblSituacao.Text = dadosSituacao.situacao;
                     LblObservacao.Text = dadosSituacao.obs;
+
+                    if (dadosSituacao.situacao == "REPROVADO")
+                    {
+                        LblSituacao.TextColor = Color.Red;
+                        LblObservacao.TextColor = Color.Red;
+                    }
+
+                    if (dadosSituacao.situacao == "Aguardando Aprovação")
+                    {
+                        LblSituacao.TextColor = Color.Orange;
+                        LblObservacao.TextColor = Color.Orange;
+                    }   
                 }
                 else
                 {

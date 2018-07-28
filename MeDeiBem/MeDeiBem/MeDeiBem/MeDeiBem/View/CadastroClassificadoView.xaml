@@ -49,7 +49,7 @@
                            x:Name="LblSituacao" 
                            Text="Disponível" 
                            FontSize="Medium" 
-                           TextColor="Red" 
+                           TextColor="Blue" 
                            HorizontalOptions="FillAndExpand" 
                     />
                     <Label Grid.Column="1" 
@@ -57,7 +57,7 @@
                            x:Name="LblObservacao"
                            Text="Apenas um anúncio por vez. Duração de 7 dias. Renove sempre que desejar."
                            FontSize="Medium" 
-                           TextColor="Red"
+                           TextColor="Blue"
                            HorizontalOptions="FillAndExpand" 
                     />
                 </Grid>

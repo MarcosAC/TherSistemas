@@ -33,10 +33,10 @@
                                          BackgroundColor="#ffd56d"
                                          ClickButton="BtnClassificados_OnClicked"/>
                     
-                    <controls:ButtonIcon Icon="{x:Static local:Fontes.FAVolumeUp}"
+                    <!--<controls:ButtonIcon Icon="{x:Static local:Fontes.FAVolumeUp}"
                                          TextButton="Podcasts"
                                          BackgroundColor="#ffd56d"
-                                         ClickButton="BtnPodcasts_OnClicked" />
+                                         ClickButton="BtnPodcasts_OnClicked" />-->
                     
                     <Label Text="© 2018 - Ther Sistemas Inovadores" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium" />
                     <Label Text="www.medeibem.mobi" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium" />
