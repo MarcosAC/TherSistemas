@@ -7,13 +7,13 @@
         <ScrollView>
             <StackLayout Spacing="10" Padding="20" VerticalOptions="Center">
                 <Image Source="logo.png"/>
-                <Label Text="Versão 1.0.14" TextColor="#0057ff" HorizontalTextAlignment="Center" FontSize="Medium"/>
+                <Label Text="Versão 1.0.15" TextColor="#0057ff" HorizontalTextAlignment="Center" FontSize="Medium"/>
                 <Label Text="Oportunidades, Descontos, Promoções, Classificados e Podcasts da sua cidade na tela do seu smartphone." TextColor="#0057ff" HorizontalTextAlignment="Center" FontSize="Medium" />
-                <Label Text="contato@medeibem" TextColor="#0057ff" HorizontalTextAlignment="Center" FontSize="Medium" />
+                <Label Text="contato@medeibem.mobi" TextColor="#0057ff" HorizontalTextAlignment="Center" FontSize="Medium" />
                 <Label Text="www.medeibem.mobi" TextColor="#0057ff" HorizontalTextAlignment="Center" FontSize="Medium" />
                 <Label Text="31-3885-2424" TextColor="#0057ff" HorizontalTextAlignment="Center" FontSize="Medium" />
                 <Label Text="Av Oraida Mendes de Castro, 6000, LJ 23 Novo Silvestre - Viçosa - MG" TextColor="#0057ff" HorizontalTextAlignment="Center" FontSize="Medium" />
-                <Button Text="Política de Privacidade" TextColor="#0057ff" BackgroundColor="#b1f1ff" />
+                <Button Text="Política de Privacidade" TextColor="#0057ff" BackgroundColor="#b1f1ff" Clicked="BtnPoliticaPrivacidade_OnClicked"/>
                 <Label Text="© 2018 - Ther Sistemas Inovadores www.medeibem.mobi Todos os Direitos Reservados" HorizontalTextAlignment="Center" FontSize="Medium" />
             </StackLayout>
         </ScrollView>

@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace MeDeiBem.View
@@ -10,5 +11,10 @@ namespace MeDeiBem.View
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void BtnPoliticaPrivacidade_OnClicked(object sender, System.EventArgs e)
+        {
+            Device.OpenUri(new Uri("http://www.medeibem.mobi/politica-app.php"));
+        }
+    }
 }

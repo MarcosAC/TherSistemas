@@ -16,16 +16,16 @@
                 
                 <Label Text="{Binding titulo}" FontSize="Medium" HorizontalOptions="Center" />
 
-                <!-- Carrosel de imagens -->
-                <control:CarouselViewControl x:Name="CarrosselDeImagens"                                               
+                <!-- Carrosel de imagens -->                
+                <control:CarouselViewControl x:Name="CarrosselDeImagens"                                              
                                              ShowIndicators="True" 
-                                             Orientation="Horizontal" 
-                                             WidthRequest="300" 
+                                             Orientation="Horizontal"                                              
+                                             WidthRequest="300"
                                              HeightRequest="300">
                     
                     <control:CarouselViewControl.ItemTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding .}" />
+                            <Image Source="{Binding .}" Margin="0" />
                         </DataTemplate>
                     </control:CarouselViewControl.ItemTemplate>
                 </control:CarouselViewControl>
@@ -58,8 +58,8 @@
                     <Label Grid.Column="0" Grid.Row="4" Text="Quantidade: " FontSize="Medium" HorizontalTextAlignment="End" />
 
                     <!-- Label Valores dos Campos -->
-                    <Label Grid.Column="1" Grid.Row="0" Text="{Binding preco_original}" TextColor="#5a97ff" FontSize="Medium" HorizontalTextAlignment="Start" />
-                    <Label Grid.Column="1" Grid.Row="1" Text="{Binding preco_promocao}" TextColor="#5a97ff" FontSize="Medium" HorizontalTextAlignment="Start" />
+                    <Label Grid.Column="1" Grid.Row="0" Text="{Binding preco_original, StringFormat='R$ {0:F0}'}" TextColor="#5a97ff" FontSize="Medium" HorizontalTextAlignment="Start" />
+                    <Label Grid.Column="1" Grid.Row="1" Text="{Binding preco_promocao, StringFormat='R$ {0:F0}'}" TextColor="#5a97ff" FontSize="Medium" HorizontalTextAlignment="Start" />
                     <Label Grid.Column="1" Grid.Row="2" Text="{Binding desconto}" TextColor="#5a97ff" FontSize="Medium" HorizontalTextAlignment="Start" />
                     <Label Grid.Column="1" Grid.Row="3" Text="{Binding validade}" TextColor="#5a97ff" FontSize="Medium" HorizontalTextAlignment="Start" />
                     <Label Grid.Column="1" Grid.Row="4" Text="{Binding qtde_disponivel}" TextColor="#5a97ff" FontSize="Medium" HorizontalTextAlignment="Start" />
