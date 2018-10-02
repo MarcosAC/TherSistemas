@@ -5,7 +5,7 @@
              Title="Baixa de Desconto">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
+            <StackLayout>
                 <Image Source="logo.png"/>
 
                 <Label Text="Baixa de Desconto" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="#5258aa" FontSize="Large" />

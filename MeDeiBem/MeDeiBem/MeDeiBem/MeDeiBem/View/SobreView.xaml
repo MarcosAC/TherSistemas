@@ -5,7 +5,7 @@
              Title="Sobre">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="10" Padding="20" VerticalOptions="Center">
+            <StackLayout>
                 <Image Source="logo.png"/>
                 <Label Text="Versão 1.0.15" TextColor="#0057ff" HorizontalTextAlignment="Center" FontSize="Medium"/>
                 <Label Text="Oportunidades, Descontos, Promoções, Classificados e Podcasts da sua cidade na tela do seu smartphone." TextColor="#0057ff" HorizontalTextAlignment="Center" FontSize="Medium" />

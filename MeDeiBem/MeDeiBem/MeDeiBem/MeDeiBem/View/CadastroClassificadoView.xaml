@@ -4,8 +4,8 @@
              x:Class="MeDeiBem.View.CadastroClassificadoView"
              Title="Classificado">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
+        <ScrollView>            
+            <StackLayout Style="{StaticResource formStyle}">
 
                 <!-- Imagem logo -->
                 <Image Source="logo.png"/>

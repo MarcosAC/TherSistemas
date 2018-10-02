@@ -5,7 +5,7 @@
              Title="Me Dei Bem !">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
+            <StackLayout Style="{StaticResource formStyle}">
                 <Image Source="logo.png"/>
 
                 <ActivityIndicator x:Name="ActIndicator" 
