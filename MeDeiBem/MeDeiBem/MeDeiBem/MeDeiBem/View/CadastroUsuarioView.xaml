@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MeDeiBem.View.CadastroUsuarioView"
-             Title="Me Dei Bem !">
+             Title="Me Dei Bem !">    
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Style="{StaticResource formStyle}">
@@ -24,34 +24,29 @@
 
                 <Entry x:Name="TxtNome" 
                        Text="{Binding nome}" 
-                       Placeholder="Nome" 
-                       PlaceholderColor="#989898" 
+                       Placeholder="Nome"                         
                        TextChanged="TxtNome_OnTextChange" 
                 />
                 <Entry x:Name="TxtSobrenome"
                        Text="{Binding sobrenome}" 
-                       Placeholder="Sobrenome" 
-                       PlaceholderColor="#989898" 
+                       Placeholder="Sobrenome"                         
                        TextChanged="TxtSobrenome_OnTextChange"
                 />
                 <Entry x:Name="TxtEmail" 
                        Text="{Binding email}" 
                        Placeholder="E-Mail" 
-                       Keyboard="Email" 
-                       PlaceholderColor="#989898" 
+                       Keyboard="Email"                        
                        TextChanged="TxtEmail_OnTextChange" 
                 />
 
                 <Picker x:Name="PckRadarEstado"
-                        Title="Radar-Estado" 
-                        FontSize="18"
+                        Title="Radar-Estado"                        
                         ItemDisplayBinding="{Binding estado}"
                         SelectedIndexChanged="PckRadarEstado_OnSelectIndexChange"                        
                 />
 
                 <Picker x:Name="PckRadarCidade"
                         Title="Radar-Cidade"
-                        FontSize="18"
                         ItemDisplayBinding="{Binding cidade_nome}" 
                         SelectedIndexChanged="PckRadarCidade_OnSelectIndexChange"      
                 />
@@ -59,15 +54,13 @@
                 <Entry x:Name="TxtSenha" 
                        Text="{Binding senha}" 
                        IsPassword="True" 
-                       Placeholder="Senha" 
-                       PlaceholderColor="#989898" 
+                       Placeholder="Senha"                       
                        TextChanged="TxtSenha_OnTextChange" 
                 />
                 <Entry x:Name="TxtConfirmaSenha"
                        Text="{Binding confirmaSenha}" 
                        IsPassword="True" 
-                       Placeholder="Confirma Senha" 
-                       PlaceholderColor="#989898" 
+                       Placeholder="Confirma Senha"                         
                        TextChanged="TxtConfirmaSenha_OnTextChange" 
                 />
 
@@ -78,14 +71,12 @@
                                    VerticalOptions="CenterAndExpand"
                 />
 
-                <Button Text="Cadastrar" 
-                        TextColor="#0057ff" 
-                        BackgroundColor="#b1f1ff" 
+                <Button Style="{StaticResource btnFormStyles}" 
+                        Text="Cadastrar"                         
                         Clicked="BtnCadastrarUsuario_OnClicked" 
                 />
-                <Button Text="Limpar" 
-                        TextColor="#0057ff"
-                        BackgroundColor="#b1f1ff"
+                <Button Style="{StaticResource btnFormStyles}" 
+                        Text="Limpar"                        
                         Clicked="BtnLimpar_OnClicked" 
                 />
             </StackLayout>

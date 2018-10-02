@@ -3,7 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MeDeiBem.View.CadastroClassificadoView"
              Title="Classificado">
-    <ContentPage.Content>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="baseLabel">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="labelTextoSituacaoObs">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="Blue" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+
+            <Style TargetType="Picker" x:Key="stylePicker" BasedOn="{StaticResource baseStylePicker}">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>        
         <ScrollView>            
             <StackLayout Style="{StaticResource formStyle}">
 
@@ -17,7 +37,7 @@
                                    VerticalOptions="CenterAndExpand"
                 />
 
-                <!-- Situação do Calssificado -->
+                <!-- Situação do Classificado -->
                 <Grid>
                     <!-- Colunas -->
                     <Grid.ColumnDefinitions>
@@ -31,52 +51,44 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <Label Grid.Column="0" 
+                    <Label Style="{StaticResource baseLabel}"
+                           Grid.Column="0" 
                            Grid.Row="0"
-                           Text="Situação:" 
-                           FontSize="Medium" 
-                           HorizontalOptions="FillAndExpand"
+                           Text="Situação:"
                     />
-                    <Label Grid.Column="0" 
+                    <Label Style="{StaticResource baseLabel}"
+                           Grid.Column="0" 
                            Grid.Row="1"
                            Text="Obs:" 
                            HorizontalTextAlignment="End" 
-                           FontSize="Medium"
-                           HorizontalOptions="FillAndExpand" 
                     />
-                    <Label Grid.Column="1" 
+                    <Label Style="{StaticResource labelTextoSituacaoObs}"
+                           Grid.Column="1" 
                            Grid.Row="0"
                            x:Name="LblSituacao" 
                            Text="Disponível" 
-                           FontSize="Medium" 
-                           TextColor="Blue" 
-                           HorizontalOptions="FillAndExpand" 
                     />
-                    <Label Grid.Column="1" 
+                    <Label Style="{StaticResource labelTextoSituacaoObs}"
+                           Grid.Column="1" 
                            Grid.Row="1" 
                            x:Name="LblObservacao"
                            Text="Apenas um anúncio por vez. Duração de 7 dias. Renove sempre que desejar."
-                           FontSize="Medium" 
-                           TextColor="Blue"
-                           HorizontalOptions="FillAndExpand" 
                     />
                 </Grid>
 
                 <!-- Picker Categoria -->
-                <Picker x:Name="PckCategoria"
-                        Title="Categorias" 
-                        FontSize="18"
-                        ItemDisplayBinding="{Binding categoria}"                        
-                        SelectedIndex="-1"
+                <Picker Style="{StaticResource stylePicker}"
+                        x:Name="PckCategoria"
+                        Title="Categorias"                        
+                        ItemDisplayBinding="{Binding categoria}"
                         SelectedIndexChanged="PckCategoria_OnSelectIndexChange"
                 />
                 
                 <!-- Picker Subcategoria -->
-                <Picker x:Name="PckSubCategoria"
+                <Picker Style="{StaticResource stylePicker}"
+                        x:Name="PckSubCategoria"
                         Title="SubCategorias"
-                        FontSize="18"
-                        ItemDisplayBinding="{Binding subcategoria}"                         
-                        SelectedIndex="-1"
+                        ItemDisplayBinding="{Binding subcategoria}"
                         SelectedIndexChanged="PckSubCategoria_OnSelectIndexChange" 
                 />
 
@@ -84,7 +96,7 @@
                 <Entry x:Name="TxtTitulo" 
                        Text="{Binding titulo}" 
                        Placeholder="Título (40 caracteres)"
-                       PlaceholderColor="#989898" MaxLength="40" 
+                       MaxLength="40" 
                        TextChanged="TxtTitulo_OnTextChanged" 
                 />
                 
@@ -116,59 +128,49 @@
                     </Grid.RowDefinitions>
 
                     <!-- TimePicker -->
-                    <Label Grid.Column="0" 
+                    <Label Style="{StaticResource baseLabel}"
+                           Grid.Column="0" 
                            Grid.Row="0"
-                           Grid.ColumnSpan="2" 
-                           HorizontalOptions="FillAndExpand" 
-                           Text="Contato - Horario Disponivel #1" 
-                           FontSize="Medium" 
+                           Grid.ColumnSpan="2"
+                           Text="Contato - Horario Disponivel #1"
                     />
-                    
-                    <Picker x:Name="PckHora1Inicial" 
+
+                    <Picker Style="{StaticResource stylePicker}"
+                            x:Name="PckHora1Inicial" 
                             Grid.Column="0" 
-                            Grid.Row="1"
-                            FontSize="18"
-                            HorizontalOptions="FillAndExpand"
+                            Grid.Row="1"                            
                             ItemDisplayBinding="{Binding Horas}" 
-                            SelectedIndex="0"
                             SelectedIndexChanged="PckHora1Inicial_OnSelectIndexChange"
                     />
-                    
-                    <Picker x:Name="PckHora1Final" 
+
+                    <Picker Style="{StaticResource stylePicker}"
+                            x:Name="PckHora1Final" 
                             Grid.Column="1" 
                             Grid.Row="1"
-                            FontSize="18"
-                            HorizontalOptions="FillAndExpand" 
-                            ItemDisplayBinding="{Binding Horas}" 
-                            SelectedIndex="0"
+                            ItemDisplayBinding="{Binding Horas}"
                             SelectedIndexChanged="PckHora1Final_OnSelectIndexChange"
                     />
-                    
-                    <Label Grid.Column="0" 
+
+                    <Label Style="{StaticResource baseLabel}"
+                           Grid.Column="0" 
                            Grid.Row="2"
                            Grid.ColumnSpan="2" 
-                           HorizontalOptions="FillAndExpand" 
-                           Text="Contato - Horario Disponivel #2" 
-                           FontSize="Medium" 
+                           Text="Contato - Horario Disponivel #2"
                     />
-                    
-                    <Picker x:Name="PckHora2Inicial" 
+
+                    <Picker Style="{StaticResource stylePicker}"
+                            x:Name="PckHora2Inicial" 
                             Grid.Column="0" 
                             Grid.Row="3"
-                            FontSize="18"
-                            HorizontalOptions="FillAndExpand"
-                            ItemDisplayBinding="{Binding Horas}" 
-                            SelectedIndex="0"
+                            ItemDisplayBinding="{Binding Horas}"
                             SelectedIndexChanged="PckHora2Inicial_OnSelectIndexChange"
                     />
-                    
-                    <Picker x:Name="PckHora2Final" 
+
+                    <Picker Style="{StaticResource stylePicker}"
+                            x:Name="PckHora2Final" 
                             Grid.Column="1" 
-                            Grid.Row="3"
-                            FontSize="18"
-                            HorizontalOptions="FillAndExpand" 
-                            ItemDisplayBinding="{Binding Horas}" 
-                            SelectedIndex="0"
+                            Grid.Row="3"                             
+                            ItemDisplayBinding="{Binding Horas}"
                             SelectedIndexChanged="PckHora2Final_OnSelectIndexChange"
                     />
                 </Grid>
@@ -177,8 +179,7 @@
                 <Entry x:Name="TxtTelefone" 
                        Text="{Binding contato_tel}" 
                        Placeholder="Contato - Telefone" 
-                       Keyboard="Telephone" 
-                       PlaceholderColor="#989898" 
+                       Keyboard="Telephone"                        
                        TextChanged="TxtTelefone_OnTextChanged" 
                 />
 
@@ -186,7 +187,6 @@
                        Text="{Binding contato_email}" 
                        Placeholder="Contato - E-Mail" 
                        Keyboard="Email" 
-                       PlaceholderColor="#989898" 
                        TextChanged="TxtEmail_OnTextChanged" 
                 />
                 
@@ -198,16 +198,14 @@
                 />
 
                 <!-- Botões - Publicar/Cancelar -->
-                <Button x:Name="BtnPublicar" 
-                        Text="Publicar" 
-                        TextColor="#0057ff" 
-                        BackgroundColor="#b1f1ff"
+                <Button Style="{StaticResource btnFormStyles}"
+                        x:Name="BtnPublicar" 
+                        Text="Publicar"                         
                         Clicked="BtnPublicar_OnCliked" 
                 />
-                <Button x:Name="BtnCancelar" 
-                        Text="Cancelar"
-                        TextColor="#0057ff" 
-                        BackgroundColor="#b1f1ff" 
+                <Button Style="{StaticResource btnFormStyles}"
+                        x:Name="BtnCancelar" 
+                        Text="Cancelar"                         
                         Clicked="BtnCancelar_OnCliked" 
                 />
             </StackLayout>

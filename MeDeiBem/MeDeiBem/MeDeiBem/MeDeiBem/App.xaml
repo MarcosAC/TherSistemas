@@ -4,12 +4,25 @@
              x:Class="MeDeiBem.App">
 	<Application.Resources>
         <ResourceDictionary>
-            <!-- StackLayout Formulários -->
+            <!-- Styles Formulários -->
             <Style TargetType="StackLayout" x:Key="formStyle">
                 <Setter Property="Spacing" Value="20" />
                 <Setter Property="Padding" Value="20" />
                 <Setter Property="VerticalOptions" Value="Center" />
-            </Style>            
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="#989898" />
+            </Style>
+
+            <Style TargetType="Picker" x:Key="baseStylePicker">
+                <Setter Property="FontSize" Value="18" />                
+            </Style>
+            
+            <Style TargetType="Button" x:Key="btnFormStyles">
+                <Setter Property="TextColor" Value="#0057ff" />
+                <Setter Property="BackgroundColor" Value="#b1f1ff" />
+            </Style>
         </ResourceDictionary>		
 	</Application.Resources>
 </Application>
