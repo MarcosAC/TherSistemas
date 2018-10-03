@@ -6,13 +6,11 @@
     
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style TargetType="Label" x:Key="baseLabel">
-                <Setter Property="FontSize" Value="Medium" />
+            <Style TargetType="Label" x:Key="baseLabel">                
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
             </Style>
 
-            <Style TargetType="Label" x:Key="labelTextoSituacaoObs">
-                <Setter Property="FontSize" Value="Medium" />
+            <Style TargetType="Label" x:Key="labelTextoSituacaoObs">                
                 <Setter Property="TextColor" Value="Blue" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
             </Style>
@@ -100,10 +98,8 @@
                        TextChanged="TxtTitulo_OnTextChanged" 
                 />
                 
-                <Label x:Name="LblTexto" 
-                       Text="Texto (120 caracteres)" 
-                       FontSize="Medium" 
-                />
+                <Label x:Name="LblTexto" Text="Texto (120 caracteres)" />
+                
                 <Editor x:Name="TxtTexto"
                         Text="{Binding texto}" 
                         HeightRequest="100"

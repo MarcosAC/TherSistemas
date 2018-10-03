@@ -5,7 +5,7 @@
              x:Class="MeDeiBem.View.PromocoesView"
              Title="Promoções">
     <ContentPage.Content>
-        <StackLayout Margin="0, 20, 0, 0">
+        <StackLayout Style="{StaticResource baseStackLayoutListas}">
             <controls:SearchBarCustom x:Name="SbcPromocoes" ClickScope="SbcPromocoes_OnClicked" />
             
             <ActivityIndicator x:Name="ActIndicator" 
@@ -15,13 +15,16 @@
                                VerticalOptions="CenterAndExpand"
             />
             
-            <ListView x:Name="LstPromocoes" HasUnevenRows="true" SeparatorVisibility="None" ItemTapped="LstPromocoes_OnItemTapped">
+            <ListView x:Name="LstPromocoes" ItemTapped="LstPromocoes_OnItemTapped">                
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.View>
                                 <ContentView BackgroundColor="White">                                    
-                                    <Frame BorderColor="#49c1ff" Margin="10" CornerRadius="10">                                       
+                                    <Frame BorderColor="#49c1ff" 
+                                           Margin="10" 
+                                           CornerRadius="10">  
+                                        
                                         <Grid HorizontalOptions="Center">
                                             <!-- Definação Coluna -->
                                             <Grid.ColumnDefinitions>
@@ -39,8 +42,7 @@
                                             <Label Grid.Column="0" 
                                                    Grid.Row="0" 
                                                    Text="{Binding titulo}" 
-                                                   TextColor="#5a97ff"
-                                                   FontSize="Medium" 
+                                                   TextColor="#5a97ff"                                                    
                                                    FontAttributes="Bold" 
                                                    VerticalTextAlignment="Center" 
                                                    HorizontalTextAlignment="Center" 
@@ -62,20 +64,17 @@
                                                          HorizontalOptions="Center">
                                                 
                                                 <StackLayout Orientation="Horizontal">
-                                                    <Label Text="De R$" 
-                                                           FontSize="Medium" 
+                                                    <Label Text="De R$"                                                            
                                                            TextColor="#5a97ff" 
                                                            VerticalTextAlignment="Center" 
                                                     />
                                                     
-                                                    <Label Text="{Binding preco_original}" 
-                                                           FontSize="Medium" 
+                                                    <Label Text="{Binding preco_original}"                                                            
                                                            TextColor="#5a97ff" 
                                                            VerticalTextAlignment="Center" 
                                                     />
                                                     
-                                                    <Label Text=" por R$" 
-                                                           FontSize="Medium" 
+                                                    <Label Text=" por R$"                                                            
                                                            TextColor="#5a97ff" 
                                                            VerticalTextAlignment="Center" 
                                                     />
@@ -90,14 +89,12 @@
                                                 <StackLayout Orientation="Horizontal" 
                                                              HorizontalOptions="Center">
                                                     
-                                                    <Label Text="{Binding desconto}" 
-                                                           FontSize="Medium" 
+                                                    <Label Text="{Binding desconto}"                                                            
                                                            TextColor="#5a97ff" 
                                                            HorizontalTextAlignment="Center" 
                                                     />
                                                     
-                                                    <Label Text=" de desconto!" 
-                                                           FontSize="Medium" 
+                                                    <Label Text=" de desconto!"                                                           
                                                            TextColor="#5a97ff"
                                                            HorizontalTextAlignment="Center" 
                                                     />
