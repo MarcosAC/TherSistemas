@@ -5,7 +5,7 @@
 	<Application.Resources>
         <ResourceDictionary>
             <!-- Styles Formulários -->
-            <Style TargetType="StackLayout" x:Key="formStyle">
+            <Style TargetType="StackLayout" x:Key="baseStyleStackLayout">
                 <Setter Property="Spacing" Value="20" />
                 <Setter Property="Padding" Value="20" />
                 <Setter Property="VerticalOptions" Value="Center" />

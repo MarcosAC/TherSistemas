@@ -24,8 +24,8 @@
     </ContentPage.Resources>
     
     <ContentPage.Content>        
-        <ScrollView>            
-            <StackLayout Style="{StaticResource formStyle}">
+        <ScrollView>
+            <StackLayout Style="{StaticResource baseStyleStackLayout}">
 
                 <!-- Imagem logo -->
                 <Image Source="logo.png"/>
