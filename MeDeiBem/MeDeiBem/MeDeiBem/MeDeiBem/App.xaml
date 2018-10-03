@@ -6,7 +6,7 @@
         <ResourceDictionary>
             <!-- Styles Formulários -->
             <Style TargetType="StackLayout" x:Key="baseStyleStackLayout">
-                <Setter Property="Spacing" Value="20" />
+                <Setter Property="Spacing" Value="10" />
                 <Setter Property="Padding" Value="20" />
                 <Setter Property="VerticalOptions" Value="Center" />
             </Style>

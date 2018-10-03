@@ -5,32 +5,50 @@
              xmlns:controls="clr-namespace:MeDeiBem.Controls;assembly=MeDeiBem"
              x:Class="MeDeiBem.View.FuncoesView"
              Title="Me Dei Bem !">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="StackLayout">
+                <Setter Property="Orientation" Value="Horizontal" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="baseLabel">
+                <Setter Property="FontSize" Value="Medium" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="labelFooter" BasedOn="{StaticResource baseLabel}">
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />                
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
         <StackLayout>
             <ScrollView>
-                <StackLayout Spacing="10" Padding="20" VerticalOptions="Center">
+                <StackLayout Style="{StaticResource baseStyleStackLayout}">
                     <Image Source="logo_funcoes.png"/>
 
-                    <StackLayout Orientation="Horizontal">
+                    <StackLayout>
                         <Label Text="{x:Static local:Fontes.FAUserCircle}" FontSize="Large" FontFamily="Fontes" VerticalOptions="Center" />
-                        <Label x:Name="LblEmail" FontSize="Medium" />
+                        <Label x:Name="LblEmail" Style="{StaticResource baseLabel}" />
                     </StackLayout>
                     
-                    <StackLayout Orientation="Horizontal">
+                    <StackLayout>
                         <Label Text="{x:Static local:Fontes.FAEye}" FontSize="Large" FontFamily="Fontes" VerticalOptions="Center" />
-                        <Label x:Name="LblRadarEstado" FontSize="Medium" />
-                        <Label Text="/" FontSize="Medium" />
-                        <Label x:Name="LblRadarCidade" FontSize="Medium" />
+                        <Label x:Name="LblRadarEstado" Style="{StaticResource baseLabel}" />
+                        <Label Text="/" Style="{StaticResource baseLabel}" />
+                        <Label x:Name="LblRadarCidade" Style="{StaticResource baseLabel}" />
                     </StackLayout>
                     
                     <controls:ButtonIcon Icon="{x:Static local:Fontes.FATicket}"                                          
-                                         TextButton="Promoções" 
+                                         TextButton="Promoções"
                                          BackgroundColor="#ffd56d"
                                          ClickButton="BtnPromocoes_OnClicked" />
                     
                     <controls:ButtonIcon Icon="{x:Static local:Fontes.FAHandShakeO}" 
                                          TextButton="Classificados"
-                                         BackgroundColor="#ffd56d"
+                                         BackgroundColor="#ffd56d"                                         
                                          ClickButton="BtnClassificados_OnClicked"/>
                     
                     <!--<controls:ButtonIcon Icon="{x:Static local:Fontes.FAVolumeUp}"
@@ -38,9 +56,9 @@
                                          BackgroundColor="#ffd56d"
                                          ClickButton="BtnPodcasts_OnClicked" />-->
                     
-                    <Label Text="© 2018 - Ther Sistemas Inovadores" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium" />
-                    <Label Text="www.medeibem.mobi" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium" />
-                    <Label Text="Todos os Direitos Reservados" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium" />
+                    <Label Style="{StaticResource labelFooter}" Text="© 2018 - Ther Sistemas Inovadores" />
+                    <Label Style="{StaticResource labelFooter}" Text="www.medeibem.mobi" />
+                    <Label Style="{StaticResource labelFooter}" Text="Todos os Direitos Reservados" />
                 </StackLayout>
             </ScrollView>
         </StackLayout>
