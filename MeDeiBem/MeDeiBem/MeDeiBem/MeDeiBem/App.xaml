@@ -29,18 +29,33 @@
                 <Setter Property="BackgroundColor" Value="#b1f1ff" />
             </Style>
             
-            <!-- Style Lista Classificados/Promoção-->
-            <Style TargetType="StackLayout" x:Key="baseStackLayoutListas">
-                <Setter Property="Margin" Value="0, 20, 0, 0" />
-            </Style>
-            
-            <!-- Style ListView -->
+            <!-- Style Listas Classificados/Promoção-->
             <Style TargetType="ListView">
                 <Setter Property="HasUnevenRows" Value="True" />
                 <Setter Property="SeparatorVisibility" Value="None" />
             </Style>
-            
-            
+
+            <Style TargetType="StackLayout" x:Key="baseStackLayoutListas">
+                <Setter Property="Margin" Value="0, 20, 0, 0" />
+            </Style>
+
+            <Style TargetType="Frame">
+                <Setter Property="Margin" Value="10" />
+                <Setter Property="CornerRadius" Value="10" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="labelTitulo">
+                <Setter Property="TextColor" Value="#5a97ff" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+            <Style TargetType="Image" x:Key="imageLista">
+                <Setter Property="Margin" Value="0, 10, 0, 10" />                
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
         </ResourceDictionary>		
 	</Application.Resources>
 </Application>
