@@ -12,11 +12,13 @@
                 <Setter Property="Orientation" Value="Horizontal" />
             </Style>
 
-            <Style TargetType="Label" x:Key="baseLabel">
-                <Setter Property="FontSize" Value="Medium" />
+            <Style TargetType="Label" x:Key="labelIcones">
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="FontFamily" Value="Fontes" />
+                <Setter Property="VerticalOptions" Value="Center" />                
             </Style>
 
-            <Style TargetType="Label" x:Key="labelFooter" BasedOn="{StaticResource baseLabel}">
+            <Style TargetType="Label" x:Key="labelFooter" BasedOn="{StaticResource baseStyleLabel}">
                 <Setter Property="VerticalTextAlignment" Value="Center" />
                 <Setter Property="HorizontalTextAlignment" Value="Center" />                
             </Style>
@@ -30,15 +32,15 @@
                     <Image Source="logo_funcoes.png"/>
 
                     <StackLayout>
-                        <Label Text="{x:Static local:Fontes.FAUserCircle}" FontSize="Large" FontFamily="Fontes" VerticalOptions="Center" />
-                        <Label x:Name="LblEmail" Style="{StaticResource baseLabel}" />
+                        <Label Style="{StaticResource labelIcones}" Text="{x:Static local:Fontes.FAUserCircle}" />
+                        <Label x:Name="LblEmail" Style="{StaticResource baseStyleLabel}" />
                     </StackLayout>
                     
                     <StackLayout>
-                        <Label Text="{x:Static local:Fontes.FAEye}" FontSize="Large" FontFamily="Fontes" VerticalOptions="Center" />
-                        <Label x:Name="LblRadarEstado" Style="{StaticResource baseLabel}" />
-                        <Label Text="/" Style="{StaticResource baseLabel}" />
-                        <Label x:Name="LblRadarCidade" Style="{StaticResource baseLabel}" />
+                        <Label Style="{StaticResource labelIcones}" Text="{x:Static local:Fontes.FAEye}" />
+                        <Label x:Name="LblRadarEstado" Style="{StaticResource baseStyleLabel}" />
+                        <Label Text="/" Style="{StaticResource baseStyleLabel}" />
+                        <Label x:Name="LblRadarCidade" Style="{StaticResource baseStyleLabel}" />
                     </StackLayout>
                     
                     <controls:ButtonIcon Icon="{x:Static local:Fontes.FATicket}"                                          
