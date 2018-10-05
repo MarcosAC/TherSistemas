@@ -11,7 +11,7 @@
                 <Setter Property="VerticalOptions" Value="Center" />
             </Style>
 
-            <Style TargetType="Label">
+            <Style TargetType="Label" x:Key="baseStyleLabel">
                 <Setter Property="FontSize" Value="Medium" />
             </Style>
             
@@ -44,7 +44,7 @@
                 <Setter Property="CornerRadius" Value="10" />
             </Style>
 
-            <Style TargetType="Label" x:Key="labelTitulo">
+            <Style TargetType="Label" x:Key="labelTitulo" BasedOn="{StaticResource baseStyleLabel}">
                 <Setter Property="TextColor" Value="#5a97ff" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="VerticalTextAlignment" Value="Center" />

@@ -7,7 +7,10 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style TargetType="Label" x:Key="labelDetalhesPromocao">
+            <Style TargetType="Label" 
+                   x:Key="labelDetalhesPromocao" 
+                   BasedOn="{StaticResource baseStyleLabel}">
+                
                 <Setter Property="TextColor" Value="#5a97ff" />
                 <Setter Property="VerticalTextAlignment" Value="Center" />
             </Style>
@@ -79,9 +82,9 @@
                                                     />
                                                 </StackLayout>
 
-                                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">                                                    
-                                                    <Label Text="{Binding desconto}"                                                            
-                                                           TextColor="#5a97ff" 
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                                    <Label Style="{StaticResource labelDetalhesPromocao}"
+                                                           Text="{Binding desconto}"
                                                            HorizontalTextAlignment="Center" 
                                                     />
 
