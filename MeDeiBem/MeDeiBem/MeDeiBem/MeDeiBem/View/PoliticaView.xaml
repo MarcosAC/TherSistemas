@@ -6,8 +6,8 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Politica de Privacidade."
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

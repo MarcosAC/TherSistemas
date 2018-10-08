@@ -11,7 +11,12 @@
             <StackLayout>
                 <!-- Título Menu -->
                 <StackLayout HeightRequest="75">
-                    <Label Text="Configurações" FontSize="Medium" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
+                    <Label Text="Configurações" 
+                           FontSize="Medium" 
+                           TextColor="White" 
+                           VerticalOptions="CenterAndExpand" 
+                           HorizontalOptions="Center" 
+                    />
                 </StackLayout>
                 <ScrollView>
                     <StackLayout x:Name="MenuBotoes">

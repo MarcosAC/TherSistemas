@@ -18,7 +18,9 @@
                 <Setter Property="VerticalOptions" Value="Center" />                
             </Style>
 
-            <Style TargetType="Label" x:Key="labelFooter" BasedOn="{StaticResource baseStyleLabel}">
+            <Style TargetType="Label" 
+                   x:Key="labelFooter" 
+                   BasedOn="{StaticResource baseStyleLabel}">
                 <Setter Property="VerticalTextAlignment" Value="Center" />
                 <Setter Property="HorizontalTextAlignment" Value="Center" />                
             </Style>

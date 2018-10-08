@@ -7,12 +7,8 @@
                      VerticalOptions="CenterAndExpand" 
                      HorizontalOptions="CenterAndExpand">
             
-            <Label Text="Put's sem acesso a Internet! X(."
-                   FontSize="Medium"
-            />
-            <Label Text="Voce não esta conectado a internet!"
-                   FontSize="Medium" 
-            />
+            <Label Text="Put's sem acesso a Internet! X(." Style="{StaticResource baseStyleLabel}" />
+            <Label Text="Voce não esta conectado a internet!" Style="{StaticResource baseStyleLabel}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
