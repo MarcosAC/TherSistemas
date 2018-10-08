@@ -5,9 +5,17 @@
              Title="Ler Código da Pormoção">
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="20">
-            <StackLayout x:Name="EscanerQR" HeightRequest="410" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+            <StackLayout x:Name="EscanerQR" 
+                         HeightRequest="410" 
+                         VerticalOptions="FillAndExpand"
+                         HorizontalOptions="FillAndExpand" 
+            />
+            
             <StackLayout>
-                <Label x:Name="LblCodigoQR" Text="Aguardando código qr..." HorizontalOptions="CenterAndExpand" />                
+                <Label x:Name="LblCodigoQR" 
+                       Text="Aguardando código qr..." 
+                       HorizontalOptions="CenterAndExpand" 
+                />                
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

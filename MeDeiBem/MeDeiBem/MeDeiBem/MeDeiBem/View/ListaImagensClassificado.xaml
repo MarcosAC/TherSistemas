@@ -5,7 +5,11 @@
              Title="Classificados">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Imagens do Classificado" TextColor="#5a97ff" FontSize="Medium" HorizontalOptions="Center" />
+            <Label Text="Imagens do Classificado" 
+                   TextColor="#5a97ff" 
+                   FontSize="Medium"
+                   HorizontalOptions="Center" />
+            
             <ActivityIndicator x:Name="ActIndicator" 
                                IsVisible="False" 
                                IsRunning="True" 
@@ -19,7 +23,9 @@
                         <ViewCell>
                             <ViewCell.View>
                                 <ContentView BackgroundColor="White">
-                                    <Frame BorderColor="#49c1ff" Margin="10" CornerRadius="10">
+                                    <Frame BorderColor="#49c1ff" 
+                                           Margin="10" 
+                                           CornerRadius="10">
                                         <Image Source="{Binding .}" />
                                     </Frame>
                                 </ContentView>
